@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group
+        android:id="@+id/grp_user"
+        android:checkableBehavior="single">
+        <item android:title="Home">
+
+
+            <menu>
+
+                <item
+                    android:id="@+id/nav_userhome"
+                    android:title="Home" />
+
+                <item
+                    android:id="@+id/nav_adminHome"
+                    android:title="Home" />
+
+            </menu>
+
+        </item>
+
+        <group android:id="@+id/grpManage">
+
+            <item android:title="Manage">
+
+                <menu>
+
+
+                    <item
+                        android:id="@+id/nav_userBookings"
+                        android:title="My Bookings" />
+
+                    <item
+                        android:id="@+id/nav_userWishList"
+                        android:title="My Wishlist" />
+
+                    <item
+                        android:id="@+id/nav_adminManageBooking"
+                        android:title="Manage Bookings" />
+
+                    <item
+                        android:id="@+id/nav_adminManageUsers"
+                        android:title="Manage Users" />
+
+                    <item
+                        android:id="@+id/nav_adminManageReview"
+                        android:title="Manage Review" />
+
+
+                </menu>
+
+
+            </item>
+
+        </group>
+
+
+        <item android:title="Profile Management">
+
+            <menu>
+
+                <item
+                    android:id="@+id/nav_userProfile"
+                    android:title="Update Profile" />
+
+                <item
+                    android:id="@+id/nav_userLogout"
+                    android:title="Logout" />
+
+                <item
+                    android:id="@+id/nav_adminProfile"
+                    android:title="Manage Profile" />
+
+                <item
+                    android:id="@+id/nav_adminLogout"
+                    android:title="Logout" />
+
+
+            </menu>
+
+
+        </item>
+
+
+    </group>
+
+
+
+</menu>

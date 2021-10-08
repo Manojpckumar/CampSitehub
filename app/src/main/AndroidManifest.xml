@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.campsitehub">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CampSiteHub">
+        <activity
+            android:name=".Homepage.MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/Theme.CampSiteHub.NoActionBar"></activity>
+        <activity
+            android:name=".Homepage.MainHomeActivity"
+            android:label="@string/title_activity_main_home"
+            android:theme="@style/Theme.CampSiteHub.NoActionBar"></activity>
+        <activity
+            android:name=".Homepage.MainHome"
+            android:label="@string/title_activity_main_home"
+            android:theme="@style/Theme.CampSiteHub.NoActionBar"></activity>
+        <activity
+            android:name=".HomePage.MainHome"
+            android:label="@string/title_activity_main_home"
+            android:theme="@style/Theme.CampSiteHub.NoActionBar" />
+        <activity android:name=".SplashScreen.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Authentication.RegisterActivity" />
+        <activity android:name=".Authentication.LoginActivity" />
+    </application>
+
+</manifest>

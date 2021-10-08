@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "570901027627",
+    "project_id": "campsitehub-d08a2",
+    "storage_bucket": "campsitehub-d08a2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:570901027627:android:2172eaae7242828418036e",
+        "android_client_info": {
+          "package_name": "com.example.campsitehub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "570901027627-ems9vv7h979816um4oi0kjrthlsm4b05.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.campsitehub",
+            "certificate_hash": "8d3c25ce959d2036a8d1aee4752b0bc04517ac4b"
+          }
+        },
+        {
+          "client_id": "570901027627-a1mapd8cib5fjok5uen09np66i0apece.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDo4MjfrUCvgqOfCAJrL7LgCUrULpcX_lE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "570901027627-a1mapd8cib5fjok5uen09np66i0apece.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
