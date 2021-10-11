@@ -1,6 +1,7 @@
-package com.example.campsitehub.Homepage;
+ package com.example.campsitehub.Homepage;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Paint;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.bumptech.glide.Glide;
+import com.example.campsitehub.CampDetail.CampDetailActivity;
 import com.example.campsitehub.CustomViews.CustomMainHeading;
 import com.example.campsitehub.CustomViews.CustomSubHeading;
 import com.example.campsitehub.CustomViews.CustomTextView;
@@ -67,6 +69,8 @@ public class HomePageAdapter extends RecyclerView.Adapter<HomePageAdapter.MyView
         }
 
 
+
+
     }
 
     @Override
@@ -93,6 +97,16 @@ public class HomePageAdapter extends RecyclerView.Adapter<HomePageAdapter.MyView
             tv_likes = itemView.findViewById(R.id.tv_likes);
             ll_fab = itemView.findViewById(R.id.ll_fab);
             iv_banner = itemView.findViewById(R.id.iv_banner);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Intent intent = new Intent(context, CampDetailActivity.class);
+                    context.startActivity(intent);
+
+                }
+            });
 
         }
     }

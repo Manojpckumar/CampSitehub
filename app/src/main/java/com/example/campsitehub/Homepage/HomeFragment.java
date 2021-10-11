@@ -102,7 +102,9 @@ public class HomeFragment extends Fragment {
                 {
                     HomePageAdapter adapter = new HomePageAdapter(getContext(),list);
                     rcv_home.setLayoutManager(new LinearLayoutManager(getContext()));
+
                     rcv_home.setAdapter(adapter);
+
                 }
 
             }

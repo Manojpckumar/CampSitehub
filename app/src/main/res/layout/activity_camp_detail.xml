@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+        android:background="@color/lite_ash_bg"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".CampDetail.CampDetailActivity">
+
+    <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"/>
+
+    <ImageView
+            android:layout_margin="20dp"
+            android:layout_gravity="end"
+            android:src="@drawable/ic_panoramaview"
+            android:id="@+id/tv_tst"
+            android:layout_width="40dp"
+            android:layout_height="40dp"/>
+
+    <androidx.core.widget.NestedScrollView
+            android:layout_marginTop="200dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="7dp">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="5dp">
+
+                    <com.example.campsitehub.CustomViews.CustomSubHeading
+                            android:id="@+id/tv_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/tag_background"
+                            android:padding="5dp"
+                            android:textSize="10sp"
+                            android:text="AVAILABLE"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"/>
+
+                    <com.example.campsitehub.CustomViews.CustomMainHeading
+                            android:id="@+id/tv_strikeoff"
+                            android:layout_width="match_parent"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:gravity="end"
+                            android:padding="5dp"
+                            android:text="$ 15,000"
+                            android:textSize="18sp"
+                            android:textStyle="bold"/>
+
+
+                    <com.example.campsitehub.CustomViews.CustomMainHeading
+                            android:id="@+id/tv_amount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:gravity="end"
+                            android:padding="5dp"
+                            android:text="$ 15,000"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                        android:paddingBottom="10dp"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <LinearLayout
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                            <com.example.campsitehub.CustomViews.CustomMainHeading
+                                    android:id="@+id/tv_campname"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:padding="5dp"
+                                    android:text="Art House New York City"
+                                    android:textColor="@color/black"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"/>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                            <ImageView
+                                    android:src="@drawable/ic_thumbsup"
+                                    android:layout_width="40dp"
+                                    android:layout_height="28dp"/>
+
+                            <com.example.campsitehub.CustomViews.CustomTextView
+                                    android:id="@+id/tv_likes"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:padding="5dp"
+                                    android:text="90 % people like this"
+                                    android:textStyle="bold"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                            android:layout_marginEnd="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        <ImageView
+                                android:src="@drawable/ic_favfilled"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <com.example.campsitehub.CustomViews.CustomTextView
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/black"
+                        android:layout_marginRight="10dp"
+                        android:textAlignment="gravity"
+                        android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                <com.example.campsitehub.CustomViews.CustomMainHeading
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:text="Amenities"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:layout_height="wrap_content"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+
+                        android:id="@+id/rcv_amenities"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                <com.example.campsitehub.CustomViews.CustomMainHeading
+
+                        android:layout_width="wrap_content"
+                        android:text="Location"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:layout_height="wrap_content"/>
+
+                <ImageView android:src="@drawable/mapview" android:id="@+id/wv_map" android:layout_width="match_parent" android:layout_height="300dp"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.core.widget.NestedScrollView>
+
+<com.google.android.material.button.MaterialButton
+        android:background="@color/titlecolor"
+        android:text="Book Now"
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</FrameLayout>

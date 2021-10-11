@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:background="@drawable/admin_home_card"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+
+            app:cardCornerRadius="10dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        <ImageView
+                android:id="@+id/iv_amenities"
+                android:padding="5dp"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_panoramaview"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+    <com.example.campsitehub.CustomViews.CustomSubHeading
+            android:id="@+id/tv_amenities"
+            android:text="Amenities"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+</LinearLayout>
