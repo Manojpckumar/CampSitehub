@@ -23,8 +23,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.campsitehub.Authentication.LoginActivity;
+import com.example.campsitehub.Bookings.MyBookings;
 import com.example.campsitehub.Interface.OnFragmentInteractionListener;
 import com.example.campsitehub.R;
+import com.example.campsitehub.Wishlist.MyWishlistActivity;
 import com.example.campsitehub.databinding.ActivityMain2Binding;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -41,8 +43,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     FrameLayout frameLayout;
     FirebaseAuth auth;
     TextView tv_userEmail;
-
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -129,6 +130,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(new Intent(MainActivity.this,LoginActivity.class));
                 finish();
                 break;
+
+            case R.id.nav_userWishList:
+                startActivity(new Intent(MainActivity.this, MyWishlistActivity.class));
+                finish();
+                break;
+
+            case R.id.nav_userBookings:
+                startActivity(new Intent(MainActivity.this, MyBookings.class));
+                finish();
+                break;
+
+
         }
         return false;
     }

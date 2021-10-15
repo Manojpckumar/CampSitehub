@@ -13,5 +13,6 @@
     <color name="red">#D50000</color>
     <color name="green">#00C853</color>
     <color name="tra_white">#28FFFFFF</color>
+    <color name="time_card">#28939090</color>
 
 </resources>

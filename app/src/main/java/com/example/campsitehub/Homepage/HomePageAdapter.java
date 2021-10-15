@@ -3,6 +3,7 @@
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +23,7 @@ import com.example.campsitehub.CampDetail.CampDetailActivity;
 import com.example.campsitehub.CustomViews.CustomMainHeading;
 import com.example.campsitehub.CustomViews.CustomSubHeading;
 import com.example.campsitehub.CustomViews.CustomTextView;
+import com.example.campsitehub.Parcelable.DataParcer;
 import com.example.campsitehub.R;
 
 public class HomePageAdapter extends RecyclerView.Adapter<HomePageAdapter.MyViewHolder> {
@@ -68,6 +70,20 @@ public class HomePageAdapter extends RecyclerView.Adapter<HomePageAdapter.MyView
 
         }
 
+        holder.iv_banner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                DataParcer parcer = new DataParcer(model.getId());
+
+                Intent intent = new Intent(context, CampDetailActivity.class);
+//                intent.putExtra("camp_id",model.getId());
+                intent.putExtra("Book", parcer);
+                context.startActivity(intent);
+
+            }
+        });
+
 
 
 
@@ -98,15 +114,7 @@ public class HomePageAdapter extends RecyclerView.Adapter<HomePageAdapter.MyView
             ll_fab = itemView.findViewById(R.id.ll_fab);
             iv_banner = itemView.findViewById(R.id.iv_banner);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
 
-                    Intent intent = new Intent(context, CampDetailActivity.class);
-                    context.startActivity(intent);
-
-                }
-            });
 
         }
     }
