@@ -96,9 +96,9 @@ public class CampDetailActivity extends AppCompatActivity implements GetResult.M
     private void getCampbyid(long id) {
         JSONObject jsonObject = new JSONObject();
         try {
-            jsonObject.put("id", "1");
+            jsonObject.put("id", id);
             JsonParser jsonParser = new JsonParser();
-            Call<JsonObject> call = APIClient.getInterface().getHome((JsonObject) jsonParser.parse(jsonObject.toString()));
+            Call<JsonObject> call = APIClient.getInterface().getDetails((JsonObject) jsonParser.parse(jsonObject.toString()));
             GetResult getResult = new GetResult();
             getResult.setMyListener(this);
             getResult.onNCHandle(call, "campviewbyid");
