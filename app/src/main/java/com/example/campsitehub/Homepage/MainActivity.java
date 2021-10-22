@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     ///ContentMainBinding contentMainBinding;
     TextView txt_user_123;
     NavigationView navigationViewz;
-
+    public static MainActivity homeActivity = null;
     FrameLayout frameLayout;
     FirebaseAuth auth;
     TextView tv_userEmail;
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(view);
 
        // hideItem();
-
+        homeActivity = this;
         String utype = getIntent().getStringExtra("types");
         auth = FirebaseAuth.getInstance();
         frameLayout = (FrameLayout) findViewById(R.id.FrameLayout);
@@ -107,6 +107,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
@@ -157,6 +158,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
+    public void callFragment(Fragment fragmentClass) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.FrameLayout, fragmentClass).addToBackStack("adds").commit();
+        drawerLayout.closeDrawer(GravityCompat.START);
+    }
+
+    public static MainActivity getInstance() {
+        return homeActivity;
+    }
     public void hideItem()
     {
         Menu nav_Menu = binding.navView.getMenu();
