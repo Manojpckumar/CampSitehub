@@ -9,16 +9,16 @@ public class ResultData {
 
     @SerializedName("Camp_details")
     @Expose
-    private List<CampDetail> campDetails = null;
+    private CampDetails campDetails;
     @SerializedName("amenities")
     @Expose
     private List<Amenity> amenities = null;
 
-    public List<CampDetail> getCampDetails() {
+    public CampDetails getCampDetails() {
         return campDetails;
     }
 
-    public void setCampDetails(List<CampDetail> campDetails) {
+    public void setCampDetails(CampDetails campDetails) {
         this.campDetails = campDetails;
     }
 

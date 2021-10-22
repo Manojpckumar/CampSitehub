@@ -1,9 +1,8 @@
 package com.example.campsitehub.CampDetail;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class CampDetail {
+public class CampDetails {
 
     @SerializedName("id")
     @Expose
@@ -29,15 +28,18 @@ public class CampDetail {
     @SerializedName("campsite_banner")
     @Expose
     private String campsiteBanner;
-    @SerializedName("related_images")
+    @SerializedName("realted_images")
     @Expose
-    private String relatedImages;
+    private String realtedImages;
     @SerializedName("available_dates")
     @Expose
     private String availableDates;
     @SerializedName("description")
     @Expose
     private String description;
+    @SerializedName("amenities_id")
+    @Expose
+    private String amenitiesId;
     @SerializedName("panoramic")
     @Expose
     private String panoramic;
@@ -106,12 +108,12 @@ public class CampDetail {
         this.campsiteBanner = campsiteBanner;
     }
 
-    public String getRelatedImages() {
-        return relatedImages;
+    public String getRealtedImages() {
+        return realtedImages;
     }
 
-    public void setRelatedImages(String relatedImages) {
-        this.relatedImages = relatedImages;
+    public void setRealtedImages(String realtedImages) {
+        this.realtedImages = realtedImages;
     }
 
     public String getAvailableDates() {
@@ -128,6 +130,14 @@ public class CampDetail {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getAmenitiesId() {
+        return amenitiesId;
+    }
+
+    public void setAmenitiesId(String amenitiesId) {
+        this.amenitiesId = amenitiesId;
     }
 
     public String getPanoramic() {

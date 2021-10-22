@@ -7,9 +7,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 import com.example.campsitehub.CustomViews.CustomSubHeading;
 import com.example.campsitehub.Homepage.HomePageAdapter;
 import com.example.campsitehub.R;
+import com.example.campsitehub.Retrofit.APIClient;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -18,11 +22,11 @@ import java.util.List;
 public class AmenitiesAdapter extends RecyclerView.Adapter<AmenitiesAdapter.MyViewHolder> {
 
     Context context;
-    List<AmenitiesModel> list = new ArrayList<>();
+    List<Amenity> list ;
 
-    public AmenitiesAdapter(CampDetailActivity campDetailActivity, List<AmenitiesModel> list) {
-        this.context = campDetailActivity;
-        this.list= list;
+    public AmenitiesAdapter(Context context, List<Amenity> list) {
+        this.context = context;
+        this.list = list;
     }
 
     @NonNull
@@ -38,10 +42,10 @@ public class AmenitiesAdapter extends RecyclerView.Adapter<AmenitiesAdapter.MyVi
     @Override
     public void onBindViewHolder(@NonNull @NotNull AmenitiesAdapter.MyViewHolder holder, int position) {
 
-        AmenitiesModel model = list.get(position);
+        Amenity  model = list.get(position);
 
-        holder.iv_amenities.setImageResource(model.getImage());
-        holder.tv_amenities.setText(model.getAmenity());
+        Glide.with(context).load(APIClient.baseUrl +model.getAtBanner()).into(holder.iv_amenities);
+        holder.tv_amenities.setText(model.getAtName());
 
     }
 

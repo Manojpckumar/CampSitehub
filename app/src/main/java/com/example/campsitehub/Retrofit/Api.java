@@ -2,8 +2,10 @@ package com.example.campsitehub.Retrofit;
 
 import com.example.campsitehub.CampDetail.Example;
 import com.example.campsitehub.Homepage.ExampleModel;
+import com.google.gson.JsonObject;
 
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -17,5 +19,9 @@ public interface Api {
     @FormUrlEncoded
     @POST("phase1/Api.php?apicall=getCampDetailsbyid")
     Call<Example> GetCampDetailById(@Field("branch_code") int id);
+
+    @POST(APIClient.APPEND_URL + "getCampDetailsbyid")
+
+    Call<JsonObject> getHome(@Body JsonObject object);
 
 }
