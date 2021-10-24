@@ -44,7 +44,7 @@ public class AmenitiesAdapter extends RecyclerView.Adapter<AmenitiesAdapter.MyVi
 
         Amenity  model = list.get(position);
 
-        Glide.with(context).load(APIClient.baseUrl +model.getAtBanner()).into(holder.iv_amenities);
+        Glide.with(context).load(APIClient.baseUrl+"phase1/" +model.getAtBanner()).into(holder.iv_amenities);
         holder.tv_amenities.setText(model.getAtName());
 
     }

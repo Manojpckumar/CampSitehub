@@ -25,4 +25,7 @@ public interface Api {
     @POST(APIClient.APPEND_URL + "getCampDetailsbyid")
     Call<JsonObject> getDetails(@Body JsonObject object);
 
+    @POST(APIClient.APPEND_URL + "addCampViews")
+    Call<JsonObject> addCamps(@Body JsonObject object);
+
 }

@@ -181,6 +181,12 @@
                            android:layout_weight="1"
                            android:layout_height="wrap_content"/>
 
+                   <ImageView
+                       android:id="@+id/img_camp"
+                       android:visibility="gone"
+                       android:layout_width="50dp"
+                       android:layout_height="50dp"/>
+
                    <com.example.campsitehub.CustomViews.CustomButton
                            android:id="@+id/btn_banner"
                            android:drawableLeft="@drawable/ic_attach"
@@ -216,6 +222,12 @@
                            android:layout_width="match_parent"
                            android:layout_weight="1"
                            android:layout_height="wrap_content"/>
+
+                   <ImageView
+                       android:id="@+id/img_related"
+                       android:visibility="gone"
+                       android:layout_width="50dp"
+                       android:layout_height="50dp"/>
 
                    <com.example.campsitehub.CustomViews.CustomButton
                            android:id="@+id/btn_relatedimg"
@@ -330,7 +342,11 @@
                            android:layout_width="match_parent"
                            android:layout_weight="1"
                            android:layout_height="wrap_content"/>
-
+                   <ImageView
+                       android:id="@+id/img_pano"
+                       android:visibility="gone"
+                       android:layout_width="50dp"
+                       android:layout_height="50dp"/>
                    <com.example.campsitehub.CustomViews.CustomButton
                            android:id="@+id/btn_panoimg"
                            android:drawableLeft="@drawable/ic_attach"
@@ -349,13 +365,13 @@
                    android:layout_height="40dp">
 
                <com.example.campsitehub.CustomViews.CustomButton
-                       android:text="Add Camp Site"
-                       android:padding="10dp"
-                        android:id="@+id/btn_createcampsite"
-                       android:textColor="@color/white"
-                       android:backgroundTint="@color/titlecolor"
-                       android:layout_width="wrap_content"
-                       android:layout_height="match_parent"/>
+                   android:id="@+id/btn_createcampsite"
+                   android:layout_width="wrap_content"
+                   android:layout_height="match_parent"
+                   android:backgroundTint="@color/titlecolor"
+                   android:padding="10dp"
+                   android:text="Add Camp Site"
+                   android:textColor="@color/white" />
 
            </LinearLayout>
 
