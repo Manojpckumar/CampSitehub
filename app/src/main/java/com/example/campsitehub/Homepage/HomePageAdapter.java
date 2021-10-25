@@ -25,12 +25,13 @@ import com.example.campsitehub.CustomViews.CustomSubHeading;
 import com.example.campsitehub.CustomViews.CustomTextView;
 import com.example.campsitehub.Parcelable.DataParcer;
 import com.example.campsitehub.R;
+import com.example.campsitehub.Retrofit.APIClient;
 
-public class HomePageAdapter extends RecyclerView.Adapter<HomePageAdapter.MyViewHolder> {
+ public class HomePageAdapter extends RecyclerView.Adapter<HomePageAdapter.MyViewHolder> {
 
     List<HomeViewModel> list = new ArrayList<>();
     Context context;
-    String BASE_URL="https://campsitehub.000webhostapp.com/";
+
 
     public HomePageAdapter(Context context, List<HomeViewModel> list) {
 
@@ -57,8 +58,8 @@ public class HomePageAdapter extends RecyclerView.Adapter<HomePageAdapter.MyView
         holder.tv_strikeoff.setText("$ "+model.getOldPrice());
         holder.tv_strikeoff.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
         holder.tv_likes.setText(model.getRatingNumber()+" peoples like this");
-        Glide.with(context).load(BASE_URL+model.getCampsiteBanner()).into(holder.iv_banner);
-        Log.d("imgurl2200",BASE_URL+model.getCampsiteBanner());
+        Glide.with(context).load(APIClient.baseUrl+"phase1/" +model.getCampsiteBanner()).into(holder.iv_banner);
+        Log.d("imgurl2200",APIClient.baseUrl+"phase1"+model.getCampsiteBanner());
         if (model.getStatus() == 1)
         {
             holder.tv_status.setText("AVAILABLE");

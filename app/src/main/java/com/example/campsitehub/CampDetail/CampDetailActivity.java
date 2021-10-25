@@ -64,12 +64,10 @@ public class CampDetailActivity extends AppCompatActivity implements GetResult.M
         // Initializing the ViewPager Object
         mViewPager = (ViewPager)findViewById(R.id.vp_viewpager);
 
-
-
-
-       // camp_id = getIntent().getIntExtra("camp_id",0);
         Intent intent = getIntent();
         DataParcer book = intent.getParcelableExtra("Book");
+
+        Log.d("---", String.valueOf(book.getId()));
 
         getCampbyid(book.getId());
 
