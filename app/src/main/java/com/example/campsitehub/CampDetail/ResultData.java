@@ -10,6 +10,11 @@ public class ResultData {
     @SerializedName("Camp_details")
     @Expose
     private CampDetails campDetails;
+
+    @SerializedName("Amenity_details")
+    @Expose
+    private AmenityDetails amenityDetails;
+
     @SerializedName("amenities")
     @Expose
     private List<Amenity> amenities = null;
@@ -20,6 +25,14 @@ public class ResultData {
 
     public void setCampDetails(CampDetails campDetails) {
         this.campDetails = campDetails;
+    }
+
+    public AmenityDetails getAmenityDetails() {
+        return amenityDetails;
+    }
+
+    public void setCampDetails(AmenityDetails amenityDetails) {
+        this.amenityDetails = amenityDetails;
     }
 
     public List<Amenity> getAmenities() {

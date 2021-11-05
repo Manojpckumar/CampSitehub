@@ -50,9 +50,14 @@ public class AddCampSite extends AppCompatActivity implements View.OnClickListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         binding = ActivityAddCampSiteBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+
+
+
+
         custPrograssbar = new CustPrograssbar();
         binding.btnCreatecampsite.setOnClickListener(this);
         binding.btnBanner.setOnClickListener(this);

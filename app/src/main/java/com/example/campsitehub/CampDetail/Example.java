@@ -17,6 +17,7 @@ public class Example {
     @Expose
     private ResultData resultData;
 
+
     public String getResponseCode() {
         return responseCode;
     }
@@ -48,5 +49,7 @@ public class Example {
     public void setResultData(ResultData resultData) {
         this.resultData = resultData;
     }
+
+
 
 }

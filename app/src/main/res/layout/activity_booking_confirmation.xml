@@ -23,13 +23,24 @@
                 android:layout_height="wrap_content"/>
 
         <com.example.campsitehub.CustomViews.CustomMainHeading
+            android:id="@+id/camp_name"
                 android:paddingTop="5dp"
                 android:textSize="20sp"
                 android:textColor="@color/black"
                 android:textStyle="bold"
-                android:text="Art House New York City"
+                android:text="Art House New York City +"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+
+        <com.example.campsitehub.CustomViews.CustomMainHeading
+            android:id="@+id/am_name"
+            android:paddingTop="5dp"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:text="Art House New York City +"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
 
         <LinearLayout
@@ -48,16 +59,17 @@
                     android:layout_height="wrap_content"/>
 
             <com.example.campsitehub.CustomViews.CustomMainHeading
-                    android:paddingTop="5dp"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:paddingEnd="10dp"
-                    android:textSize="20sp"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:text="$ 18,000"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                android:id="@+id/total"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:paddingTop="5dp"
+                android:paddingEnd="10dp"
+                android:text="$ 18,000"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
 
         </LinearLayout>
@@ -85,13 +97,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-            <com.example.campsitehub.CustomViews.CustomMainHeading
+            <EditText
+                android:id="@+id/edtdate"
                     android:text="Select a date"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
             <ImageView
+                android:id="@+id/date_pi"
                     android:src="@drawable/ic_calender"
                     android:layout_width="30dp"
                     android:layout_height="30dp"/>
@@ -104,6 +118,24 @@
                 android:text="Select Time for Booking"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+
+
+        <com.example.campsitehub.CustomViews.CustomMainHeading
+            android:id="@+id/camp_amnt"
+            android:paddingBottom="10dp"
+            android:visibility="gone"
+            android:text="Select Time for Booking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <com.example.campsitehub.CustomViews.CustomMainHeading
+        android:paddingBottom="10dp"
+            android:id="@+id/amen_amnt"
+            android:visibility="gone"
+        android:text="Select Time for Booking"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 
         <LinearLayout
                 android:weightSum="3"

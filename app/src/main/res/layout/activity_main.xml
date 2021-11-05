@@ -111,10 +111,11 @@
                         android:textSize="12.3sp" />
 
 
+
                     <com.example.campsitehub.CustomViews.CustomEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                   android:id="@+id/edtusername"
+                        android:id="@+id/edtusername"
                         android:maxLines="1"
                         android:background="@android:color/transparent"
                         android:paddingTop="5dp"

@@ -162,7 +162,8 @@
                 <com.example.campsitehub.CustomViews.CustomMainHeading
                         android:layout_marginTop="5dp"
                         android:layout_width="wrap_content"
-                        android:text="Amenities"
+                        android:text="Choose any amenities :
+"
                         android:textStyle="bold"
                         android:textSize="18sp"
                         android:layout_height="wrap_content"/>

@@ -26,11 +26,13 @@ import com.example.campsitehub.CustomViews.CustomTextView;
 import com.example.campsitehub.Parcelable.DataParcer;
 import com.example.campsitehub.R;
 import com.example.campsitehub.Retrofit.APIClient;
+import com.example.campsitehub.Utils.RecyclerViewClickInterface;
 
  public class HomePageAdapter extends RecyclerView.Adapter<HomePageAdapter.MyViewHolder> {
 
     List<HomeViewModel> list = new ArrayList<>();
     Context context;
+
 
 
     public HomePageAdapter(Context context, List<HomeViewModel> list) {
@@ -75,11 +77,11 @@ import com.example.campsitehub.Retrofit.APIClient;
             @Override
             public void onClick(View v) {
 
-                DataParcer parcer = new DataParcer(model.getId());
+
 
                 Intent intent = new Intent(context, CampDetailActivity.class);
-//                intent.putExtra("camp_id",model.getId());
-                intent.putExtra("Book", parcer);
+
+                intent.putExtra("Book", String.valueOf(model.getId()));
                 context.startActivity(intent);
 
             }

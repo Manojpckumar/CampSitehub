@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import com.example.campsitehub.R;
 import com.example.campsitehub.Retrofit.Api;
 import com.example.campsitehub.Retrofit.RetrofitHelper;
+import com.example.campsitehub.Utils.CustPrograssbar;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
@@ -33,6 +34,7 @@ public class HomeFragment extends Fragment {
 
     LinearLayout rootLayout;
     RecyclerView rcv_home;
+    CustPrograssbar custPrograssbar;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -83,7 +85,8 @@ public class HomeFragment extends Fragment {
 
         rootLayout = view.findViewById(R.id.rootLayout);
         rcv_home = view.findViewById(R.id.rcv_home);
-
+custPrograssbar=new CustPrograssbar();
+custPrograssbar.progressCreate(getContext());
         Retrofit retrofit = RetrofitHelper.getClient();
         Api api =retrofit.create(Api.class);
 
@@ -95,11 +98,13 @@ public class HomeFragment extends Fragment {
 
                 if (list.isEmpty())
                 {
+                    custPrograssbar.close();
                     Snackbar.make(rootLayout,"No records Found",Snackbar.LENGTH_SHORT).show();
 
                 }
                 else
                 {
+                    custPrograssbar.close();
                     HomePageAdapter adapter = new HomePageAdapter(getContext(),list);
                     rcv_home.setLayoutManager(new LinearLayoutManager(getContext()));
 

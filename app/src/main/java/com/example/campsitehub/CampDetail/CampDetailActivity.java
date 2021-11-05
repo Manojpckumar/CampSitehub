@@ -4,79 +4,91 @@ import android.content.Intent;
 import android.graphics.Paint;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-import com.bumptech.glide.Glide;
 import com.example.campsitehub.PanoramicView.PanoramicView;
-import com.example.campsitehub.Parcelable.DataParcer;
 import com.example.campsitehub.R;
 import com.example.campsitehub.Retrofit.APIClient;
-import com.example.campsitehub.Retrofit.Api;
 import com.example.campsitehub.Retrofit.GetResult;
-import com.example.campsitehub.Retrofit.RetrofitHelper;
+import com.example.campsitehub.Utils.CustPrograssbar;
+import com.example.campsitehub.Utils.RecyclerViewClickInterface;
 import com.example.campsitehub.databinding.ActivityCampDetailBinding;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.http.POST;
 
 import java.util.*;
 
-public class CampDetailActivity extends AppCompatActivity implements GetResult.MyListener {
-
+public class CampDetailActivity extends AppCompatActivity implements GetResult.MyListener, RecyclerViewClickInterface {
     // creating object of ViewPager
     ViewPager mViewPager;
     ActivityCampDetailBinding binding;
     String panoramic;
-    List <Amenity> amenity;
-
-
+    List<Amenity> amenity;
+    CustPrograssbar prograssbar;
+    ArrayList<String> names = new ArrayList<String>();
+    ArrayList<Integer> sumup = new ArrayList<Integer>();
     // Creating Object of ViewPagerAdapter
     ViewPagerAdapter mViewPagerAdapter;
+    int sum=0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // setContentView(R.layout.activity_camp_detail);
+        // setContentView(R.layout.activity_camp_detail);
 
         binding = ActivityCampDetailBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
 
         // Initializing the ViewPager Object
-        mViewPager = (ViewPager)findViewById(R.id.vp_viewpager);
+        mViewPager = (ViewPager) findViewById(R.id.vp_viewpager);
+        prograssbar = new CustPrograssbar();
+        prograssbar.progressCreate(this);
+        String a = getIntent().getStringExtra("Book");
 
-        Intent intent = getIntent();
-        DataParcer book = intent.getParcelableExtra("Book");
 
-        Log.d("---", String.valueOf(book.getId()));
-
-        getCampbyid(book.getId());
+        getCampbyid(a);
 
 
         binding.btnBooknow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(CampDetailActivity.this, BookingConfirmation.class));
+                if(names.size()< 1)
+                {
+
+                    Toast.makeText(CampDetailActivity.this, "Please Choose amenities from list", Toast.LENGTH_SHORT).show();
+                }
+                else if(names.size()>1){
+
+                    Toast.makeText(CampDetailActivity.this, "Only one amenity can be added", Toast.LENGTH_SHORT).show();
+                }
+                else {
+
+
+
+                   Intent in=new Intent(CampDetailActivity.this,BookingConfirmation.class);
+
+                   in.putExtra("amkey",names.get(0));
+                   in.putExtra("campkey",a);
+                   in.putExtra("campamount",binding.tvAmount.getText().toString().trim());
+
+                   startActivity(in);
+
+                }
 
             }
         });
@@ -91,7 +103,7 @@ public class CampDetailActivity extends AppCompatActivity implements GetResult.M
 
     }
 
-    private void getCampbyid(long id) {
+    private void getCampbyid(String id) {
         JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put("id", id);
@@ -108,7 +120,6 @@ public class CampDetailActivity extends AppCompatActivity implements GetResult.M
     }
 
 
-
     private void LoadBanners(String s) {
 
         List<String> imageList = Arrays.asList(s.split(","));
@@ -121,8 +132,9 @@ public class CampDetailActivity extends AppCompatActivity implements GetResult.M
 
     @Override
     public void callback(JsonObject result, String callNo) {
+        prograssbar.close();
 
-        if(callNo.equalsIgnoreCase("campviewbyid")){
+        if (callNo.equalsIgnoreCase("campviewbyid")) {
             Gson gson = new Gson();
             Example home = gson.fromJson(result.toString(), Example.class);
 
@@ -131,32 +143,46 @@ public class CampDetailActivity extends AppCompatActivity implements GetResult.M
             binding.tvStrikeoff.setPaintFlags(binding.tvStrikeoff.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
             binding.tvAmount.setText(home.getResultData().getCampDetails().getOfferPrice());
             binding.tvLikes.setText(home.getResultData().getCampDetails().getRatingNumber());
-            if(home.getResultData().getCampDetails().getStatus().equals("1"))
-            {
+            if (home.getResultData().getCampDetails().getStatus().equals("1")) {
                 binding.tvStatus.setText("AVAILABLE");
                 binding.tvStatus.setBackgroundColor(getResources().getColor(R.color.green));
-            }else
-            {
+            } else {
                 binding.tvStatus.setText("NOT AVAILABLE");
                 binding.tvStatus.setBackgroundColor(getResources().getColor(R.color.red));
             }
 
-            LoadBanners(home.getResultData().getCampDetails().getCampsiteBanner()+","+home.getResultData().getCampDetails().getRealtedImages());
+            LoadBanners(home.getResultData().getCampDetails().getCampsiteBanner() + "," + home.getResultData().getCampDetails().getRealtedImages());
             binding.tvDesc.setText(home.getResultData().getCampDetails().getDescription());
             panoramic = home.getResultData().getCampDetails().getPanoramic();
 
-            amenity=new ArrayList<>();
+            amenity = new ArrayList<>();
 
             amenity.addAll(home.getResultData().getAmenities());
 
-            AmenitiesAdapter adapter = new AmenitiesAdapter(this,amenity);
+            AmenitiesAdapter adapter = new AmenitiesAdapter(this, amenity, this);
             binding.rcvAmenities.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, true));
             binding.rcvAmenities.setAdapter(adapter);
 
-
         }
 
+    }
 
+
+    @Override
+    public void onItemClick(int position, String chk) {
+
+
+
+        if (chk.equalsIgnoreCase("")) {
+
+            names.add(amenity.get(position).getAtId());
+
+        } else {
+
+            names.remove(amenity.get(position).getAtId());
+
+
+        }
 
     }
 }

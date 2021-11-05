@@ -1,56 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.campsitehub">
+    package="com.example.campsitehub">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-            android:allowBackup="true"
-            android:hardwareAccelerated="false"
-            android:icon="@mipmap/ic_launcher"
-            android:label="@string/app_name"
-            android:largeHeap="true"
-            android:roundIcon="@mipmap/ic_launcher_round"
-            android:supportsRtl="true"
-            android:theme="@style/Theme.CampSiteHub">
-        <activity android:name=".AddCampSite.AddCampSite">
-        </activity>
-        <activity android:name=".PanoramicView.PanoramicView">
-        </activity>
-        <activity android:name=".CampDetail.BookingConfirmation">
-        </activity>
-        <activity android:name=".Bookings.MyBookings">
-        </activity>
-        <activity android:name=".Wishlist.MyWishlistActivity">
-        </activity>
-        <activity android:name=".CampDetail.CampDetailActivity"/>
+        android:allowBackup="true"
+        android:hardwareAccelerated="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CampSiteHub">
+        <activity android:name=".NewActivity"></activity>
+        <activity android:name=".AddCampSite.AddCampSite" />
+        <activity android:name=".PanoramicView.PanoramicView" />
+        <activity android:name=".CampDetail.BookingConfirmation" />
+        <activity android:name=".Bookings.MyBookings" />
+        <activity android:name=".Wishlist.MyWishlistActivity" />
+        <activity android:name=".CampDetail.CampDetailActivity" />
         <activity
-                android:name=".Homepage.MainActivity"
-                android:label="@string/title_activity_main"
-                android:theme="@style/Theme.CampSiteHub.NoActionBar"/>
+            android:name=".Homepage.MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/Theme.CampSiteHub.NoActionBar" />
         <activity
-                android:name=".Homepage.MainHomeActivity"
-                android:label="@string/title_activity_main_home"
-                android:theme="@style/Theme.CampSiteHub.NoActionBar"/>
+            android:name=".Homepage.MainHomeActivity"
+            android:label="@string/title_activity_main_home"
+            android:theme="@style/Theme.CampSiteHub.NoActionBar" />
         <activity
-                android:name=".Homepage.MainHome"
-                android:label="@string/title_activity_main_home"
-                android:theme="@style/Theme.CampSiteHub.NoActionBar"/>
+            android:name=".Homepage.MainHome"
+            android:label="@string/title_activity_main_home"
+            android:theme="@style/Theme.CampSiteHub.NoActionBar" />
         <activity
-                android:name=".HomePage.MainHome"
-                android:label="@string/title_activity_main_home"
-                android:theme="@style/Theme.CampSiteHub.NoActionBar"/>
+            android:name=".HomePage.MainHome"
+            android:label="@string/title_activity_main_home"
+            android:theme="@style/Theme.CampSiteHub.NoActionBar" />
         <activity
-                android:name=".SplashScreen.SplashActivity"
-                android:noHistory="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+            android:name=".SplashScreen.SplashActivity"
+            android:noHistory="true" >
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Authentication.RegisterActivity"/>
-        <activity android:name=".Authentication.LoginActivity"/>
+        <activity android:name=".Authentication.RegisterActivity" />
+        <activity android:name=".Authentication.LoginActivity" />
     </application>
 
 </manifest>
