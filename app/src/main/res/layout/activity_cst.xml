@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@drawable/curve"
+android:orientation="vertical"
+android:padding="35dp"
+tools:context=".Authentication.CstActivity">
+
+
+<TextView
+
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="150dp"
+    android:text="𝐍𝐀𝐌𝐄*"
+    android:textAlignment="center"
+    android:textColor="@color/black"
+    android:textSize="16dp" />
+
+<EditText
+    android:id="@+id/h1"
+    android:padding="10dp"
+    android:layout_width="280dp"
+    android:layout_height="wrap_content"
+    android:hint="Enter your name"
+    android:background="@drawable/curve"
+    android:textColor="@color/black"
+    android:textColorHint="@color/black"
+    android:textSize="20dp" />
+
+<TextView
+
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/h2"
+    android:layout_marginTop="2dp"
+    android:text="𝐏𝐇𝐎𝐍𝐄 𝐍𝐎*"
+    android:textAlignment="center"
+    android:textColor="@color/black"
+    android:textSize="16dp" />
+
+<EditText
+    android:id="@+id/h2"
+    android:layout_width="280dp"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:layout_marginTop="0dp"
+    android:background="@drawable/curve"
+    android:hint="Enter your phone number"
+    android:inputType="phone"
+    android:textColor="@color/black"
+    android:textColorHint="@color/black"
+    android:textSize="20dp" />
+
+
+<TextView
+
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="𝐄𝐍𝐓𝐄𝐑 𝐏𝐀𝐒𝐒𝐖𝐎𝐑𝐃*"
+    android:textColor="@color/black"
+    android:textSize="16dp" />
+
+<EditText
+    android:id="@+id/h3"
+    android:layout_width="280dp"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:background="@drawable/curve"
+    android:hint="Enter your password"
+    android:inputType="textVisiblePassword"
+    android:textColor="@color/black"
+    android:textColorHint="@color/black"
+    android:textSize="20dp" />
+
+<TextView
+
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="3dp"
+    android:text="𝐂𝐎𝐍𝐅𝐈𝐑𝐌 𝐏𝐀𝐒𝐒𝐖𝐎𝐑𝐃*"
+    android:textColor="@color/black"
+    android:textSize="16dp" />
+
+<EditText
+    android:id="@+id/h4"
+    android:layout_width="280dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="0dp"
+    android:padding="10dp"
+    android:background="@drawable/curve"
+    android:hint="Confirm your password"
+    android:textColor="@color/black"
+    android:textColorHint="@color/black"
+
+    android:textSize="20dp" />
+
+<Button
+    android:id="@+id/h5"
+    android:layout_marginTop="20dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:text="REGISTER"
+    android:textColor="@color/black" />
+
+<TextView
+    android:id="@+id/display"
+    android:layout_width="250dp"
+    android:layout_height="50dp"
+    android:layout_gravity="center"
+    android:layout_marginTop="10dp"
+    android:textColor="@color/black" />
+
+
+</LinearLayout>
