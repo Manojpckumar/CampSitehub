@@ -1,72 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-        android:padding="10dp"
-        android:background="@color/lite_ash_bg"
-        android:orientation="vertical"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".CampDetail.BookingConfirmation">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lite_ash_bg"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".CampDetail.BookingConfirmation">
 
     <LinearLayout
-            android:padding="10dp"
-            android:background="@color/white"
-            android:orientation="vertical"
+        android:id="@+id/lvltwo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        >
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animationView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="350dp"
+            app:lottie_url="https://assets8.lottiefiles.com/private_files/lf30_poez9ped.json"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="false"/>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="38dp" />
 
         <com.example.campsitehub.CustomViews.CustomMainHeading
-                android:text="booking Confirmation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Congratulation!"
+            android:textColor="@color/black"
+            android:textSize="26dp"
+            android:textStyle="bold" />
+
+        <com.example.campsitehub.CustomViews.CustomMainHeading
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Thank you for the booking. We received your booking and we're happy to serve you anh have a nice weekend"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="58dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:elevation="10dp"
+            android:gravity="center">
+
+            <com.example.campsitehub.CustomViews.CustomMainHeading
+                android:id="@+id/track_bookings"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="match_parent"
+                android:background="@drawable/confirmation"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Go to your Bookings"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <com.example.campsitehub.CustomViews.CustomMainHeading
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="booking Confirmation" />
 
         <com.example.campsitehub.CustomViews.CustomMainHeading
             android:id="@+id/camp_name"
-                android:paddingTop="5dp"
-                android:textSize="20sp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:text="Art House New York City +"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:text="Art House New York City +"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <com.example.campsitehub.CustomViews.CustomMainHeading
             android:id="@+id/am_name"
-            android:paddingTop="5dp"
-            android:textSize="20sp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:text="Art House New York City +"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:text="Art House New York City +"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
 
         <LinearLayout
-                android:weightSum="2"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
 
             <com.example.campsitehub.CustomViews.CustomMainHeading
-                    android:layout_weight="1"
-                    android:textSize="20sp"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:text="Grand Total"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Grand Total"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+
+            <com.example.campsitehub.CustomViews.CustomMainHeading
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <com.example.campsitehub.CustomViews.CustomMainHeading
                 android:id="@+id/total"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:gravity="end"
                 android:paddingTop="5dp"
+                android:paddingStart="5dp"
                 android:paddingEnd="10dp"
-                android:text="$ 18,000"
+                android:text="18,000"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -78,154 +154,115 @@
     </LinearLayout>
 
     <LinearLayout
-            android:orientation="vertical"
-            android:padding="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
 
         <com.example.campsitehub.CustomViews.CustomMainHeading
-                android:text="Date &amp; Time"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Date &amp; Time" />
 
 
         <LinearLayout
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
 
             <EditText
                 android:id="@+id/edtdate"
-                    android:text="Select a date"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="From" />
+
+            <EditText
+                android:id="@+id/edttodate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_weight="1"
+                android:hint="To" />
 
             <ImageView
                 android:id="@+id/date_pi"
-                    android:src="@drawable/ic_calender"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"/>
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_calender" />
 
 
         </LinearLayout>
-
-        <com.example.campsitehub.CustomViews.CustomMainHeading
-                android:paddingBottom="10dp"
-                android:text="Select Time for Booking"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
 
 
         <com.example.campsitehub.CustomViews.CustomMainHeading
             android:id="@+id/camp_amnt"
-            android:paddingBottom="10dp"
-            android:visibility="gone"
-            android:text="Select Time for Booking"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:text="Select Time for Booking"
+            android:visibility="gone" />
 
-        <com.example.campsitehub.CustomViews.CustomMainHeading
-        android:paddingBottom="10dp"
-            android:id="@+id/amen_amnt"
-            android:visibility="gone"
-        android:text="Select Time for Booking"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-
-        <LinearLayout
-                android:weightSum="3"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            <com.example.campsitehub.CustomViews.CustomMainHeading
-                    android:layout_marginStart="5dp"
-                    android:background="@drawable/tag_background"
-                    android:layout_width="match_parent"
-                    android:backgroundTint="@color/time_card"
-                    android:layout_weight="1"
-                    android:padding="10dp"
-                    android:text="09.00 AM"
-                    android:layout_height="wrap_content"/>
-
-            <com.example.campsitehub.CustomViews.CustomMainHeading
-                    android:layout_marginStart="5dp"
-                    android:background="@drawable/tag_background"
-                    android:layout_width="match_parent"
-                    android:backgroundTint="@color/time_card"
-                    android:layout_weight="1"
-                    android:padding="10dp"
-                    android:text="09.00 AM"
-                    android:layout_height="wrap_content"/>
-
-            <com.example.campsitehub.CustomViews.CustomMainHeading
-                    android:layout_marginStart="5dp"
-                    android:background="@drawable/tag_background"
-                    android:layout_width="match_parent"
-                    android:backgroundTint="@color/time_card"
-                    android:layout_weight="1"
-                    android:padding="10dp"
-                    android:text="09.00 AM"
-                    android:layout_height="wrap_content"/>
-
-
-        </LinearLayout>
 
     </LinearLayout>
 
     <LinearLayout
-            android:paddingTop="20dp"
-            android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="20dp">
+
+        <com.example.campsitehub.CustomViews.CustomMainHeading
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Selected Payment Method" />
+
+        <RadioGroup
+            android:id="@+id/rd_grp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        <com.example.campsitehub.CustomViews.CustomMainHeading
-                android:text="Selected Payment Method"
+            <RadioButton
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="Net Banking" />
 
-        <RadioGroup
+            <RadioButton
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:text="Card payment" />
 
             <RadioButton
-                    android:text="Net Banking"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="UPI" />
 
             <RadioButton
-                    android:text="Card payment"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-            <RadioButton
-                    android:text="UPI"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-            <RadioButton
-                    android:text="By Cash"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="By Cash" />
 
         </RadioGroup>
 
 
     </LinearLayout>
 
-    <View android:layout_width="match_parent" android:layout_height="20dp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
 
     <com.google.android.material.button.MaterialButton
-            android:text="Confirm Booking"
-            android:backgroundTint="@color/titlecolor"
-            android:background="@drawable/tag_background"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+        android:id="@+id/btn_book"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/tag_background"
+        android:backgroundTint="@color/titlecolor"
+        android:text="Confirm Booking" />
+
+
 
 
 </LinearLayout>

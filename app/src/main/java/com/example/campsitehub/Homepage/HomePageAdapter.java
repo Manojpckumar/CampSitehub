@@ -73,16 +73,18 @@ import com.example.campsitehub.Utils.RecyclerViewClickInterface;
 
         }
 
+
+
         holder.iv_banner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (model.getStatus() == 1) {
 
+                    Intent intent = new Intent(context, CampDetailActivity.class);
 
-
-                Intent intent = new Intent(context, CampDetailActivity.class);
-
-                intent.putExtra("Book", String.valueOf(model.getId()));
-                context.startActivity(intent);
+                    intent.putExtra("Book", String.valueOf(model.getId()));
+                    context.startActivity(intent);
+                }
 
             }
         });

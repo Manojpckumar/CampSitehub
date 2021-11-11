@@ -2,6 +2,8 @@ package com.example.campsitehub.CampDetail;
 
 import java.util.List;
 
+import com.example.campsitehub.Bookings.AllBooking;
+import com.example.campsitehub.Homepage.CampsDate;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -19,6 +21,14 @@ public class ResultData {
     @Expose
     private List<Amenity> amenities = null;
 
+    @SerializedName("CampsDate")
+    @Expose
+    private List<CampsDate> campsDate = null;
+
+    @SerializedName("All Bookings")
+    @Expose
+    private List<AllBooking> allBookings = null;
+
     public CampDetails getCampDetails() {
         return campDetails;
     }
@@ -35,12 +45,28 @@ public class ResultData {
         this.amenityDetails = amenityDetails;
     }
 
+    public List<CampsDate> getCampsDate() {
+        return campsDate;
+    }
+
+    public void setCampsDate(List<CampsDate> campsDate) {
+        this.campsDate = campsDate;
+    }
+
     public List<Amenity> getAmenities() {
         return amenities;
     }
 
     public void setAmenities(List<Amenity> amenities) {
         this.amenities = amenities;
+    }
+
+    public List<AllBooking> getAllBookings() {
+        return allBookings;
+    }
+
+    public void setAllBookings(List<AllBooking> allBookings) {
+        this.allBookings = allBookings;
     }
 
 }

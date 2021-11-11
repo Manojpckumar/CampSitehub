@@ -37,9 +37,11 @@ public class PanoramicView extends AppCompatActivity {
             Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.panoview);
             binding.ivImage.setImageBitmap(bitmap);
         }
+
+
+
 //        VrPanoramaView.Options options = new VrPanoramaView.Options();
 //        Bitmap  bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.panoview);
-//
 //        binding.vrPanoramaView.loadImageFromBitmap(bitmap, options);
 
 

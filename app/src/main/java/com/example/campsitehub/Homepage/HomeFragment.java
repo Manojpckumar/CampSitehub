@@ -45,8 +45,7 @@ public class HomeFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public HomeFragment()
-    {
+    public HomeFragment() {
 
     }
 
@@ -85,10 +84,11 @@ public class HomeFragment extends Fragment {
 
         rootLayout = view.findViewById(R.id.rootLayout);
         rcv_home = view.findViewById(R.id.rcv_home);
-custPrograssbar=new CustPrograssbar();
-custPrograssbar.progressCreate(getContext());
+        custPrograssbar = new CustPrograssbar();
+        custPrograssbar.progressCreate(getContext());
         Retrofit retrofit = RetrofitHelper.getClient();
-        Api api =retrofit.create(Api.class);
+        Api api = retrofit.create(Api.class);
+
 
         api.GetHomeData().enqueue(new Callback<ExampleModel>() {
             @Override
@@ -96,16 +96,13 @@ custPrograssbar.progressCreate(getContext());
 
                 List<HomeViewModel> list = response.body().getHomeView();
 
-                if (list.isEmpty())
-                {
+                if (list.isEmpty()) {
                     custPrograssbar.close();
-                    Snackbar.make(rootLayout,"No records Found",Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(rootLayout, "No records Found", Snackbar.LENGTH_SHORT).show();
 
-                }
-                else
-                {
+                } else {
                     custPrograssbar.close();
-                    HomePageAdapter adapter = new HomePageAdapter(getContext(),list);
+                    HomePageAdapter adapter = new HomePageAdapter(getContext(), list);
                     rcv_home.setLayoutManager(new LinearLayoutManager(getContext()));
 
                     rcv_home.setAdapter(adapter);

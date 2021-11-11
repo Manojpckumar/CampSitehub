@@ -34,6 +34,9 @@ public class CampDetails {
     @SerializedName("available_dates")
     @Expose
     private String availableDates;
+    @SerializedName("available_dates_to")
+    @Expose
+    private String available_dates_to;
     @SerializedName("description")
     @Expose
     private String description;
@@ -148,4 +151,11 @@ public class CampDetails {
         this.panoramic = panoramic;
     }
 
+    public String getAvailable_dates_to() {
+        return available_dates_to;
+    }
+
+    public void setAvailable_dates_to(String available_dates_to) {
+        this.available_dates_to = available_dates_to;
+    }
 }

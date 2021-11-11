@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CampSiteHub">
-        <activity android:name=".NewActivity"></activity>
+        <activity android:name=".PaymentGateway.RazorpayActivity"></activity>
+        <activity android:name=".NewActivity" />
         <activity android:name=".AddCampSite.AddCampSite" />
         <activity android:name=".PanoramicView.PanoramicView" />
         <activity android:name=".CampDetail.BookingConfirmation" />
@@ -38,8 +39,7 @@
             android:theme="@style/Theme.CampSiteHub.NoActionBar" />
         <activity
             android:name=".SplashScreen.SplashActivity"
-            android:noHistory="true" >
-
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

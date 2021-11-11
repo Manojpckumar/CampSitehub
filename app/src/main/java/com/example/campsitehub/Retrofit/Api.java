@@ -33,5 +33,14 @@ public interface Api {
 
 
 
+    @POST(APIClient.APPEND_URL + "getCampsbyavailabledate")
+    Call<JsonObject> getCampDatebyid(@Body JsonObject object);
+
+    @POST(APIClient.APPEND_URL + "addBooking")
+    Call<JsonObject> addBooking(@Body JsonObject object);
+
+    @POST(APIClient.APPEND_URL + "getAllBookings")
+    Call<JsonObject> GetBookings(@Body JsonObject object);
+
 
 }

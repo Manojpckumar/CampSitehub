@@ -1,6 +1,7 @@
 package com.example.campsitehub.AddCampSite;
 
 import android.Manifest;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -10,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.DatePicker;
 import android.widget.Toast;
 
 import com.example.campsitehub.R;
@@ -36,8 +38,11 @@ import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import retrofit2.Call;
 
@@ -47,6 +52,7 @@ public class AddCampSite extends AppCompatActivity implements View.OnClickListen
     private final int CGALLERY = 1,CPANO=2,CRELAT=3;
     String campencodedImage="",imgname="",panoencodedImage="",panoimgname="",relatedencodedImage="",relaimgname="";
     CustPrograssbar custPrograssbar;
+    final Calendar myCalendar = Calendar.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +69,11 @@ public class AddCampSite extends AppCompatActivity implements View.OnClickListen
         binding.btnBanner.setOnClickListener(this);
         binding.btnRelatedimg.setOnClickListener(this);
         binding.btnPanoimg.setOnClickListener(this);
+        binding.btnAvailabledates.setOnClickListener(this);
+        binding.btnAvailabledatesto.setOnClickListener(this);
         requestPermissions();
+
+
 
     }
 
@@ -181,6 +191,18 @@ public class AddCampSite extends AppCompatActivity implements View.OnClickListen
     public void onClick(View view) {
         switch (view.getId()){
 
+            case R.id.btn_availabledates:
+
+                showDatepopup();
+
+                break;
+
+            case R.id.btn_availabledatesto:
+
+                showDatepopup();
+
+                break;
+
             case R.id.btn_createcampsite:
 
                 uploadDatatoServer();
@@ -220,6 +242,48 @@ public class AddCampSite extends AppCompatActivity implements View.OnClickListen
 
     }
 
+    private void showDatepopup() {
+
+        DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+
+
+
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear,
+                                  int dayOfMonth) {
+                // TODO Auto-generated method stub
+                myCalendar.set(Calendar.YEAR, year);
+                myCalendar.set(Calendar.MONTH, monthOfYear);
+                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                updateLabel();
+
+            }
+
+        };
+
+
+        new DatePickerDialog(this, date, myCalendar
+                .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+
+
+    }
+
+    private void updateLabel() {
+
+        String myFormat = "yyyy-MM-dd";
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+
+if(binding.cedAvailabledates.getText().toString().isEmpty()) {
+    binding.cedAvailabledates.setText(sdf.format(myCalendar.getTime()));
+}
+else{
+    binding.cedAvailabledatesto.setText(sdf.format(myCalendar.getTime()));
+
+
+}
+    }
+
     private void uploadDatatoServer() {
 
         custPrograssbar.progressCreate(this);
@@ -229,7 +293,7 @@ public class AddCampSite extends AppCompatActivity implements View.OnClickListen
             jsonObject.put("campsite_name", binding.cedCampname.getText().toString());
             jsonObject.put("old_price", binding.cedOldprice.getText().toString());
             jsonObject.put("offer_price", binding.cedOfferprice.getText().toString());
-            jsonObject.put("rating_number", binding.rbRating.getRating());
+            jsonObject.put("rating_number", "3");
             jsonObject.put("camp_type", binding.spnCamptype.getSelectedItem().toString());
             if(binding.tbStatus.isChecked()){
                 jsonObject.put("status", 1);
@@ -240,6 +304,7 @@ public class AddCampSite extends AppCompatActivity implements View.OnClickListen
 
             jsonObject.put("campsite_banner", campencodedImage);
             jsonObject.put("available_dates", binding.cedAvailabledates.getText().toString());
+            jsonObject.put("available_dates_to", binding.cedAvailabledatesto.getText().toString());
             jsonObject.put("description", binding.cedDescription.getText().toString());
             jsonObject.put("panoramic", panoencodedImage);
             jsonObject.put("realted_image", relatedencodedImage);

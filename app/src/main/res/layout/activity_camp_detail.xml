@@ -14,12 +14,12 @@
             android:layout_height="250dp"/>
 
     <ImageView
-            android:layout_margin="20dp"
-            android:layout_gravity="end"
-            android:src="@drawable/ic_panoramaview"
-            android:id="@+id/iv_panoview"
-            android:layout_width="40dp"
-            android:layout_height="40dp"/>
+        android:id="@+id/iv_panoview"
+        android:layout_width="40dp"
+        android:layout_height="33dp"
+        android:layout_gravity="end"
+        android:layout_margin="20dp"
+        android:src="@drawable/ic_panoramaview" />
 
     <androidx.core.widget.NestedScrollView
             android:layout_marginTop="200dp"

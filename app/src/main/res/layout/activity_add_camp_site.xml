@@ -1,385 +1,418 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-        android:orientation="vertical"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".AddCampSite.AddCampSite">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AddCampSite.AddCampSite">
 
     <com.example.campsitehub.CustomViews.CustomMainHeading
-            android:text="Camp Details"
-            android:textSize="20sp"
-            android:padding="10dp"
-            android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Camp Details"
+        android:textSize="20sp" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
 
-   <androidx.core.widget.NestedScrollView
-           android:layout_width="match_parent"
-           android:layout_height="match_parent">
+            <!--camp name-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-       <LinearLayout
-               android:padding="10dp"
-               android:orientation="vertical"
-               android:layout_width="match_parent"
-               android:layout_height="match_parent">
+                <com.example.campsitehub.CustomViews.CustomMainHeading
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:text="Camp Name"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-           <!--camp name-->
-           <LinearLayout
-                   android:orientation="vertical"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content">
+                <com.example.campsitehub.CustomViews.CustomEditText
+                    android:id="@+id/ced_campname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
-               <com.example.campsitehub.CustomViews.CustomMainHeading
-                       android:paddingLeft="10dp"
-                       android:text="Camp Name"
-                       android:textSize="18sp"
-                       android:textColor="@color/black"
-                       android:textStyle="bold"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <!--Old Price-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-               <com.example.campsitehub.CustomViews.CustomEditText
-                       android:id="@+id/ced_campname"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"/>
+                <com.example.campsitehub.CustomViews.CustomMainHeading
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:text="Old Price"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-           </LinearLayout>
-           <!--Old Price-->
-           <LinearLayout
-                   android:orientation="vertical"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content">
+                <com.example.campsitehub.CustomViews.CustomEditText
+                    android:id="@+id/ced_oldprice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
-               <com.example.campsitehub.CustomViews.CustomMainHeading
-                       android:paddingLeft="10dp"
-                       android:text="Old Price"
-                       android:textSize="18sp"
-                       android:textColor="@color/black"
-                       android:textStyle="bold"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <!--    offer price -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-               <com.example.campsitehub.CustomViews.CustomEditText
-                       android:id="@+id/ced_oldprice"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"/>
+                <com.example.campsitehub.CustomViews.CustomMainHeading
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:text="Offer Price"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-           </LinearLayout>
-           <!--    offer price -->
-           <LinearLayout
-                   android:orientation="vertical"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content">
+                <com.example.campsitehub.CustomViews.CustomEditText
+                    android:id="@+id/ced_offerprice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
-               <com.example.campsitehub.CustomViews.CustomMainHeading
-                       android:paddingLeft="10dp"
-                       android:text="Offer Price"
-                       android:textSize="18sp"
-                       android:textColor="@color/black"
-                       android:textStyle="bold"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <!--    Rating Number-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-               <com.example.campsitehub.CustomViews.CustomEditText
-                       android:id="@+id/ced_offerprice"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"/>
+                <com.example.campsitehub.CustomViews.CustomMainHeading
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:text="Camp Rating"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
 
-           </LinearLayout>
-           <!--    Rating Number-->
-           <LinearLayout
-                   android:orientation="vertical"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content">
+                <androidx.appcompat.widget.AppCompatRatingBar
+                    android:id="@+id/rb_rating"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" />
 
-               <com.example.campsitehub.CustomViews.CustomMainHeading
-                       android:paddingLeft="10dp"
-                       android:text="Camp Rating"
-                       android:textSize="18sp"
-                       android:textColor="@color/black"
-                       android:textStyle="bold"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <!--    Camp Type-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-               <androidx.appcompat.widget.AppCompatRatingBar
-                       android:id="@+id/rb_rating"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"/>
+                <com.example.campsitehub.CustomViews.CustomMainHeading
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:text="Camp Type"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-           </LinearLayout>
-           <!--    Camp Type-->
-           <LinearLayout
-                   android:orientation="vertical"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content">
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/spn_camptype"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:entries="@array/campType" />
 
-               <com.example.campsitehub.CustomViews.CustomMainHeading
-                       android:paddingLeft="10dp"
-                       android:text="Camp Type"
-                       android:textSize="18sp"
-                       android:textColor="@color/black"
-                       android:textStyle="bold"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <!--    camp status-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-               <androidx.appcompat.widget.AppCompatSpinner
-                       android:id="@+id/spn_camptype"
-                       android:entries="@array/campType"
-                       android:layout_width="match_parent"
-                       android:layout_height="40dp"/>
+                <com.example.campsitehub.CustomViews.CustomMainHeading
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingLeft="10dp"
+                    android:text="Camp Status"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-           </LinearLayout>
-           <!--    camp status-->
-           <LinearLayout
-                   android:orientation="horizontal"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content">
+                <androidx.appcompat.widget.AppCompatToggleButton
+                    android:id="@+id/tb_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textOff="NOT AVAILABLE"
+                    android:textOn="AVAILABLE" />
 
-               <com.example.campsitehub.CustomViews.CustomMainHeading
-                       android:layout_weight="1"
-                       android:paddingLeft="10dp"
-                       android:text="Camp Status"
-                       android:textSize="18sp"
-                       android:textColor="@color/black"
-                       android:textStyle="bold"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <!--    Camp banner-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-               <androidx.appcompat.widget.AppCompatToggleButton
-                      android:id="@+id/tb_status"
-                       android:textOff="NOT AVAILABLE"
-                       android:textOn="AVAILABLE"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"/>
+                <com.example.campsitehub.CustomViews.CustomMainHeading
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:text="Camp Banner"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-           </LinearLayout>
-           <!--    Camp banner-->
-           <LinearLayout
-                   android:orientation="vertical"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content">
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-               <com.example.campsitehub.CustomViews.CustomMainHeading
-                       android:paddingLeft="10dp"
-                       android:text="Camp Banner"
-                       android:textSize="18sp"
-                       android:textColor="@color/black"
-                       android:textStyle="bold"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"/>
+                    <com.example.campsitehub.CustomViews.CustomEditText
+                        android:id="@+id/ced_banner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
 
-               <androidx.appcompat.widget.LinearLayoutCompat
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/img_camp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:visibility="gone" />
 
-                   <com.example.campsitehub.CustomViews.CustomEditText
-                          android:id="@+id/ced_banner"
-                           android:layout_width="match_parent"
-                           android:layout_weight="1"
-                           android:layout_height="wrap_content"/>
+                    <com.example.campsitehub.CustomViews.CustomButton
+                        android:id="@+id/btn_banner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_attach"
+                        android:text="Attach"
+                        android:textAllCaps="false" />
 
-                   <ImageView
-                       android:id="@+id/img_camp"
-                       android:visibility="gone"
-                       android:layout_width="50dp"
-                       android:layout_height="50dp"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
-                   <com.example.campsitehub.CustomViews.CustomButton
-                           android:id="@+id/btn_banner"
-                           android:drawableLeft="@drawable/ic_attach"
-                           android:text="Attach"
-                           android:textAllCaps="false"
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <!--    Camp Related Images-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-               </androidx.appcompat.widget.LinearLayoutCompat>
+                <com.example.campsitehub.CustomViews.CustomMainHeading
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:text="Camp Related Images"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-           </LinearLayout>
-           <!--    Camp Related Images-->
-           <LinearLayout
-                   android:orientation="vertical"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content">
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-               <com.example.campsitehub.CustomViews.CustomMainHeading
-                       android:paddingLeft="10dp"
-                       android:text="Camp Related Images"
-                       android:textSize="18sp"
-                       android:textColor="@color/black"
-                       android:textStyle="bold"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"/>
+                    <com.example.campsitehub.CustomViews.CustomEditText
+                        android:id="@+id/ced_relatedimg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
 
-               <androidx.appcompat.widget.LinearLayoutCompat
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/img_related"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:visibility="gone" />
 
-                   <com.example.campsitehub.CustomViews.CustomEditText
-                           android:id="@+id/ced_relatedimg"
-                           android:layout_width="match_parent"
-                           android:layout_weight="1"
-                           android:layout_height="wrap_content"/>
+                    <com.example.campsitehub.CustomViews.CustomButton
+                        android:id="@+id/btn_relatedimg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_attach"
+                        android:text="Attach"
+                        android:textAllCaps="false" />
 
-                   <ImageView
-                       android:id="@+id/img_related"
-                       android:visibility="gone"
-                       android:layout_width="50dp"
-                       android:layout_height="50dp"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
-                   <com.example.campsitehub.CustomViews.CustomButton
-                           android:id="@+id/btn_relatedimg"
-                           android:drawableLeft="@drawable/ic_attach"
-                           android:text="Attach"
-                           android:textAllCaps="false"
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <!--    Camp Available Dates-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-               </androidx.appcompat.widget.LinearLayoutCompat>
+                <com.example.campsitehub.CustomViews.CustomMainHeading
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:text="Available From "
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-           </LinearLayout>
-           <!--    Camp Available Dates-->
-           <LinearLayout
-                   android:orientation="vertical"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content">
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-               <com.example.campsitehub.CustomViews.CustomMainHeading
-                       android:paddingLeft="10dp"
-                       android:text="Available Dates"
-                       android:textSize="18sp"
-                       android:textColor="@color/black"
-                       android:textStyle="bold"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"/>
+                    <com.example.campsitehub.CustomViews.CustomEditText
+                        android:id="@+id/ced_availabledates"
+                        android:layout_width="match_parent"
+                        android:paddingStart="5dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
 
-               <androidx.appcompat.widget.LinearLayoutCompat
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content">
+                    <com.example.campsitehub.CustomViews.CustomButton
+                        android:id="@+id/btn_availabledates"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_cal"
+                        android:text="Pick Dates"
+                        android:textAllCaps="false" />
 
-                   <com.example.campsitehub.CustomViews.CustomEditText
-                           android:id="@+id/ced_availabledates"
-                           android:layout_width="match_parent"
-                           android:layout_weight="1"
-                           android:layout_height="wrap_content"/>
-
-                   <com.example.campsitehub.CustomViews.CustomButton
-                           android:id="@+id/btn_availabledates"
-                           android:text="Pick Dates"
-                           android:drawableLeft="@drawable/ic_cal"
-                           android:textAllCaps="false"
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"/>
-
-               </androidx.appcompat.widget.LinearLayoutCompat>
-
-           </LinearLayout>
-           <!--    description -->
-           <LinearLayout
-                   android:orientation="vertical"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content">
-
-               <com.example.campsitehub.CustomViews.CustomMainHeading
-                       android:paddingLeft="10dp"
-                       android:text="Description"
-                       android:textSize="18sp"
-                       android:textColor="@color/black"
-                       android:textStyle="bold"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"/>
-
-               <com.example.campsitehub.CustomViews.CustomEditText
-                       android:id="@+id/ced_description"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"/>
-
-           </LinearLayout>
-           <!--    location -->
-           <LinearLayout
-                   android:orientation="vertical"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content">
-
-               <com.example.campsitehub.CustomViews.CustomMainHeading
-                       android:paddingLeft="10dp"
-                       android:text="Location"
-                       android:textSize="18sp"
-                       android:textColor="@color/black"
-                       android:textStyle="bold"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"/>
-
-               <com.example.campsitehub.CustomViews.CustomEditText
-                       android:id="@+id/ced_location"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"/>
-
-           </LinearLayout>
-           <!--    360 image-->
-           <LinearLayout
-                   android:orientation="vertical"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content">
-
-               <com.example.campsitehub.CustomViews.CustomMainHeading
-                       android:paddingLeft="10dp"
-                       android:text="Panoramic View"
-                       android:textSize="18sp"
-                       android:textColor="@color/black"
-                       android:textStyle="bold"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"/>
-
-               <androidx.appcompat.widget.LinearLayoutCompat
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content">
-
-                   <com.example.campsitehub.CustomViews.CustomEditText
-                           android:id="@+id/ced_panoimg"
-                           android:layout_width="match_parent"
-                           android:layout_weight="1"
-                           android:layout_height="wrap_content"/>
-                   <ImageView
-                       android:id="@+id/img_pano"
-                       android:visibility="gone"
-                       android:layout_width="50dp"
-                       android:layout_height="50dp"/>
-                   <com.example.campsitehub.CustomViews.CustomButton
-                           android:id="@+id/btn_panoimg"
-                           android:drawableLeft="@drawable/ic_attach"
-                           android:text="Attach"
-                           android:textAllCaps="false"
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"/>
-
-               </androidx.appcompat.widget.LinearLayoutCompat>
-
-           </LinearLayout>
-
-           <LinearLayout
-                   android:gravity="center"
-                   android:layout_width="match_parent"
-                   android:layout_height="40dp">
-
-               <com.example.campsitehub.CustomViews.CustomButton
-                   android:id="@+id/btn_createcampsite"
-                   android:layout_width="wrap_content"
-                   android:layout_height="match_parent"
-                   android:backgroundTint="@color/titlecolor"
-                   android:padding="10dp"
-                   android:text="Add Camp Site"
-                   android:textColor="@color/white" />
-
-           </LinearLayout>
-
-       </LinearLayout>
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
 
+                <com.example.campsitehub.CustomViews.CustomMainHeading
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:text="Available To "
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.example.campsitehub.CustomViews.CustomEditText
+                        android:id="@+id/ced_availabledatesto"
+                        android:layout_width="match_parent"
+                        android:paddingStart="5dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <com.example.campsitehub.CustomViews.CustomButton
+                        android:id="@+id/btn_availabledatesto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_cal"
+                        android:text="Pick Dates"
+                        android:textAllCaps="false" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </LinearLayout>
+            <!--    description -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.example.campsitehub.CustomViews.CustomMainHeading
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:text="Description"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <com.example.campsitehub.CustomViews.CustomEditText
+                    android:id="@+id/ced_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+            <!--    location -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.example.campsitehub.CustomViews.CustomMainHeading
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:text="Location"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <com.example.campsitehub.CustomViews.CustomEditText
+                    android:id="@+id/ced_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+            <!--    360 image-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.example.campsitehub.CustomViews.CustomMainHeading
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:text="Panoramic View"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.example.campsitehub.CustomViews.CustomEditText
+                        android:id="@+id/ced_panoimg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <ImageView
+                        android:id="@+id/img_pano"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:visibility="gone" />
+
+                    <com.example.campsitehub.CustomViews.CustomButton
+                        android:id="@+id/btn_panoimg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_attach"
+                        android:text="Attach"
+                        android:textAllCaps="false" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center">
+
+                <com.example.campsitehub.CustomViews.CustomButton
+                    android:id="@+id/btn_createcampsite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@color/titlecolor"
+                    android:padding="10dp"
+                    android:text="Add Camp Site"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+        </LinearLayout>
 
 
-   </androidx.core.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>
