@@ -8,13 +8,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.campsitehub.CampDetail.Example;
-import com.example.campsitehub.R;
 import com.example.campsitehub.Retrofit.APIClient;
 import com.example.campsitehub.Retrofit.GetResult;
 import com.example.campsitehub.Utils.CustPrograssbar;
-import com.example.campsitehub.Wishlist.WishListAdapter;
+import com.example.campsitehub.Utils.RecyclerViewClickInterface;
 import com.example.campsitehub.databinding.ActivityMyBookingsBinding;
-import com.example.campsitehub.databinding.ActivityMyWishlistBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.gson.Gson;
@@ -81,4 +79,7 @@ public class MyBookings extends AppCompatActivity implements GetResult.MyListene
         }
 
     }
+
+
+
 }

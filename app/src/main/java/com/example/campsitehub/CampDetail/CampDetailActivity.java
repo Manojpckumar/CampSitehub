@@ -2,7 +2,6 @@ package com.example.campsitehub.CampDetail;
 
 import android.content.Intent;
 import android.graphics.Paint;
-import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +11,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.example.campsitehub.Bookings.MyBookingAdapter;
 import com.example.campsitehub.PanoramicView.PanoramicView;
 import com.example.campsitehub.R;
 import com.example.campsitehub.Retrofit.APIClient;
@@ -185,4 +185,6 @@ public class CampDetailActivity extends AppCompatActivity implements GetResult.M
         }
 
     }
+
+
 }

@@ -31,4 +31,9 @@ public class CustPrograssbar {
             }
         }
     }
+
+    public void setCancel(boolean v){
+        progressDialog.setCancelable(v);
+
+    }
 }

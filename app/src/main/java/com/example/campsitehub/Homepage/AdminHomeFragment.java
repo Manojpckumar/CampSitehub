@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.campsitehub.AddCampSite.AddCampSite;
+import com.example.campsitehub.Amenities.AddAmenities;
+import com.example.campsitehub.Bookings.MyBookings;
 import com.example.campsitehub.R;
 import com.example.campsitehub.databinding.FragmentAdminHomeBinding;
 
@@ -20,7 +22,7 @@ import com.example.campsitehub.databinding.FragmentAdminHomeBinding;
  */
 public class AdminHomeFragment extends Fragment implements View.OnClickListener {
 
-  FragmentAdminHomeBinding binding;
+    FragmentAdminHomeBinding binding;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -65,7 +67,7 @@ public class AdminHomeFragment extends Fragment implements View.OnClickListener 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        binding = FragmentAdminHomeBinding.inflate(inflater,container,false);
+        binding = FragmentAdminHomeBinding.inflate(inflater, container, false);
 
         initViews(binding);
 
@@ -74,21 +76,40 @@ public class AdminHomeFragment extends Fragment implements View.OnClickListener 
 
     private void initViews(FragmentAdminHomeBinding binding) {
         binding.addCamps.setOnClickListener(this);
+        binding.manageBooking.setOnClickListener(this);
+        binding.addAmenities.setOnClickListener(this);
+        binding.allUsers.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        switch(v.getId()) {
+        switch (v.getId()) {
 
             case R.id.add_camps:
 
-startActivity(new Intent(getContext(), AddCampSite.class));
-getActivity().finish();
+                startActivity(new Intent(getContext(), AddCampSite.class));
+                getActivity().finish();
 
 
                 break;
 
+            case R.id.manage_booking:
 
+                startActivity(new Intent(getActivity(), MyBookings.class));
+
+                break;
+
+            case R.id.add_amenities:
+
+                startActivity(new Intent(getActivity(), AddAmenities.class));
+
+                break;
+
+            case R.id.all_users:
+
+                startActivity(new Intent(getActivity(), AddAmenities.class));
+
+                break;
         }
     }
 }

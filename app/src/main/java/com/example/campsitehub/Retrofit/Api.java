@@ -17,11 +17,6 @@ public interface Api {
     Call<ExampleModel> GetHomeData();
 
 
-    @FormUrlEncoded
-    @POST("phase1/Api.php?apicall=getCampDetailsbyid")
-    Call<Example> GetCampDetailById(@Field("branch_code") int id);
-
-
     @POST(APIClient.APPEND_URL + "getCampDetailsbyid")
     Call<JsonObject> getDetails(@Body JsonObject object);
 

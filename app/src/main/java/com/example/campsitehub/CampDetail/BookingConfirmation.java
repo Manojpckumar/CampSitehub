@@ -29,6 +29,7 @@ import com.google.gson.JsonParser;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.nio.charset.Charset;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -37,6 +38,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import retrofit2.Call;
 
@@ -58,6 +60,7 @@ public class BookingConfirmation extends AppCompatActivity implements GetResult.
         binding = ActivityBookingConfirmationBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+        Random_Transaction_String(this);
         custPrograssbar = new CustPrograssbar();
         am_id = getIntent().getStringExtra("amkey");
         camp_id = getIntent().getStringExtra("campkey");
@@ -183,7 +186,7 @@ public class BookingConfirmation extends AppCompatActivity implements GetResult.
         Date time = java.util.Calendar.getInstance().getTime();
         JSONObject jsonObject = new JSONObject();
         try {
-            jsonObject.put("transaction_id", Math.random());
+            jsonObject.put("transaction_id", Random_Transaction_String(this));
             jsonObject.put("user_id", user.getEmail());
             jsonObject.put("camp_id", camp_id);
             jsonObject.put("amenity_id", am_id);
@@ -254,6 +257,20 @@ public class BookingConfirmation extends AppCompatActivity implements GetResult.
     private void SettottoPayment(double tots) {
         tots = totInt;
 
+    }
+
+    public static String Random_Transaction_String(BookingConfirmation bookingConfirmation) {
+        int leftLimit = 97; // letter 'a'
+        int rightLimit = 122; // letter 'z'
+        int targetStringLength = 10;
+        Random random = new Random();
+
+        String generatedString = random.ints(leftLimit, rightLimit + 1)
+                .limit(targetStringLength)
+                .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+                .toString();
+        Toast.makeText(bookingConfirmation, generatedString, Toast.LENGTH_SHORT).show();
+       return "txn"+generatedString;
     }
 
     @Override
