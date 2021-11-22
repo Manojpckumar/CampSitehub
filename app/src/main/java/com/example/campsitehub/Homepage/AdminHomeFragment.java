@@ -10,7 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.campsitehub.AddCampSite.AddCampSite;
+import com.example.campsitehub.AddCampSite.Allamenities;
 import com.example.campsitehub.Amenities.AddAmenities;
+import com.example.campsitehub.Amenities.AllAmenity;
 import com.example.campsitehub.Bookings.MyBookings;
 import com.example.campsitehub.R;
 import com.example.campsitehub.databinding.FragmentAdminHomeBinding;
@@ -79,6 +81,7 @@ public class AdminHomeFragment extends Fragment implements View.OnClickListener 
         binding.manageBooking.setOnClickListener(this);
         binding.addAmenities.setOnClickListener(this);
         binding.allUsers.setOnClickListener(this);
+        binding.allAmenBt.setOnClickListener(this);
     }
 
     @Override
@@ -110,6 +113,12 @@ public class AdminHomeFragment extends Fragment implements View.OnClickListener 
                 startActivity(new Intent(getActivity(), AddAmenities.class));
 
                 break;
+
+            case R.id.all_amen_bt:
+                    startActivity(new Intent(getActivity(), Allamenities.class));
+
+
+                    break;
         }
     }
 }

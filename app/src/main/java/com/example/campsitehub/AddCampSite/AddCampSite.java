@@ -21,7 +21,6 @@ import com.example.campsitehub.Retrofit.Api;
 import com.example.campsitehub.Retrofit.GetResult;
 import com.example.campsitehub.Utils.CustPrograssbar;
 import com.example.campsitehub.databinding.ActivityAddCampSiteBinding;
-import com.example.campsitehub.databinding.ActivityMyBookingsBinding;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;

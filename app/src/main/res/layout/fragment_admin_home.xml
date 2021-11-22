@@ -232,6 +232,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
+                    android:orientation="vertical"
                     android:layout_height="wrap_content"
                     android:gravity="bottom">
 
@@ -241,6 +242,16 @@
                         android:layout_height="wrap_content"
                         android:text="Camp Accessories"
                         android:textColor="@color/white"
+                        android:textSize="20sp" />
+
+                    <com.example.campsitehub.CustomViews.CustomMainHeading
+                        android:id="@+id/all_amen_bt"
+                        android:layout_width="wrap_content"
+                        android:padding="5dp"
+                        android:layout_height="wrap_content"
+                        android:text="ALL AMENITIES >"
+                        android:background="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="20sp" />
 
                 </LinearLayout>

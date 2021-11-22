@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CampSiteHub">
-        <activity android:name=".Authentication.Allusers"></activity>
+        <activity android:name=".AddCampSite.Allamenities"></activity>
+        <activity android:name=".Authentication.Allusers" />
         <activity android:name=".Amenities.AddAmenities" />
         <activity android:name=".PaymentGateway.RazorpayActivity" />
         <activity android:name=".NewActivity" />

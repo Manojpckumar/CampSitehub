@@ -20,13 +20,18 @@
             android:orientation="vertical">
 
 
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingBottom="10dp">
 
-
+                <ImageView
+                    android:id="@+id/amen_img"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -39,18 +44,9 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <com.example.campsitehub.CustomViews.CustomMainHeading
-                            android:id="@+id/tv_txnid"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:padding="5dp"
-                            android:text="txn1232164644"
-                            android:textColor="@color/alignment_marker_color"
-                            android:textSize="15sp" />
 
                         <com.example.campsitehub.CustomViews.CustomMainHeading
-                            android:id="@+id/tv_campname"
+                            android:id="@+id/tv_amen_name"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dp"
@@ -70,7 +66,7 @@
 
 
                         <com.example.campsitehub.CustomViews.CustomMainHeading
-                            android:id="@+id/tv_status"
+                            android:id="@+id/tv_description"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dp"
@@ -90,7 +86,7 @@
                     android:weightSum="1">
 
                     <com.example.campsitehub.CustomViews.CustomMainHeading
-                        android:id="@+id/tv_full_amnt"
+                        android:id="@+id/tv_am_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -106,7 +102,6 @@
 
 
             <LinearLayout
-                android:id="@+id/edit_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -114,13 +109,14 @@
 
                 <com.example.campsitehub.CustomViews.CustomMainHeading
                     android:layout_width="wrap_content"
-                    android:id="@+id/bK_cancel"
+
+                    android:id="@+id/bK_delete"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:padding="10dp"
                     android:background="@drawable/txn_outline"
-                    android:text="CANCEL"
+                    android:text="DELETE"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -129,65 +125,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:id="@+id/bk_info"
+                    android:id="@+id/bk_edit"
                     android:gravity="center"
                     android:padding="10dp"
                     android:background="@drawable/txn_outline_right"
-                    android:text="MORE INFO >"
+                    android:text="EDIT>>"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:visibility="gone"
-                android:id="@+id/admin_confirmation"
-                android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_height="wrap_content">
-
-                <com.example.campsitehub.CustomViews.CustomMainHeading
-                    android:layout_width="match_parent"
-                    android:gravity="center"
-                    android:textSize="16sp"
-                    android:textColor="@color/black"
-                    android:paddingTop="10dp"
-                    android:text="ORDER COINFIRMATIION"
-                    android:layout_height="wrap_content"/>
-
-                <RadioGroup
-                    android:id="@+id/rd_grp_booking"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <RadioButton
-                        android:text="Confirm"
-                        android:textSize="16sp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                    <RadioButton
-                        android:textSize="16sp"
-                        android:text="Initiate Refund"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-
-                    <RadioButton
-                        android:textSize="16sp"
-                        android:text="Cancel"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-
-
-                </RadioGroup>
-
-                <Button
-                    android:id="@+id/proceed"
-                    android:layout_width="wrap_content"
-                    android:text="Proceed"
-                    android:layout_gravity="center"
-                    android:layout_height="wrap_content"/>
 
 
             </LinearLayout>

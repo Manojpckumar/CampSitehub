@@ -32,6 +32,18 @@ public class AllBooking {
     @SerializedName("time-obooking")
     @Expose
     private String timeObooking;
+    @SerializedName("camp_name")
+    @Expose
+    private String campName;
+    @SerializedName("camp_banner")
+    @Expose
+    private String campBanner;
+    @SerializedName("amenity_name")
+    @Expose
+    private String amenityName;
+    @SerializedName("status")
+    @Expose
+    private String status;
 
     public String getBookingId() {
         return bookingId;
@@ -103,5 +115,37 @@ public class AllBooking {
 
     public void setTimeObooking(String timeObooking) {
         this.timeObooking = timeObooking;
+    }
+
+    public String getCampName() {
+        return campName;
+    }
+
+    public void setCampName(String campName) {
+        this.campName = campName;
+    }
+
+    public String getCampBanner() {
+        return campBanner;
+    }
+
+    public void setCampBanner(String campBanner) {
+        this.campBanner = campBanner;
+    }
+
+    public String getAmenityName() {
+        return amenityName;
+    }
+
+    public void setAmenityName(String amenityName) {
+        this.amenityName = amenityName;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

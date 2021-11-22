@@ -38,4 +38,18 @@ public interface Api {
     Call<JsonObject> GetBookings(@Body JsonObject object);
 
 
+    @POST(APIClient.APPEND_URL + "addAmenity")
+    Call<JsonObject> addAmenity(@Body JsonObject object);
+
+    @POST(APIClient.APPEND_URL + "getAllAmenities")
+    Call<JsonObject> getAllAmenities(@Body JsonObject object);
+
+    @POST(APIClient.APPEND_URL + "del_amenity")
+    Call<JsonObject> del_amenity(@Body JsonObject object);
+
+    @POST(APIClient.APPEND_URL + "updateBookstatus")
+    Call<JsonObject> UpdateBookstatus(@Body JsonObject object);
+
+
+
 }

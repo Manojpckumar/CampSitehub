@@ -2,6 +2,7 @@ package com.example.campsitehub.CampDetail;
 
 import java.util.List;
 
+import com.example.campsitehub.Amenities.AllAmenity;
 import com.example.campsitehub.Bookings.AllBooking;
 import com.example.campsitehub.Homepage.CampsDate;
 import com.google.gson.annotations.Expose;
@@ -28,6 +29,10 @@ public class ResultData {
     @SerializedName("All Bookings")
     @Expose
     private List<AllBooking> allBookings = null;
+
+    @SerializedName("All_Amenity")
+    @Expose
+    private List<AllAmenity> allAmenity = null;
 
     public CampDetails getCampDetails() {
         return campDetails;
@@ -67,6 +72,14 @@ public class ResultData {
 
     public void setAllBookings(List<AllBooking> allBookings) {
         this.allBookings = allBookings;
+    }
+
+    public List<AllAmenity> getAllAmenity() {
+        return allAmenity;
+    }
+
+    public void setAllAmenity(List<AllAmenity> allAmenity) {
+        this.allAmenity = allAmenity;
     }
 
 }
