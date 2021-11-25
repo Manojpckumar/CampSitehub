@@ -6,10 +6,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.example.campsitehub.Amenities.AddAmenities;
 import com.example.campsitehub.Amenities.AllAmenity;
 import com.example.campsitehub.Bookings.MyBookingAdapter;
 import com.example.campsitehub.CampDetail.Example;
@@ -43,13 +47,22 @@ public class Allamenities extends AppCompatActivity implements GetResult.MyListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Window w = getWindow();
+        w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);//will hide the title.
+        getSupportActionBar().hide(); //hide the title bar.
         binding = ActivityAllCampsBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+        createViews(binding);
         custPrograssbar = new CustPrograssbar();
         builder = new AlertDialog.Builder(this);
         getAllamenities("1");
 
+    }
+
+    private void createViews(ActivityAllCampsBinding binding) {
+        binding.tbCommon.backFinish.setOnClickListener(this);
     }
 
     private void getAllamenities(String rcode) {
@@ -128,7 +141,7 @@ public class Allamenities extends AppCompatActivity implements GetResult.MyListe
                 binding.rcvAmenities.setLayoutManager(new LinearLayoutManager(this));
 
                 binding.rcvAmenities.setAdapter(adapter);
-            Toast.makeText(this, "DELETED SUCCESSFULLY", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "DELETED", Toast.LENGTH_SHORT).show();
 
 
             }
@@ -143,6 +156,16 @@ public class Allamenities extends AppCompatActivity implements GetResult.MyListe
 
     @Override
     public void onClick(View view) {
+        switch (view.getId()){
+
+            case R.id.back_finish:
+
+                finish();
+                break;
+
+
+
+        }
 
     }
 
@@ -150,8 +173,8 @@ public class Allamenities extends AppCompatActivity implements GetResult.MyListe
     public void onItemClick(int position, String chk) {
 
         if (chk.equalsIgnoreCase("EDIT")) {
-            Toast.makeText(this, "EDIT" + allamenitiesList.get(position)
-                    .getAtId(), Toast.LENGTH_SHORT).show();
+            String a_id=allamenitiesList.get(position).getAtId();
+            startActivity(new Intent(this, AddAmenities.class).putExtra("key",a_id));
         } else {
 
             AmenityDialogue(allamenitiesList.get(position).getAtId());
@@ -177,7 +200,7 @@ public class Allamenities extends AppCompatActivity implements GetResult.MyListe
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
-                        Toast.makeText(getApplicationContext(), "you choose no action for alertbox",
+                        Toast.makeText(getApplicationContext(), "",
                                 Toast.LENGTH_SHORT).show();
                     }
                 });

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="17dp"
+    android:background="#1ea5ff">
+
+    <ImageView
+        android:id="@+id/back_finish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_arrow_back_ios_24" />
+
+    <com.example.campsitehub.CustomViews.CustomTextView
+        android:id="@+id/toolbar_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ALL AMENITIES"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:layout_marginRight="10dp"
+        android:textColor="@android:color/white"/>
+
+
+
+</androidx.appcompat.widget.Toolbar>

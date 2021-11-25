@@ -18,6 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Welcome Admin"
+            android:paddingStart="10dp"
             android:textColor="@color/white"
             android:textSize="25sp" />
 
@@ -27,7 +28,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="70dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -38,6 +39,7 @@
             android:weightSum="2">
 
             <LinearLayout
+                android:id="@+id/all_camps"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -65,21 +67,7 @@
 
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
 
-                        <com.example.campsitehub.CustomViews.CustomMainHeading
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:text="12"
-                            android:textColor="@color/white"
-                            android:textSize="27sp"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
 
 
                 </LinearLayout>
@@ -92,6 +80,7 @@
                     <com.example.campsitehub.CustomViews.CustomMainHeading
                         android:paddingLeft="10dp"
                         android:layout_width="match_parent"
+                        android:gravity="center"
                         android:layout_height="wrap_content"
                         android:text="Manage Campsite"
                         android:textColor="@color/white"
@@ -135,21 +124,7 @@
 
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
 
-                        <com.example.campsitehub.CustomViews.CustomMainHeading
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:text="10"
-                            android:textColor="@color/white"
-                            android:textSize="27sp"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
 
 
                 </LinearLayout>
@@ -174,6 +149,11 @@
 
 
         </LinearLayout>
+
+
+
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -211,21 +191,6 @@
 
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
-
-                        <com.example.campsitehub.CustomViews.CustomMainHeading
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:text="22"
-                            android:textColor="@color/white"
-                            android:textSize="27sp"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
 
 
                 </LinearLayout>
@@ -240,19 +205,12 @@
                         android:paddingLeft="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:text="Camp Accessories"
                         android:textColor="@color/white"
                         android:textSize="20sp" />
 
-                    <com.example.campsitehub.CustomViews.CustomMainHeading
-                        android:id="@+id/all_amen_bt"
-                        android:layout_width="wrap_content"
-                        android:padding="5dp"
-                        android:layout_height="wrap_content"
-                        android:text="ALL AMENITIES >"
-                        android:background="@color/white"
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
+
 
                 </LinearLayout>
 
@@ -292,21 +250,7 @@
 
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
 
-                        <com.example.campsitehub.CustomViews.CustomMainHeading
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:text="18"
-                            android:textColor="@color/white"
-                            android:textSize="27sp"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
 
 
                 </LinearLayout>
@@ -334,9 +278,136 @@
 
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="165dp"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/admin_home_card"
+                android:orientation="vertical"
+                android:weightSum="4">
+
+                <LinearLayout
+                    android:id="@+id/all_amen_bt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/ic_acces" />
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content"
+                    android:gravity="bottom">
+
+                    <com.example.campsitehub.CustomViews.CustomMainHeading
+                        android:paddingLeft="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Manage
+                        Accessories"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="10dp"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/admin_home_card"
+                android:orientation="vertical"
+                android:weightSum="4">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/ic_users" />
+
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="bottom">
+
+                    <com.example.campsitehub.CustomViews.CustomMainHeading
+                        android:paddingLeft="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Terms and Policies"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
 
 
     </LinearLayout>
+
+
 
 
     <!--bottom -->

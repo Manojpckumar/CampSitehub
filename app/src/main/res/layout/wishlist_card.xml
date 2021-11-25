@@ -112,31 +112,21 @@
                 android:orientation="horizontal"
                 android:weightSum="2">
 
-                <com.example.campsitehub.CustomViews.CustomMainHeading
+                <com.example.campsitehub.CustomViews.CustomButton
                     android:layout_width="wrap_content"
                     android:id="@+id/bK_cancel"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:padding="10dp"
-                    android:background="@drawable/txn_outline"
                     android:text="CANCEL"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
                     android:textStyle="bold" />
 
-                <com.example.campsitehub.CustomViews.CustomMainHeading
+                <com.example.campsitehub.CustomViews.CustomButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="MORE INFO >"
                     android:layout_weight="1"
                     android:id="@+id/bk_info"
-                    android:gravity="center"
-                    android:padding="10dp"
-                    android:background="@drawable/txn_outline_right"
-                    android:text="MORE INFO >"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    />
 
 
             </LinearLayout>
@@ -167,11 +157,7 @@
                         android:textSize="16sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
-                    <RadioButton
-                        android:textSize="16sp"
-                        android:text="Initiate Refund"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+
 
                     <RadioButton
                         android:textSize="16sp"

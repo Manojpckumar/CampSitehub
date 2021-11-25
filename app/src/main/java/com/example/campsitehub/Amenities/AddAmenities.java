@@ -9,9 +9,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.example.campsitehub.AddCampSite.Allamenities;
+import com.example.campsitehub.CampDetail.Example;
 import com.example.campsitehub.R;
 import com.example.campsitehub.ResponseCommon;
 import com.example.campsitehub.Retrofit.APIClient;
@@ -55,7 +59,36 @@ public class AddAmenities extends AppCompatActivity implements GetResult.MyListe
         custPrograssbar=new CustPrograssbar();
         binding.btnCreateamenity.setOnClickListener(this);
         binding.btnAmenitybanner.setOnClickListener(this);
+        String action_value=getIntent().getStringExtra("key");
+        if(action_value.equals("0")){
+
+
+        }else{
+            custPrograssbar.progressCreate(this);
+            custPrograssbar.setCancel(false);
+            getamenbyid(action_value);
+            binding.btnCreateamenity.setText("UPDATE");
+            binding.btnAmenitybanner.setEnabled(false
+            );
+        }
+
     }
+
+    private void getamenbyid(String action) {
+
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("am_id", action);
+            JsonParser jsonParser = new JsonParser();
+            Call<JsonObject> call = APIClient.getInterface().getAmenitybyid((JsonObject) jsonParser.parse(jsonObject.toString()));
+            GetResult getResult = new GetResult();
+            getResult.setMyListener(this);
+            getResult.onNCHandle(call, "amenitiesbyid");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void  requestPermissions(){
         Dexter.withActivity(this)
                 .withPermissions(
@@ -136,8 +169,30 @@ public class AddAmenities extends AppCompatActivity implements GetResult.MyListe
             custPrograssbar.close();
             Toast.makeText(this, response.getResponseMsg(), Toast.LENGTH_SHORT).show();
 
+        }
+        else if(callNo.equalsIgnoreCase("amenitiesbyid")){
+            custPrograssbar.close();
+            Gson gson = new Gson();
+            Example am = gson.fromJson(result.toString(), Example.class);
+            binding.amenityName.setText(am.getResultData().getAmenityDetails().getAtName());
+            binding.amenityOfferprice.setText(am.getResultData().getAmenityDetails().getAtPrice());
+            binding.amenDescription.setText(am.getResultData().getAmenityDetails().getAtDescription());
+            Glide.with(this).load(APIClient.baseUrl+"phase1/"+am.getResultData().getAmenityDetails().getAtBanner()).into(binding.imgCamp);
 
 
+        }
+
+        else if(callNo.equalsIgnoreCase("updateAmenity")){
+
+            Gson gson=new Gson();
+            ResponseCommon responseCommon=gson.fromJson(result.toString(),ResponseCommon.class);
+            if(responseCommon.getResult().equals("true")){
+
+                startActivity(new Intent(this, Allamenities.class));
+            }
+        }
+        else{
+            Toast.makeText(this, "Inavlid calls", Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -159,53 +214,88 @@ public class AddAmenities extends AppCompatActivity implements GetResult.MyListe
 
 
             case R.id.btn_createamenity:
+                if(binding.btnCreateamenity.getText().toString().equals("UPDATE"))
+                {
+                    if (binding.amenityName.getText().toString().isEmpty()) {
 
-                if(binding.amenityName.getText().toString().isEmpty()){
-
-                    binding.amenityName.setError("Please enter the Camp Name to proceed");
-
-
-                }
-                else if(binding.amenityOfferprice.getText().toString().isEmpty()){
-
-                    binding.amenityOfferprice.setError("Please enter the Price to proceed");
-
-                }
+                        binding.amenityName.setError("Please enter the Camp Name to proceed");
 
 
+                    } else if (binding.amenityOfferprice.getText().toString().isEmpty()) {
 
-                else if(binding.amenDescription.getText().toString().isEmpty()){
+                        binding.amenityOfferprice.setError("Please enter the Price to proceed");
 
-                    binding.amenDescription.setError("Please enter a short description to proceed");
+                    } else if (binding.amenDescription.getText().toString().isEmpty()) {
 
-                }
-                else if(campencodedImage.isEmpty()){
+                        binding.amenDescription.setError("Please enter a short description to proceed");
 
-                    Toast.makeText(this, "Please Attach an image to proceed", Toast.LENGTH_SHORT).show();
+                    } else{
 
-            }
-                else{
+                        custPrograssbar.progressCreate(this);
+                        custPrograssbar.setCancel(false);
+                        JSONObject jsonObject = new JSONObject();
+                        try {
+                            jsonObject.put("amenity_name", binding.amenityName.getText().toString());
+                            jsonObject.put("amenity_price", binding.amenityOfferprice.getText().toString());
+                            jsonObject.put("amenity_desc", binding.amenDescription.getText().toString());
+                            jsonObject.put("at_id",getIntent().getStringExtra("key") );
+                            JsonParser jsonParser = new JsonParser();
+                            Call<JsonObject> call = APIClient.getInterface().updateAmenities((JsonObject) jsonParser.parse(jsonObject.toString()));
+                            GetResult getResult = new GetResult();
+                            getResult.setMyListener(this);
+                            getResult.onNCHandle(call, "updateAmenity");
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
 
-                    custPrograssbar.progressCreate(this);
-                    custPrograssbar.setCancel(false);
-                    JSONObject jsonObject=new JSONObject();
-                    try {
-                        jsonObject.put("amenity_name", binding.amenityName.getText().toString());
-                        jsonObject.put("amenity_price", binding.amenityOfferprice.getText().toString());
-                        jsonObject.put("amenity_desc", binding.amenDescription.getText().toString());
-                        jsonObject.put("image", campencodedImage);
-                        jsonObject.put("image_name", image_name);
-                        JsonParser jsonParser = new JsonParser();
-                        Call<JsonObject> call = APIClient.getInterface().addAmenity((JsonObject) jsonParser.parse(jsonObject.toString()));
-                        GetResult getResult = new GetResult();
-                        getResult.setMyListener(this);
-                        getResult.onNCHandle(call, "addAmenity");
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+
+
+
                     }
 
 
 
+                }
+                else {
+                    if (binding.amenityName.getText().toString().isEmpty()) {
+
+                        binding.amenityName.setError("Please enter the Camp Name to proceed");
+
+
+                    } else if (binding.amenityOfferprice.getText().toString().isEmpty()) {
+
+                        binding.amenityOfferprice.setError("Please enter the Price to proceed");
+
+                    } else if (binding.amenDescription.getText().toString().isEmpty()) {
+
+                        binding.amenDescription.setError("Please enter a short description to proceed");
+
+                    } else if (campencodedImage.isEmpty()) {
+
+                        Toast.makeText(this, "Please Attach an image to proceed", Toast.LENGTH_SHORT).show();
+
+                    } else {
+
+                        custPrograssbar.progressCreate(this);
+                        custPrograssbar.setCancel(false);
+                        JSONObject jsonObject = new JSONObject();
+                        try {
+                            jsonObject.put("amenity_name", binding.amenityName.getText().toString());
+                            jsonObject.put("amenity_price", binding.amenityOfferprice.getText().toString());
+                            jsonObject.put("amenity_desc", binding.amenDescription.getText().toString());
+                            jsonObject.put("image", campencodedImage);
+                            jsonObject.put("image_name", image_name);
+                            JsonParser jsonParser = new JsonParser();
+                            Call<JsonObject> call = APIClient.getInterface().addAmenity((JsonObject) jsonParser.parse(jsonObject.toString()));
+                            GetResult getResult = new GetResult();
+                            getResult.setMyListener(this);
+                            getResult.onNCHandle(call, "addAmenity");
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+
+                    }
                 }
 
 

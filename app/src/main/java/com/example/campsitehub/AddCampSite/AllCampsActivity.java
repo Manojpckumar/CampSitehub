@@ -1,5 +1,7 @@
-package com.example.campsitehub.Bookings;
+package com.example.campsitehub.AddCampSite;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
 import android.view.View;
@@ -7,18 +9,16 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-
+import com.example.campsitehub.CampDetail.AdminCamp;
 import com.example.campsitehub.CampDetail.Example;
+import com.example.campsitehub.R;
 import com.example.campsitehub.ResponseCommon;
 import com.example.campsitehub.Retrofit.APIClient;
 import com.example.campsitehub.Retrofit.GetResult;
 import com.example.campsitehub.Utils.CustPrograssbar;
 import com.example.campsitehub.Utils.RecyclerViewClickInterface;
-import com.example.campsitehub.databinding.ActivityMyBookingsBinding;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.example.campsitehub.databinding.ActivityAllCamps2Binding;
+import com.example.campsitehub.databinding.ActivityAllCampsBinding;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -31,63 +31,68 @@ import java.util.List;
 
 import retrofit2.Call;
 
-public class MyBookings extends AppCompatActivity implements GetResult.MyListener, RecyclerViewClickInterface {
+public class AllCampsActivity extends AppCompatActivity implements GetResult.MyListener, RecyclerViewClickInterface {
 
-    ActivityMyBookingsBinding binding;
-    FirebaseUser user;
-    List<AllBooking> allBookingList;
+    ActivityAllCamps2Binding binding;
+    List<AdminCamp> adminCampList;
     CustPrograssbar custPrograssbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+        Window w = getWindow();
+        w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         requestWindowFeature(Window.FEATURE_NO_TITLE);//will hide the title.
         getSupportActionBar().hide(); //hide the title bar.
-        binding = ActivityMyBookingsBinding.inflate(getLayoutInflater());
+        binding = ActivityAllCamps2Binding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-        user = FirebaseAuth.getInstance().getCurrentUser();
-        custPrograssbar = new CustPrograssbar();
-        getAllBookings();
-
-
+        custPrograssbar=new CustPrograssbar();
+        getAllCamps();
     }
 
-    private void getAllBookings() {
+    private void getAllCamps() {
         custPrograssbar.progressCreate(this);
+        custPrograssbar.setCancel(false);
         JSONObject jsonObject = new JSONObject();
         try {
-            jsonObject.put("user_id", user.getEmail());
+            jsonObject.put("user_id", "1");
             JsonParser jsonParser = new JsonParser();
-            Call<JsonObject> call = APIClient.getInterface().GetBookings((JsonObject) jsonParser.parse(jsonObject.toString()));
+            Call<JsonObject> call = APIClient.getInterface().getAllCamps((JsonObject) jsonParser.parse(jsonObject.toString()));
             GetResult getResult = new GetResult();
             getResult.setMyListener(this);
-            getResult.onNCHandle(call, "Allbookings");
+            getResult.onNCHandle(call, "getAllCamps");
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
+
     }
 
     @Override
     public void callback(JsonObject result, String callNo) {
-        custPrograssbar.close();
-        if (callNo.equalsIgnoreCase("Allbookings")) {
+
+
+        if (callNo.equalsIgnoreCase("getAllCamps")) {
+            custPrograssbar.close();
             Gson gson = new Gson();
-            Example home = gson.fromJson(result.toString(), Example.class);
-            allBookingList = new ArrayList<>();
-            allBookingList.addAll(home.getResultData().getAllBookings());
-            MyBookingAdapter adapter = new MyBookingAdapter(this, allBookingList, this);
-            binding.rcvMybooking.setLayoutManager(new LinearLayoutManager(this));
+            Example example = gson.fromJson(result.toString(), Example.class);
+            adminCampList = new ArrayList<>();
+            adminCampList.addAll(example.getResultData().getAdminCamps());
+            AllcampAdapter adapter = new AllcampAdapter(this, adminCampList, this);
+            binding.rcvAllcamps.setLayoutManager(new LinearLayoutManager(this));
+            binding.rcvAllcamps.setAdapter(adapter);
 
-            binding.rcvMybooking.setAdapter(adapter);
 
-        } else if (callNo.equalsIgnoreCase("UpdateBookstatus")) {
+        } else if (callNo.equalsIgnoreCase("changestatus")) {
 
             Gson gson = new Gson();
+
             ResponseCommon responseCommon = gson.fromJson(result.toString(), ResponseCommon.class);
             if (responseCommon.getResult().equals("true")) {
 
-                getAllBookings();
+                getAllCamps();
 
             }
 
@@ -98,29 +103,22 @@ public class MyBookings extends AppCompatActivity implements GetResult.MyListene
 
     }
 
-
     @Override
     public void onItemClick(int position, String chk) {
 
-            ChangeStatus(position, chk);
-
-
-    }
-
-    private void ChangeStatus(int position, String chk) {
-
         JSONObject jsonObject = new JSONObject();
         try {
-            jsonObject.put("booking_id", allBookingList.get(position).getBookingId());
+            jsonObject.put("camp_id", adminCampList.get(position).getId());
             jsonObject.put("status", chk);
             JsonParser jsonParser = new JsonParser();
-            Call<JsonObject> call = APIClient.getInterface().UpdateBookstatus((JsonObject) jsonParser.parse(jsonObject.toString()));
+            Call<JsonObject> call = APIClient.getInterface().updateCampstatus((JsonObject) jsonParser.parse(jsonObject.toString()));
             GetResult getResult = new GetResult();
             getResult.setMyListener(this);
-            getResult.onNCHandle(call, "UpdateBookstatus");
+            getResult.onNCHandle(call, "changestatus");
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
 
     }
 }

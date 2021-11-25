@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.campsitehub.CampDetail.Example;
+import com.example.campsitehub.CustomViews.CustomButton;
 import com.example.campsitehub.CustomViews.CustomMainHeading;
 import com.example.campsitehub.R;
 import com.example.campsitehub.Retrofit.APIClient;
@@ -74,7 +75,11 @@ public class MyBookingAdapter extends RecyclerView.Adapter<MyBookingAdapter.MyVi
 
         if (user.getEmail().equals("admin@gmail.com")) {
 
-            holder.bk_cancel.setVisibility(View.GONE);
+            holder.bk_cancel.setEnabled(false);
+        }
+        else{
+
+            holder.bk_next.setVisibility(View.GONE);
         }
 
         if (allBooking.getStatus().equals("0")) {
@@ -83,16 +88,19 @@ public class MyBookingAdapter extends RecyclerView.Adapter<MyBookingAdapter.MyVi
         } else if (allBooking.getStatus().equals("1")) {
 
             holder.tv_status.setText("Confirmed");
+            holder.tv_status.setTextColor(context.getResources().getColor(R.color.green));
             holder.edit_layout.setVisibility(View.GONE);
 
 
         } else if (allBooking.getStatus().equals("2")) {
 
             holder.tv_status.setText("Cancelled By admin");
+            holder.tv_status.setTextColor(context.getResources().getColor(R.color.red));
             holder.edit_layout.setVisibility(View.GONE);
 
         } else {
             holder.tv_status.setText("Cancelled");
+            holder.tv_status.setTextColor(context.getResources().getColor(R.color.red));
             holder.edit_layout.setVisibility(View.GONE);
 
 
@@ -110,7 +118,8 @@ public class MyBookingAdapter extends RecyclerView.Adapter<MyBookingAdapter.MyVi
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        CustomMainHeading tv_campname, tv_transaction, tv_status, tv_full_amnt, bk_cancel, bk_next;
+        CustomMainHeading tv_campname, tv_transaction, tv_status, tv_full_amnt;
+        CustomButton bk_cancel, bk_next;
         LinearLayout admin_confirmation, edit_layout;
         RadioGroup radioGroup;
         Button proceed;
@@ -139,6 +148,12 @@ public class MyBookingAdapter extends RecyclerView.Adapter<MyBookingAdapter.MyVi
                                                       }
                                                   }
             );
+            bk_cancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    recyclerViewClickInterface.onItemClick(getAdapterPosition(), "3");
+                }
+            });
 
             proceed.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -148,13 +163,11 @@ public class MyBookingAdapter extends RecyclerView.Adapter<MyBookingAdapter.MyVi
                     if (radioButton.getText().toString().equals("Confirm")) {
                         val = "1";
                         recyclerViewClickInterface.onItemClick(getAdapterPosition(), val);
-                    }
-                else if (radioButton.getText().toString().equals("Initiate Refund")) {
+                    } else if (radioButton.getText().toString().equals("Cancel")) {
 
                         val = "2";
                         recyclerViewClickInterface.onItemClick(getAdapterPosition(), val);
-                    }
-                     else {
+                    } else {
                         val = "3";
                         recyclerViewClickInterface.onItemClick(getAdapterPosition(), val);
 
@@ -172,6 +185,7 @@ public class MyBookingAdapter extends RecyclerView.Adapter<MyBookingAdapter.MyVi
                         edit_layout.setVisibility(View.GONE);
 
                     }
+
                 }
             });
 

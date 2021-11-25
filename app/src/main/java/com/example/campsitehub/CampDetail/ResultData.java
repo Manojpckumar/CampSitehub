@@ -34,6 +34,18 @@ public class ResultData {
     @Expose
     private List<AllAmenity> allAmenity = null;
 
+    @SerializedName("AdminCamps")
+    @Expose
+    private List<AdminCamp> adminCamps = null;
+
+    public List<AdminCamp> getAdminCamps() {
+        return adminCamps;
+    }
+
+    public void setAdminCamps(List<AdminCamp> adminCamps) {
+        this.adminCamps = adminCamps;
+    }
+
     public CampDetails getCampDetails() {
         return campDetails;
     }

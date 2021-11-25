@@ -107,6 +107,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             binding.includercv.inctoolbar.etfromSearch.setVisibility(View.GONE);
             binding.includercv.inctoolbar.ettoSearch.setVisibility(View.GONE);
             binding.includercv.inctoolbar.ivSearch.setVisibility(View.GONE);
+            binding.includercv.inctoolbar.viewLine.setVisibility(View.GONE);
         } else {
             LoadFragment(new HomeFragment());
             hideItem();

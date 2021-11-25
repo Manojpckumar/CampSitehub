@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.campsitehub.AddCampSite.AddCampSite;
+import com.example.campsitehub.AddCampSite.AllCampsActivity;
 import com.example.campsitehub.AddCampSite.Allamenities;
 import com.example.campsitehub.Amenities.AddAmenities;
 import com.example.campsitehub.Amenities.AllAmenity;
@@ -82,6 +83,7 @@ public class AdminHomeFragment extends Fragment implements View.OnClickListener 
         binding.addAmenities.setOnClickListener(this);
         binding.allUsers.setOnClickListener(this);
         binding.allAmenBt.setOnClickListener(this);
+        binding.allCamps.setOnClickListener(this);
     }
 
     @Override
@@ -104,7 +106,7 @@ public class AdminHomeFragment extends Fragment implements View.OnClickListener 
 
             case R.id.add_amenities:
 
-                startActivity(new Intent(getActivity(), AddAmenities.class));
+                startActivity(new Intent(getActivity(), AddAmenities.class).putExtra("key","0"));
 
                 break;
 
@@ -119,6 +121,12 @@ public class AdminHomeFragment extends Fragment implements View.OnClickListener 
 
 
                     break;
+
+            case R.id.all_camps:
+
+                startActivity(new Intent(getActivity(), AllCampsActivity.class));
+
+                break;
         }
     }
 }

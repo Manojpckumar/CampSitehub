@@ -39,7 +39,7 @@ public class AmenityAdapter extends RecyclerView.Adapter<AmenityAdapter.MyViewHo
 
     public AmenityAdapter.MyViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
 
-        View view= LayoutInflater.from(context).inflate(R.layout.all_amenityad,parent,false);
+        View view= LayoutInflater.from(context).inflate(R.layout.all_amenityadapter,parent,false);
         return new MyViewHolder(view);
     }
 
@@ -47,11 +47,10 @@ public class AmenityAdapter extends RecyclerView.Adapter<AmenityAdapter.MyViewHo
     public void onBindViewHolder(@NonNull @NotNull AmenityAdapter.MyViewHolder holder, int position) {
 
         AllAmenity amenity=allAmenityList.get(position);
-
         holder.tv_am_price.setText("$ "+amenity.getAtPrice());
         holder.tv_amen_name.setText(amenity.getAtName());
         holder.tv_description.setText(amenity.getAtDescription());
-        Glide.with(context).load(APIClient.baseUrl+"phase1/"+amenity.getAtBanner()).into(holder.amen_img);
+        Glide.with(context).load(APIClient.baseUrl+"phase1/"+amenity.getAtBanner()).into(holder.image_Id);
 
     }
 
@@ -62,17 +61,18 @@ public class AmenityAdapter extends RecyclerView.Adapter<AmenityAdapter.MyViewHo
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        CustomMainHeading tv_amen_name,tv_description,tv_am_price,bK_delete,bK_edit;
-        ImageView amen_img;
+      CustomMainHeading tv_amen_name,tv_description,tv_am_price,Date_Id;
+      ImageView image_Id,bK_delete,bK_edit;
 
         public MyViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             tv_am_price=itemView.findViewById(R.id.tv_am_price);
             tv_description=itemView.findViewById(R.id.tv_description);
+            Date_Id=itemView.findViewById(R.id.Date_Id);
             tv_amen_name=itemView.findViewById(R.id.tv_amen_name);
             bK_delete=itemView.findViewById(R.id.bK_delete);
             bK_edit=itemView.findViewById(R.id.bk_edit);
-            amen_img=itemView.findViewById(R.id.amen_img);
+            image_Id=itemView.findViewById(R.id.image_Id);
             bK_delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

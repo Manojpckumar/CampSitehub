@@ -26,8 +26,6 @@ public interface Api {
     @POST(APIClient.APPEND_URL + "getAmenDetailsbyid")
     Call<JsonObject> getAmenitybyid(@Body JsonObject object);
 
-
-
     @POST(APIClient.APPEND_URL + "getCampsbyavailabledate")
     Call<JsonObject> getCampDatebyid(@Body JsonObject object);
 
@@ -49,6 +47,17 @@ public interface Api {
 
     @POST(APIClient.APPEND_URL + "updateBookstatus")
     Call<JsonObject> UpdateBookstatus(@Body JsonObject object);
+
+    @POST(APIClient.APPEND_URL + "updateAmenities")
+    Call<JsonObject> updateAmenities(@Body JsonObject object);
+
+
+    @POST(APIClient.APPEND_URL + "getAllCamps")
+    Call<JsonObject> getAllCamps(@Body JsonObject object);
+
+
+    @POST(APIClient.APPEND_URL + "updateCampstatus")
+    Call<JsonObject> updateCampstatus(@Body JsonObject object);
 
 
 
