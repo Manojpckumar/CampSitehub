@@ -81,7 +81,7 @@ public class AdminHomeFragment extends Fragment implements View.OnClickListener 
         binding.addCamps.setOnClickListener(this);
         binding.manageBooking.setOnClickListener(this);
         binding.addAmenities.setOnClickListener(this);
-        binding.allUsers.setOnClickListener(this);
+
         binding.allAmenBt.setOnClickListener(this);
         binding.allCamps.setOnClickListener(this);
     }
@@ -110,11 +110,7 @@ public class AdminHomeFragment extends Fragment implements View.OnClickListener 
 
                 break;
 
-            case R.id.all_users:
 
-                startActivity(new Intent(getActivity(), AddAmenities.class));
-
-                break;
 
             case R.id.all_amen_bt:
                     startActivity(new Intent(getActivity(), Allamenities.class));

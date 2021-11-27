@@ -1,5 +1,6 @@
  package com.example.campsitehub.Homepage;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -30,19 +32,18 @@ import com.example.campsitehub.Utils.RecyclerViewClickInterface;
 
  public class HomePageAdapter extends RecyclerView.Adapter<HomePageAdapter.MyViewHolder> {
 
-    List<HomeViewModel> list = new ArrayList<>();
+    List<HomeViewModel> list ;
     Context context;
+    RecyclerViewClickInterface recyclerViewClickInterface;
 
 
+     public HomePageAdapter(List<HomeViewModel> list, Context context) {
+         this.list = list;
+         this.context = context;
 
-    public HomePageAdapter(Context context, List<HomeViewModel> list) {
+     }
 
-        this.context = context;
-        this.list = list;
-
-    }
-
-    @NonNull
+     @NonNull
     @Override
     public HomePageAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
@@ -62,23 +63,11 @@ import com.example.campsitehub.Utils.RecyclerViewClickInterface;
         holder.tv_likes.setText(model.getRatingNumber()+" peoples like this");
         Glide.with(context).load(APIClient.baseUrl+"phase1/" +model.getCampsiteBanner()).into(holder.iv_banner);
         Log.d("imgurl2200",APIClient.baseUrl+"phase1"+model.getCampsiteBanner());
-        if (model.getStatus() == 1)
-        {
-            holder.tv_status.setText("AVAILABLE");
-        }
-        else
-        {
-            holder.tv_campname.setText("NOT AVAILABLE");
-            holder.tv_campname.setBackgroundColor(ContextCompat.getColor(context,R.color.red));
-
-        }
-
-
 
         holder.iv_banner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (model.getStatus() == 1) {
+                if (model.getStatus()==1) {
 
                     Intent intent = new Intent(context, CampDetailActivity.class);
 
@@ -88,6 +77,20 @@ import com.example.campsitehub.Utils.RecyclerViewClickInterface;
 
             }
         });
+
+//
+//        holder.iv_banner.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Dialog myDialog = new Dialog(context);
+//                myDialog.getWindow();
+//                myDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//                myDialog.setCancelable(true);
+//                myDialog.setContentView(R.layout.dialogbox);
+//                myDialog.show();
+//
+//            }
+//        });
 
 
 

@@ -28,8 +28,7 @@
         <activity android:name=".CampDetail.CampDetailActivity" />
         <activity
             android:name=".Homepage.MainActivity"
-            android:label="@string/title_activity_main"
-            android:theme="@style/Theme.CampSiteHub.NoActionBar" />
+            android:label="@string/title_activity_main" />
         <activity
             android:name=".Homepage.MainHomeActivity"
             android:label="@string/title_activity_main_home"

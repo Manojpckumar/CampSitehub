@@ -126,11 +126,14 @@ public class CampSearchFragment extends Fragment implements GetResult.MyListener
 
             campsDates = new ArrayList<>();
             campsDates.addAll(home.getResultData().getCampsDate());
-            SearchAdapter adapter = new SearchAdapter(getContext(), campsDates);
-            binding.rcvSearchCamps.setLayoutManager(new LinearLayoutManager(getContext()));
+            if (home.getResultData().getCampsDate().isEmpty()) {
+                binding.noCamp.setVisibility(View.VISIBLE);
+            } else {
+                SearchAdapter adapter = new SearchAdapter(getContext(), campsDates);
+                binding.rcvSearchCamps.setLayoutManager(new LinearLayoutManager(getContext()));
 
-            binding.rcvSearchCamps.setAdapter(adapter);
-
+                binding.rcvSearchCamps.setAdapter(adapter);
+            }
 
         }
 

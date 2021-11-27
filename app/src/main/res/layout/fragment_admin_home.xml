@@ -8,19 +8,20 @@
     tools:context=".Homepage.AdminHomeFragment">
 
     <LinearLayout
-        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="80dp"
+        android:gravity="center"
         android:padding="10dp">
 
         <com.example.campsitehub.CustomViews.CustomMainHeading
             android:id="@+id/tv_welcome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Welcome Admin"
+            android:gravity="center"
             android:paddingStart="10dp"
+            android:text="Welcome Admin"
             android:textColor="@color/white"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
 
     </LinearLayout>
 
@@ -68,8 +69,6 @@
                     </LinearLayout>
 
 
-
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -78,10 +77,10 @@
                     android:gravity="bottom">
 
                     <com.example.campsitehub.CustomViews.CustomMainHeading
-                        android:paddingLeft="10dp"
                         android:layout_width="match_parent"
-                        android:gravity="center"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingLeft="10dp"
                         android:text="Manage Campsite"
                         android:textColor="@color/white"
                         android:textSize="20sp" />
@@ -125,8 +124,6 @@
                     </LinearLayout>
 
 
-
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -135,9 +132,9 @@
                     android:gravity="bottom">
 
                     <com.example.campsitehub.CustomViews.CustomMainHeading
-                        android:paddingLeft="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
                         android:text="Manage booking"
                         android:textColor="@color/white"
                         android:textSize="20sp" />
@@ -149,10 +146,6 @@
 
 
         </LinearLayout>
-
-
-
-
 
 
         <LinearLayout
@@ -192,24 +185,22 @@
                     </LinearLayout>
 
 
-
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:orientation="vertical"
                     android:layout_height="wrap_content"
-                    android:gravity="bottom">
+                    android:gravity="bottom"
+                    android:orientation="vertical">
 
                     <com.example.campsitehub.CustomViews.CustomMainHeading
-                        android:paddingLeft="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
+                        android:paddingLeft="10dp"
                         android:text="Camp Accessories"
                         android:textColor="@color/white"
                         android:textSize="20sp" />
-
 
 
                 </LinearLayout>
@@ -221,61 +212,8 @@
                 android:layout_width="10dp"
                 android:layout_height="match_parent" />
 
-            <LinearLayout
-                android:id="@+id/all_users"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/admin_home_card"
-                android:orientation="vertical"
-                android:weightSum="4">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center">
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:src="@drawable/ic_users" />
-
-                    </LinearLayout>
-
-
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="bottom">
-
-                    <com.example.campsitehub.CustomViews.CustomMainHeading
-                        android:paddingLeft="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Registered Users"
-                        android:textColor="@color/white"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-
-            </LinearLayout>
-
 
         </LinearLayout>
-
 
 
         <LinearLayout
@@ -315,25 +253,23 @@
                     </LinearLayout>
 
 
-
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:orientation="vertical"
                     android:layout_height="wrap_content"
-                    android:gravity="bottom">
+                    android:gravity="bottom"
+                    android:orientation="vertical">
 
                     <com.example.campsitehub.CustomViews.CustomMainHeading
-                        android:paddingLeft="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingLeft="10dp"
                         android:text="Manage
                         Accessories"
-                        android:gravity="center"
                         android:textColor="@color/white"
                         android:textSize="20sp" />
-
 
 
                 </LinearLayout>
@@ -375,8 +311,6 @@
                     </LinearLayout>
 
 
-
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -385,11 +319,11 @@
                     android:gravity="bottom">
 
                     <com.example.campsitehub.CustomViews.CustomMainHeading
-                        android:paddingLeft="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Terms and Policies"
                         android:gravity="center"
+                        android:paddingLeft="10dp"
+                        android:text="Terms and Policies"
                         android:textColor="@color/white"
                         android:textSize="20sp" />
 
@@ -402,12 +336,7 @@
         </LinearLayout>
 
 
-
-
-
     </LinearLayout>
-
-
 
 
     <!--bottom -->
@@ -428,8 +357,8 @@
             android:textColor="@color/white" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_width="wrap_content"
             android:id="@+id/add_camps"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_baseline_add_24"
             android:tintMode="@color/white"

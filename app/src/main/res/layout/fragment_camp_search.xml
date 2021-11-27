@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".Homepage.CampSearchFragment">
+
+    <com.example.campsitehub.CustomViews.CustomMainHeading
+        android:id="@+id/no_camp"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:text="NO CAMPS FOUND"
+        android:textSize="18sp"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:layout_height="wrap_content"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcv_search_camps"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-</LinearLayout>
+</RelativeLayout>

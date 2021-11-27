@@ -8,10 +8,19 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="lite_ash_bg">#f6f6f4</color>
+    <color name="city_name">#627083</color>
+    <color name="dep">#7c7b7b</color>
+    <color name="textblack">#282a2c</color>
+    <color name="subtext_listview">#8392a7</color>
 
+    <color name="mainTextColor"> #282A2C</color>
+    <color name="subTextColor"> #908484</color>
     <color name="titlecolor">#1ea5ff</color>
+    <color name="viewline">#cacbcc</color>
     <color name="red">#D50000</color>
+    <color name="reds">#B9D50000</color>
     <color name="green">#00C853</color>
+    <color name="border">#dddddd</color>
     <color name="tra_white">#28FFFFFF</color>
     <color name="time_card">#28939090</color>
 

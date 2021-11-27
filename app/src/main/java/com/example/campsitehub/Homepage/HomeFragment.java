@@ -16,6 +16,7 @@ import com.example.campsitehub.R;
 import com.example.campsitehub.Retrofit.Api;
 import com.example.campsitehub.Retrofit.RetrofitHelper;
 import com.example.campsitehub.Utils.CustPrograssbar;
+import com.example.campsitehub.Utils.RecyclerViewClickInterface;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
@@ -30,11 +31,12 @@ import retrofit2.Retrofit;
  * Use the {@link HomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements RecyclerViewClickInterface {
 
     LinearLayout rootLayout;
     RecyclerView rcv_home;
     CustPrograssbar custPrograssbar;
+    RecyclerViewClickInterface recyclerViewClickInterface;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -102,7 +104,7 @@ public class HomeFragment extends Fragment {
 
                 } else {
                     custPrograssbar.close();
-                    HomePageAdapter adapter = new HomePageAdapter(getContext(), list);
+                    HomePageAdapter adapter = new HomePageAdapter(list,getContext());
                     rcv_home.setLayoutManager(new LinearLayoutManager(getContext()));
 
                     rcv_home.setAdapter(adapter);
@@ -118,6 +120,11 @@ public class HomeFragment extends Fragment {
         });
 
         return view;
+    }
+
+    @Override
+    public void onItemClick(int position, String chk) {
+
     }
 
     public interface OnFragmentInteractionListener {

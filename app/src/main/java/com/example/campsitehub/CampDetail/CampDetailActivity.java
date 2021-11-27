@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.view.Window;
 import android.widget.Toast;
 
 import com.example.campsitehub.Bookings.MyBookingAdapter;
@@ -41,14 +42,15 @@ public class CampDetailActivity extends AppCompatActivity implements GetResult.M
     ArrayList<Integer> sumup = new ArrayList<Integer>();
     // Creating Object of ViewPagerAdapter
     ViewPagerAdapter mViewPagerAdapter;
-    int sum=0;
+    int sum = 0;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // setContentView(R.layout.activity_camp_detail);
-
+        requestWindowFeature(Window.FEATURE_NO_TITLE);//will hide the title.
+        getSupportActionBar().hide(); //hide the title bar.
         binding = ActivityCampDetailBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
@@ -58,35 +60,39 @@ public class CampDetailActivity extends AppCompatActivity implements GetResult.M
         prograssbar = new CustPrograssbar();
         prograssbar.progressCreate(this);
         String a = getIntent().getStringExtra("Book");
+        binding.tbCommon.toolbarHead.setText("Camp Details");
 
 
         getCampbyid(a);
+
+        binding.tbCommon.backFinish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
 
         binding.btnBooknow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(names.size()< 1)
-                {
+                if (names.size() < 1) {
 
                     Toast.makeText(CampDetailActivity.this, "Please Choose amenities from list", Toast.LENGTH_SHORT).show();
-                }
-                else if(names.size()>1){
+                } else if (names.size() > 1) {
 
                     Toast.makeText(CampDetailActivity.this, "Only one amenity can be added", Toast.LENGTH_SHORT).show();
-                }
-                else {
+                } else {
 
 
+                    Intent in = new Intent(CampDetailActivity.this, BookingConfirmation.class);
 
-                   Intent in=new Intent(CampDetailActivity.this,BookingConfirmation.class);
+                    in.putExtra("amkey", names.get(0));
+                    in.putExtra("campkey", a);
+                    in.putExtra("campamount", binding.tvAmount.getText().toString().trim());
 
-                   in.putExtra("amkey",names.get(0));
-                   in.putExtra("campkey",a);
-                   in.putExtra("campamount",binding.tvAmount.getText().toString().trim());
-
-                   startActivity(in);
+                    startActivity(in);
 
                 }
 
@@ -96,7 +102,7 @@ public class CampDetailActivity extends AppCompatActivity implements GetResult.M
         binding.ivPanoview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(CampDetailActivity.this, PanoramicView.class));
+                startActivity(new Intent(CampDetailActivity.this, PanoramicView.class).putExtra("Camp_id",getIntent().getStringExtra("Book")));
             }
         });
 
@@ -170,7 +176,6 @@ public class CampDetailActivity extends AppCompatActivity implements GetResult.M
 
     @Override
     public void onItemClick(int position, String chk) {
-
 
 
         if (chk.equalsIgnoreCase("")) {

@@ -1,30 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
         android:background="@color/lite_ash_bg"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
+        android:orientation="vertical"
         android:layout_height="match_parent"
         tools:context=".CampDetail.CampDetailActivity">
+    <include
+        android:id="@+id/tb_common"
+        layout="@layout/toolbar_cm"/>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
     <androidx.viewpager.widget.ViewPager
             android:id="@+id/vp_viewpager"
             android:layout_width="match_parent"
             android:layout_height="250dp"/>
 
-    <ImageView
-        android:id="@+id/iv_panoview"
-        android:layout_width="40dp"
-        android:layout_height="33dp"
-        android:layout_gravity="end"
-        android:layout_margin="20dp"
-        android:src="@drawable/ic_panoramaview" />
+            <ImageView
+                android:id="@+id/iv_panoview"
+                android:layout_width="40dp"
+                android:layout_height="33dp"
+                android:layout_gravity="end"
+                android:layout_margin="20dp"
+                android:src="@drawable/ic_panoramaview" />
 
-    <androidx.core.widget.NestedScrollView
-            android:layout_marginTop="200dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+</FrameLayout>
 
         <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -113,6 +126,7 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:visibility="gone"
                                 android:orientation="horizontal"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
@@ -136,6 +150,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:visibility="gone"
                             android:layout_marginEnd="10dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content">
@@ -188,7 +203,7 @@
 
         </androidx.cardview.widget.CardView>
 
-    </androidx.core.widget.NestedScrollView>
+
 
 <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_booknow"
@@ -197,6 +212,7 @@
         android:layout_gravity="bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
-
-</FrameLayout>
+</LinearLayout>

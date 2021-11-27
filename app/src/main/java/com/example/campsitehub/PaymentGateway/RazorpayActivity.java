@@ -37,13 +37,13 @@ public class RazorpayActivity extends AppCompatActivity implements PaymentResult
         try {
             JSONObject options = new JSONObject();
             options.put("name", getResources().getString(R.string.app_name));
-            options.put("currency", "INR");
+            options.put("currency", "USD");
             double total = Double.parseDouble(amount);
             total = total * 100;
             options.put("amount", total);
             JSONObject preFill = new JSONObject();
             preFill.put("email", user.getEmail());
-            preFill.put("contact", "+91 9961424428");
+            preFill.put("contact", "+91 999999999");
             options.put("prefill", preFill);
             co.open(activity, options);
         } catch (Exception e) {

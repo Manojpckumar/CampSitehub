@@ -3,15 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingStart="10dp"
     android:layout_marginTop="10dp"
+    android:paddingStart="10dp"
     android:paddingEnd="10dp">
 
 
     <androidx.cardview.widget.CardView
-        app:cardCornerRadius="15dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="15dp">
 
         <ImageView
             android:id="@+id/iv_banner"
@@ -51,17 +51,17 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/tag_background"
                     android:padding="5dp"
-                    android:textSize="10sp"
                     android:text="AVAILABLE"
                     android:textColor="@color/white"
+                    android:textSize="10sp"
                     android:textStyle="bold" />
 
                 <com.example.campsitehub.CustomViews.CustomMainHeading
                     android:id="@+id/tv_strikeoff"
                     android:layout_width="match_parent"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
                     android:gravity="end"
                     android:padding="5dp"
                     android:text="$ 15,000"
@@ -83,81 +83,83 @@
 
             </LinearLayout>
 
-           <LinearLayout
-               android:paddingBottom="10dp"
-               android:orientation="horizontal"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp">
 
-               <LinearLayout
-                   android:layout_weight="1"
-                   android:orientation="vertical"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-                   <LinearLayout
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-                       <com.example.campsitehub.CustomViews.CustomMainHeading
-                           android:id="@+id/tv_campname"
-                           android:layout_width="match_parent"
-                           android:layout_height="wrap_content"
-                           android:layout_marginLeft="5dp"
-                           android:padding="5dp"
-                           android:text="Art House New York City"
-                           android:textColor="@color/black"
-                           android:textSize="18sp"
-                           android:textStyle="bold" />
+                        <com.example.campsitehub.CustomViews.CustomMainHeading
+                            android:id="@+id/tv_campname"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:padding="5dp"
+                            android:text="Art House New York City"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
 
 
-                   </LinearLayout>
+                    </LinearLayout>
 
-                   <LinearLayout
-                       android:orientation="horizontal"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
 
-                       <ImageView
-                           android:src="@drawable/ic_thumbsup"
-                           android:layout_width="40dp"
-                           android:layout_height="28dp"/>
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="28dp"
+                            android:src="@drawable/ic_thumbsup" />
 
-                       <com.example.campsitehub.CustomViews.CustomTextView
-                           android:id="@+id/tv_likes"
-                           android:layout_width="match_parent"
-                           android:layout_height="wrap_content"
-                           android:layout_marginLeft="5dp"
-                           android:padding="5dp"
-                           android:text="90 % people like this"
-                           android:textStyle="bold" />
+                        <com.example.campsitehub.CustomViews.CustomTextView
+                            android:id="@+id/tv_likes"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:padding="5dp"
+                            android:text="90 % people like this"
+                            android:textStyle="bold" />
 
-                   </LinearLayout>
+                    </LinearLayout>
 
-               </LinearLayout>
+                </LinearLayout>
 
-               <LinearLayout
-                   android:layout_marginEnd="10dp"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp">
 
-                  <LinearLayout
-                      android:id="@+id/ll_fab"
-                      android:background="@drawable/fab_background"
-                      android:layout_width="40dp"
-                      android:layout_height="40dp">
+                    <LinearLayout
+                        android:id="@+id/ll_fab"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/fab_background"
+                        android:visibility="gone">
 
-                      <ImageView
-                          android:layout_gravity="center"
-                          android:src="@drawable/ic_send"
-                          android:layout_width="match_parent"
-                          android:layout_height="25dp"/>
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="25dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_send" />
 
-                  </LinearLayout>
+                    </LinearLayout>
 
-               </LinearLayout>
+                </LinearLayout>
 
-           </LinearLayout>
+            </LinearLayout>
 
         </LinearLayout>
 
