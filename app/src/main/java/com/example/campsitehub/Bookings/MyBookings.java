@@ -49,6 +49,13 @@ public class MyBookings extends AppCompatActivity implements GetResult.MyListene
         user = FirebaseAuth.getInstance().getCurrentUser();
         custPrograssbar = new CustPrograssbar();
         getAllBookings();
+        binding.tbCommon.toolbarHead.setText("ALL BOOKINGS");
+        binding.tbCommon.backFinish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
 
     }

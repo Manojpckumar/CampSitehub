@@ -34,9 +34,6 @@
                         android:id="@+id/nav_userBookings"
                         android:title="My Bookings" />
 
-                    <item
-                        android:id="@+id/nav_userWishList"
-                        android:title="My Wishlist" />
 
                     <item
                         android:id="@+id/nav_adminManageBooking"
@@ -64,6 +61,7 @@
             <menu>
 
                 <item
+                    android:visible="false"
                     android:id="@+id/nav_userProfile"
                     android:title="Update Profile" />
 
@@ -72,6 +70,7 @@
                     android:title="Logout" />
 
                 <item
+                    android:visible="false"
                     android:id="@+id/nav_adminProfile"
                     android:title="Manage Profile" />
 

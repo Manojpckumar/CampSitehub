@@ -49,6 +49,13 @@ public class AllCampsActivity extends AppCompatActivity implements GetResult.MyL
         View view = binding.getRoot();
         setContentView(view);
         custPrograssbar=new CustPrograssbar();
+        binding.tbCommon.toolbarHead.setText("ALL LISTED CAMPS");
+        binding.tbCommon.backFinish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         getAllCamps();
     }
 

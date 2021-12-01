@@ -59,9 +59,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         binding = ActivityMain2Binding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-        binding.includercv.inctoolbar.ettoSearch.setCursorVisible(false);
-        binding.includercv.inctoolbar.etfromSearch.setCursorVisible(false);
-        // hideItem();
+        // hideItem()
         homeActivity = this;
         String utype = getIntent().getStringExtra("types");
         auth = FirebaseAuth.getInstance();
@@ -105,10 +103,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (userid.equals("admin@gmail.com")) {
             LoadFragment(new AdminHomeFragment());
             hideItem();
-            binding.includercv.inctoolbar.etfromSearch.setVisibility(View.GONE);
-            binding.includercv.inctoolbar.ettoSearch.setVisibility(View.GONE);
-            binding.includercv.inctoolbar.ivSearch.setVisibility(View.GONE);
-            binding.includercv.inctoolbar.viewLine.setVisibility(View.GONE);
+
         } else {
             LoadFragment(new HomeFragment());
             hideItem();
@@ -119,9 +114,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void initViews(ActivityMain2Binding binding) {
-        binding.includercv.inctoolbar.ettoSearch.setOnClickListener(this);
-        binding.includercv.inctoolbar.etfromSearch.setOnClickListener(this);
-        binding.includercv.inctoolbar.ivSearch.setOnClickListener(this);
+
     }
 
 
@@ -149,10 +142,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 finish();
                 break;
 
-            case R.id.nav_userWishList:
-                startActivity(new Intent(MainActivity.this, MyWishlistActivity.class));
-                finish();
-                break;
+
 
             case R.id.nav_userBookings:
                 startActivity(new Intent(MainActivity.this, MyBookings.class));
@@ -196,13 +186,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         String myFormat = "yyyy-MM-dd";
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
-        if (binding.includercv.inctoolbar.etfromSearch.getText().toString().isEmpty()) {
-            binding.includercv.inctoolbar.etfromSearch.setText(sdf.format(myCalendar.getTime()));
-        } else {
-            binding.includercv.inctoolbar.ettoSearch.setText(sdf.format(myCalendar.getTime()));
-
-
-        }
 
 
     }
@@ -236,7 +219,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (userid.equals("admin@gmail.com")) {
             nav_Menu.findItem(R.id.nav_userhome).setVisible(false);
             nav_Menu.findItem(R.id.nav_userBookings).setVisible(false);
-            nav_Menu.findItem(R.id.nav_userWishList).setVisible(false);
             nav_Menu.findItem(R.id.nav_userProfile).setVisible(false);
             nav_Menu.findItem(R.id.nav_userLogout).setVisible(false);
         } else {
@@ -267,46 +249,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (view.getId()) {
 
 
-            case R.id.etfrom_search:
 
-                showDpdialog();
-                break;
-
-
-            case R.id.etto_search:
-                showDpdialog();
-
-                break;
-
-
-            case R.id.iv_search:
-
-                if (binding.includercv.inctoolbar.etfromSearch.getText().toString().isEmpty() && binding.includercv.inctoolbar.etfromSearch.getText().toString().isEmpty()) {
-
-                    Toast.makeText(homeActivity, "Search cant be empty", Toast.LENGTH_SHORT).show();
-
-                }
-                else if( binding.includercv.inctoolbar.ivSearch.getDrawable().getConstantState() == getResources().getDrawable( R.drawable.quantum_ic_close_white_24).getConstantState()){
-
-                    binding.includercv.inctoolbar.etfromSearch.setText("");
-                    binding.includercv.inctoolbar.ettoSearch.setText("");
-                    getSupportFragmentManager().popBackStackImmediate();
-
-                }
-
-                else {
-                    binding.includercv.inctoolbar.ivSearch.setImageDrawable(getDrawable(R.drawable.quantum_ic_close_white_24));
-
-                    args = new Bundle();
-                    args.putString("edt_from", binding.includercv.inctoolbar.etfromSearch.getText().toString());
-                    args.putString("edt_to", binding.includercv.inctoolbar.ettoSearch.getText().toString());
-                    fragment = new CampSearchFragment();
-                    fragment.setArguments(args);
-                    callFragment(fragment);
-
-                }
-
-                break;
         }
 
     }

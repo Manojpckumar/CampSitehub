@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="290dp"
+    android:padding="5dp"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
     android:orientation="vertical">
@@ -9,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Choose Your Dates"
+        android:padding="10dp"
+        android:text="Choose your Dates"
         android:textColor="@color/black"
         android:textSize="20sp" />
 
@@ -17,7 +19,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
         android:background="@drawable/roundedcorners"
         android:orientation="vertical">
 
@@ -34,10 +35,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/top_leftcorner">
+                android:background="@color/titlecolor">
 
 
-                <com.example.campsitehub.CustomViews.CustomTextView
+                <com.example.campsitehub.CustomViews.CustomMainHeading
                     android:id="@+id/textView_round"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -45,20 +46,26 @@
                     android:gravity="center"
                     android:padding="18dp"
                     android:text="Start Date"
-                    android:textColor="#fff"
-                    android:textSize="13dp" />
+                    android:textColor="@color/white"
+                    android:textSize="13dp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
+
+            <Space
+                android:layout_width="5dp"
+                android:layout_height="0dp"/>
 
 
             <LinearLayout
                 android:id="@+id/linear2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="@color/titlecolor">
 
 
-                <com.example.campsitehub.CustomViews.CustomTextView
+                <com.example.campsitehub.CustomViews.CustomMainHeading
                     android:id="@+id/textView_oneway"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -66,8 +73,9 @@
                     android:gravity="center"
                     android:padding="18dp"
                     android:text="End Date"
-                    android:textColor="#837a7a"
-                    android:textSize="13dp" />
+                    android:textColor="@color/white"
+                    android:textSize="13dp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -87,14 +95,10 @@
                 android:orientation="vertical">
 
                 <com.example.campsitehub.CustomViews.CustomTextView
-                    android:id="@+id/Edittext_dep"
+                    android:id="@+id/Edittext_start"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#00000000"
-                    android:padding="10dp"
-                    android:drawableRight="@drawable/spinner"
-                    android:drawablePadding="9dp"
-                    android:text="Thu, 20 Nov"
+                    android:padding="15dp"
                     android:textColor="@color/textblack"
                     android:textSize="16dp" />
 
@@ -112,10 +116,7 @@
                     android:id="@+id/Edittext_return"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#00000000"
-                    android:drawableRight="@drawable/spinner"
-                 android:padding="10dp"
-                    android:text="Fri, 21 Nov"
+                    android:padding="15dp"
                     android:textColor="@color/textblack"
                     android:textSize="16dp" />
             </LinearLayout>
@@ -123,20 +124,17 @@
 
         </LinearLayout>
 
-        <com.example.campsitehub.CustomViews.CustomButton
+        <Button
+            android:id="@+id/btn_check"
             android:layout_width="wrap_content"
-            android:layout_margin="10dp"
-            android:textAllCaps="false"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:layout_margin="10dp"
             android:text="Check Availability"
-            android:layout_height="match_parent"/>
-
+            android:textAllCaps="false" />
 
 
     </LinearLayout>
-
-
-
 
 
 </LinearLayout>

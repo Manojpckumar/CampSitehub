@@ -1,5 +1,6 @@
 package com.example.campsitehub.Homepage;
 
+import android.app.Dialog;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -10,8 +11,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import com.example.campsitehub.CustomViews.CustomButton;
 import com.example.campsitehub.R;
 import com.example.campsitehub.Retrofit.Api;
 import com.example.campsitehub.Retrofit.RetrofitHelper;
@@ -37,7 +42,7 @@ public class HomeFragment extends Fragment implements RecyclerViewClickInterface
     RecyclerView rcv_home;
     CustPrograssbar custPrograssbar;
     RecyclerViewClickInterface recyclerViewClickInterface;
-
+    List<HomeViewModel> list;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -96,7 +101,7 @@ public class HomeFragment extends Fragment implements RecyclerViewClickInterface
             @Override
             public void onResponse(Call<ExampleModel> call, Response<ExampleModel> response) {
 
-                List<HomeViewModel> list = response.body().getHomeView();
+                list = response.body().getHomeView();
 
                 if (list.isEmpty()) {
                     custPrograssbar.close();
@@ -104,10 +109,11 @@ public class HomeFragment extends Fragment implements RecyclerViewClickInterface
 
                 } else {
                     custPrograssbar.close();
-                    HomePageAdapter adapter = new HomePageAdapter(list,getContext());
+                    HomePageAdapter adapter = new HomePageAdapter(list, getContext() );
                     rcv_home.setLayoutManager(new LinearLayoutManager(getContext()));
 
                     rcv_home.setAdapter(adapter);
+
 
                 }
 
@@ -124,6 +130,8 @@ public class HomeFragment extends Fragment implements RecyclerViewClickInterface
 
     @Override
     public void onItemClick(int position, String chk) {
+
+
 
     }
 
