@@ -88,19 +88,19 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:paddingLeft="10dp"
-                        android:text="Manage Campsite"
+                        android:text="Camps"
                         android:textColor="@color/white"
                         android:textSize="20sp" />
 
-                    <com.example.campsitehub.CustomViews.CustomButton
-                        android:layout_margin="15dp"
-                        android:id="@+id/add_camps"
-                        android:layout_width="wrap_content"
-                        android:layout_gravity="center"
-                        android:padding="10dp"
-                        android:background="@color/white"
-                        android:text="Add Camps"
-                        android:layout_height="wrap_content"/>
+<!--                    <com.example.campsitehub.CustomViews.CustomButton-->
+<!--                        android:layout_margin="15dp"-->
+<!--                        android:id="@+id/add_camps"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:padding="10dp"-->
+<!--                        android:background="@color/white"-->
+<!--                        android:text="Add Camps"-->
+<!--                        android:layout_height="wrap_content"/>-->
 
                 </LinearLayout>
 
@@ -155,7 +155,7 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="15dp"
                         android:gravity="center"
-                        android:text="Manage booking"
+                        android:text="Bookings"
                         android:textColor="@color/white"
                         android:textSize="20sp" />
 
@@ -223,20 +223,19 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:paddingLeft="10dp"
-                        android:text="Manage
-                        Accessories"
+                        android:text="Amenities"
                         android:textColor="@color/white"
                         android:textSize="20sp" />
 
-                    <com.example.campsitehub.CustomViews.CustomButton
-                        android:id="@+id/add_amenities"
-                        android:layout_margin="15dp"
-                        android:layout_width="wrap_content"
-                        android:layout_gravity="center"
-                        android:padding="10dp"
-                        android:background="@color/white"
-                        android:text="Add Amenity"
-                        android:layout_height="wrap_content"/>
+<!--                    <com.example.campsitehub.CustomViews.CustomButton-->
+<!--                        android:id="@+id/add_amenities"-->
+<!--                        android:layout_margin="15dp"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:padding="10dp"-->
+<!--                        android:background="@color/white"-->
+<!--                        android:text="Add Amenity"-->
+<!--                        android:layout_height="wrap_content"/>-->
 
 
                 </LinearLayout>

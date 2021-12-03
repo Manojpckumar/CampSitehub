@@ -1,7 +1,6 @@
 package com.example.campsitehub.CampDetail;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.campsitehub.Bookings.MyBookings;
 import com.example.campsitehub.PaymentGateway.RazorpayActivity;
 import com.example.campsitehub.R;

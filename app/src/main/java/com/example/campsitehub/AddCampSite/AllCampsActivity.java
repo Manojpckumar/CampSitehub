@@ -3,6 +3,7 @@ package com.example.campsitehub.AddCampSite;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -50,10 +51,19 @@ public class AllCampsActivity extends AppCompatActivity implements GetResult.MyL
         setContentView(view);
         custPrograssbar=new CustPrograssbar();
         binding.tbCommon.toolbarHead.setText("ALL LISTED CAMPS");
+        binding.tbCommon.AddView.setText("Add Camps");
         binding.tbCommon.backFinish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+        binding.tbCommon.AddView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(AllCampsActivity.this, AddCampSite.class));
+               finish();
+
             }
         });
         getAllCamps();

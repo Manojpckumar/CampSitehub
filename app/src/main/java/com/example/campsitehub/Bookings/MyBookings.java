@@ -56,6 +56,7 @@ public class MyBookings extends AppCompatActivity implements GetResult.MyListene
                 finish();
             }
         });
+        binding.tbCommon.AddView.setVisibility(View.GONE);
 
 
     }

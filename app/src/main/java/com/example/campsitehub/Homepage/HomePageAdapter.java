@@ -194,7 +194,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
                             fragment.setArguments(args);
                             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                             fragmentTransaction.replace(R.id.FrameLayout, fragment);
-                            fragmentTransaction.addToBackStack(null);
                             fragmentTransaction.commit();
                         }
 

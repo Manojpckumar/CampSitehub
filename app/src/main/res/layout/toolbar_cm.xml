@@ -3,19 +3,27 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
+
     android:padding="17dp"
     android:background="#A60048FF">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:weightSum="2"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/back_finish"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_baseline_arrow_back_ios_24" />
 
     <com.example.campsitehub.CustomViews.CustomTextView
         android:id="@+id/toolbar_head"
-        android:layout_width="match_parent"
+
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
         android:layout_height="wrap_content"
         android:text="ALL AMENITIES"
         android:textSize="18sp"
@@ -23,6 +31,18 @@
         android:layout_marginRight="10dp"
         android:textColor="@android:color/white"/>
 
+    <com.example.campsitehub.CustomViews.CustomTextView
+        android:id="@+id/Add_View"
+        android:drawableLeft="@drawable/ic_baseline_add_circle_outline_24"
+        android:drawablePadding="-90dp"
+        android:gravity="end"
+        android:layout_marginRight="5dp"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:textColor="@color/white"
+        android:text="Add Campsite"
+        android:layout_height="wrap_content"/>
 
+    </LinearLayout>
 
 </androidx.appcompat.widget.Toolbar>

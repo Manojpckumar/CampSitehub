@@ -78,9 +78,9 @@ public class AdminHomeFragment extends Fragment implements View.OnClickListener 
     }
 
     private void initViews(FragmentAdminHomeBinding binding) {
-        binding.addCamps.setOnClickListener(this);
+      //  binding.addCamps.setOnClickListener(this);
         binding.manageBooking.setOnClickListener(this);
-        binding.addAmenities.setOnClickListener(this);
+     //   binding.addAmenities.setOnClickListener(this);
 
         binding.allAmenBt.setOnClickListener(this);
         binding.allCamps.setOnClickListener(this);
@@ -90,13 +90,13 @@ public class AdminHomeFragment extends Fragment implements View.OnClickListener 
     public void onClick(View v) {
         switch (v.getId()) {
 
-            case R.id.add_camps:
-
-                startActivity(new Intent(getContext(), AddCampSite.class));
-                getActivity().finish();
-
-
-                break;
+//            case R.id.add_camps:
+//
+//                startActivity(new Intent(getContext(), AddCampSite.class));
+//                getActivity().finish();
+//
+//
+//                break;
 
             case R.id.manage_booking:
 
@@ -104,11 +104,11 @@ public class AdminHomeFragment extends Fragment implements View.OnClickListener 
 
                 break;
 
-            case R.id.add_amenities:
-
-                startActivity(new Intent(getActivity(), AddAmenities.class).putExtra("key","0"));
-
-                break;
+//            case R.id.add_amenities:
+//
+//                startActivity(new Intent(getActivity(), AddAmenities.class).putExtra("key","0"));
+//
+//                break;
 
 
 

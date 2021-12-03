@@ -58,11 +58,13 @@ public class Allamenities extends AppCompatActivity implements GetResult.MyListe
         custPrograssbar = new CustPrograssbar();
         builder = new AlertDialog.Builder(this);
         getAllamenities("1");
+        binding.tbCommon.AddView.setText("Add Amenity");
 
     }
 
     private void createViews(ActivityAllCampsBinding binding) {
         binding.tbCommon.backFinish.setOnClickListener(this);
+        binding.tbCommon.AddView.setOnClickListener(this);
     }
 
     private void getAllamenities(String rcode) {
@@ -161,6 +163,11 @@ public class Allamenities extends AppCompatActivity implements GetResult.MyListe
             case R.id.back_finish:
 
                 finish();
+                break;
+
+            case R.id.Add_View:
+                startActivity(new Intent(this, AddAmenities.class).putExtra("key","0"));
+
                 break;
 
 
