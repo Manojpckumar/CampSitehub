@@ -7,12 +7,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import co.gofynd.gravityview.GravityView;
 import com.example.campsitehub.R;
+import com.example.campsitehub.Retrofit.APIClient;
+import com.example.campsitehub.Retrofit.GetResult;
 import com.example.campsitehub.databinding.ActivityMyBookingsBinding;
 import com.example.campsitehub.databinding.ActivityPanoramicViewBinding;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.google.vr.sdk.widgets.pano.VrPanoramaView;
-import okio.Options;
 
-public class PanoramicView extends AppCompatActivity {
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import okio.Options;
+import retrofit2.Call;
+
+public class PanoramicView extends AppCompatActivity implements GetResult.MyListener {
 
     VrPanoramaView vrPanoramaView;
     ActivityPanoramicViewBinding binding;
@@ -27,7 +36,7 @@ public class PanoramicView extends AppCompatActivity {
         binding = ActivityPanoramicViewBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-
+        getCampbyid(getIntent().getStringExtra("Camp_id"));
         init();
         if(supportvalue){
             this.gravityView.setImage(binding.ivImage,R.drawable.panoview).center();
@@ -44,6 +53,21 @@ public class PanoramicView extends AppCompatActivity {
 //        Bitmap  bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.panoview);
 //        binding.vrPanoramaView.loadImageFromBitmap(bitmap, options);
 
+
+
+    }
+    private void getCampbyid(String id) {
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("id", id);
+            JsonParser jsonParser = new JsonParser();
+            Call<JsonObject> call = APIClient.getInterface().getDetails((JsonObject) jsonParser.parse(jsonObject.toString()));
+            GetResult getResult = new GetResult();
+            getResult.setMyListener(this);
+            getResult.onNCHandle(call, "campviewbyid");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
 
     }
@@ -64,5 +88,10 @@ public class PanoramicView extends AppCompatActivity {
     {
     this.gravityView = GravityView.getInstance(getBaseContext());
     this.supportvalue = gravityView.deviceSupported();
+    }
+
+    @Override
+    public void callback(JsonObject result, String callNo) {
+
     }
 }

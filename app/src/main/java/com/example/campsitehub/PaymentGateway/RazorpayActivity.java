@@ -41,6 +41,7 @@ public class RazorpayActivity extends AppCompatActivity implements View.OnClickL
         user = FirebaseAuth.getInstance().getCurrentUser();
         binding.userName.setText(user.getEmail());
         amount = getIntent().getStringExtra("amount");
+        binding.amountDis.setText("$ "+amount);
         initView(binding);
 
     }
