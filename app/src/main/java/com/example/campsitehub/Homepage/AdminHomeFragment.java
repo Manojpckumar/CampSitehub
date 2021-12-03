@@ -16,6 +16,7 @@ import com.example.campsitehub.Amenities.AddAmenities;
 import com.example.campsitehub.Amenities.AllAmenity;
 import com.example.campsitehub.Bookings.MyBookings;
 import com.example.campsitehub.R;
+import com.example.campsitehub.Terms.AvtivityTerms;
 import com.example.campsitehub.databinding.FragmentAdminHomeBinding;
 
 /**
@@ -78,10 +79,10 @@ public class AdminHomeFragment extends Fragment implements View.OnClickListener 
     }
 
     private void initViews(FragmentAdminHomeBinding binding) {
-      //  binding.addCamps.setOnClickListener(this);
+        //  binding.addCamps.setOnClickListener(this);
         binding.manageBooking.setOnClickListener(this);
-     //   binding.addAmenities.setOnClickListener(this);
-
+        //   binding.addAmenities.setOnClickListener(this);
+        binding.terms.setOnClickListener(this);
         binding.allAmenBt.setOnClickListener(this);
         binding.allCamps.setOnClickListener(this);
     }
@@ -111,16 +112,21 @@ public class AdminHomeFragment extends Fragment implements View.OnClickListener 
 //                break;
 
 
-
             case R.id.all_amen_bt:
-                    startActivity(new Intent(getActivity(), Allamenities.class));
+                startActivity(new Intent(getActivity(), Allamenities.class));
 
 
-                    break;
+                break;
 
             case R.id.all_camps:
 
                 startActivity(new Intent(getActivity(), AllCampsActivity.class));
+
+                break;
+
+            case R.id.terms:
+
+                startActivity(new Intent(getActivity(), AvtivityTerms.class));
 
                 break;
         }

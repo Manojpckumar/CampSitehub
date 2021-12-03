@@ -2,6 +2,7 @@ package com.example.campsitehub.CampDetail;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.campsitehub.Bookings.MyBookings;
+import com.example.campsitehub.Homepage.MainActivity;
 import com.example.campsitehub.PaymentGateway.RazorpayActivity;
 import com.example.campsitehub.R;
 import com.example.campsitehub.ResponseCommon;
@@ -183,6 +184,9 @@ public class BookingConfirmation extends AppCompatActivity implements GetResult.
 
     private void sendBooking() {
         Date time = java.util.Calendar.getInstance().getTime();
+        String pattern = "yyyy-MM-dd";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+
         JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put("transaction_id", Random_Transaction_String(this));
@@ -193,6 +197,7 @@ public class BookingConfirmation extends AppCompatActivity implements GetResult.
             jsonObject.put("total", binding.total.getText().toString());
             jsonObject.put("date_obooking", binding.edtdate.getText().toString() + "," + binding.edttodate.getText().toString());
             jsonObject.put("time_obooking", time);
+            jsonObject.put("date_of_book", simpleDateFormat.format(new Date()));
             JsonParser jsonParser = new JsonParser();
             Call<JsonObject> call = APIClient.getInterface().addBooking((JsonObject) jsonParser.parse(jsonObject.toString()));
             GetResult getResult = new GetResult();
@@ -250,6 +255,25 @@ public class BookingConfirmation extends AppCompatActivity implements GetResult.
             binding.lvltwo.setVisibility(View.VISIBLE);
         }
 
+        else if(callNo.equalsIgnoreCase("checkbookingexist")){
+            Gson gson = new Gson();
+            ResponseCommon responseCommon=gson.fromJson(result.toString(),ResponseCommon.class);
+            if(responseCommon.getResult().equals("true")){
+
+                Toast.makeText(this, "BOOKING ALREADY EXIST FOR THE CURRENT DATE", Toast.LENGTH_SHORT).show();
+
+            }
+            else{
+
+                startActivity(new Intent(this, RazorpayActivity.class).putExtra("amount", binding.total.getText().toString()));
+
+            }
+
+
+
+
+        }
+
 
     }
 
@@ -295,10 +319,15 @@ public class BookingConfirmation extends AppCompatActivity implements GetResult.
                 if (binding.edtdate.getText().toString().isEmpty()) {
 
                     binding.edtdate.setError("Please Choose a date ");
-                } else {
+                }
 
 
-                    startActivity(new Intent(this, RazorpayActivity.class).putExtra("amount", binding.total.getText().toString()));
+                else {
+
+                    checkbookingexist();
+
+
+
 
                 }
                 break;
@@ -309,10 +338,32 @@ public class BookingConfirmation extends AppCompatActivity implements GetResult.
 
 
             case R.id.track_bookings:
-                startActivity(new Intent(this, MyBookings.class));
+                    startActivity(new Intent(this, MainActivity.class));
 
                 break;
         }
+
+
+    }
+
+    private void checkbookingexist() {
+        String pattern = "yyyy-MM-dd";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("username", user.getEmail());
+            jsonObject.put("date_of_book", simpleDateFormat.format(new Date()));
+            jsonObject.put("camp_id", getIntent().getStringExtra("campkey"));
+            JsonParser jsonParser = new JsonParser();
+            Call<JsonObject> call = APIClient.getInterface().checkbookingexist((JsonObject) jsonParser.parse(jsonObject.toString()));
+            GetResult getResult = new GetResult();
+            getResult.setMyListener(this);
+            getResult.onNCHandle(call, "checkbookingexist");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
 
 
     }

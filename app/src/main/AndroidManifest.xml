@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CampSiteHub">
-        <activity android:name=".AddCampSite.AllCampsActivity"></activity>
+        <activity android:name=".Terms.AvtivityTerms"></activity>
+        <activity android:name=".AddCampSite.AllCampsActivity" />
         <activity android:name=".Bookings.BookingDetails" />
         <activity android:name=".AddCampSite.Allamenities" />
         <activity android:name=".Authentication.Allusers" />

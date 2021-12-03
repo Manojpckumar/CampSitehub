@@ -6,11 +6,14 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import co.gofynd.gravityview.GravityView;
+
+import com.example.campsitehub.CampDetail.Example;
 import com.example.campsitehub.R;
 import com.example.campsitehub.Retrofit.APIClient;
 import com.example.campsitehub.Retrofit.GetResult;
 import com.example.campsitehub.databinding.ActivityMyBookingsBinding;
 import com.example.campsitehub.databinding.ActivityPanoramicViewBinding;
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.vr.sdk.widgets.pano.VrPanoramaView;
@@ -92,6 +95,14 @@ public class PanoramicView extends AppCompatActivity implements GetResult.MyList
 
     @Override
     public void callback(JsonObject result, String callNo) {
+        if(callNo.equalsIgnoreCase("campviewbyid")){
+            Gson gson = new Gson();
+            Example home = gson.fromJson(result.toString(), Example.class);
+
+
+
+
+        }
 
     }
 }

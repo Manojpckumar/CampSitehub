@@ -111,7 +111,7 @@ public class RazorpayActivity extends AppCompatActivity implements View.OnClickL
                     } else {
 
                         progressBar.progressCreate(this);
-                        progressBar.close();
+                        progressBar.setCancel(false);
                         new Handler().postDelayed(new Runnable(){
                             @Override
                             public void run() {
@@ -119,6 +119,7 @@ public class RazorpayActivity extends AppCompatActivity implements View.OnClickL
                                 BookingConfirmation.paymentsucsses=1;
                                 BookingConfirmation.transactionID = s;
                                 finish();
+                                progressBar.close();
 
                             }
                         }, 5000);
@@ -138,7 +139,7 @@ public class RazorpayActivity extends AppCompatActivity implements View.OnClickL
                     else{
 
                         progressBar.progressCreate(this);
-                        progressBar.close();
+                        progressBar.setCancel(false);
                         new Handler().postDelayed(new Runnable(){
                             @Override
                             public void run() {
@@ -146,6 +147,7 @@ public class RazorpayActivity extends AppCompatActivity implements View.OnClickL
                                 BookingConfirmation.paymentsucsses=1;
                                 BookingConfirmation.transactionID = s;
                                 finish();
+                                progressBar.close();
 
                             }
                         }, 5000);

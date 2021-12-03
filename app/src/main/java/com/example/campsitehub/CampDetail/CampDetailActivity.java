@@ -61,6 +61,8 @@ public class CampDetailActivity extends AppCompatActivity implements GetResult.M
         prograssbar.progressCreate(this);
         String a = getIntent().getStringExtra("Book");
         binding.tbCommon.toolbarHead.setText("Camp Details");
+        binding.tbCommon.AddView.setVisibility(View.GONE);
+
 
 
         getCampbyid(a);

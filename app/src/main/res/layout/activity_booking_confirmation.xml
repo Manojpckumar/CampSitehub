@@ -70,7 +70,7 @@
                 android:background="@drawable/confirmation"
                 android:gravity="center"
                 android:padding="5dp"
-                android:text="Go to your Bookings"
+                android:text="Go to Home"
                 android:textColor="@color/white"
                 android:textSize="18dp"
                 android:textStyle="bold" />

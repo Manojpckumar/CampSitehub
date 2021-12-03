@@ -221,6 +221,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             nav_Menu.findItem(R.id.nav_userBookings).setVisible(false);
             nav_Menu.findItem(R.id.nav_userProfile).setVisible(false);
             nav_Menu.findItem(R.id.nav_userLogout).setVisible(false);
+            nav_Menu.findItem(R.id.nav_adminManageReview).setVisible(false);
+            nav_Menu.findItem(R.id.nav_adminManageUsers).setVisible(false);
         } else {
             nav_Menu.findItem(R.id.nav_adminHome).setVisible(false);
             nav_Menu.findItem(R.id.nav_adminManageBooking).setVisible(false);
