@@ -20,6 +20,7 @@
 
             <ImageView
                 android:layout_width="100dp"
+                android:src="@drawable/payment_ic"
                 android:layout_height="100dp"
                 android:background="@color/white" />
 
@@ -43,7 +44,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="booking amount total"
+                android:text="Toatal Amount"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -120,7 +121,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20sp"
                     android:layout_marginTop="10dp"
-                    android:text="Cards UPI &amp; more"
+                    android:text="Cards &amp; more"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -166,7 +167,7 @@
                                 <com.example.campsitehub.CustomViews.CustomSubHeading
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Visa,MasterCard,Rupay and Maestro"
+                                    android:text="Visa,Master Card, Rupay and Maestro"
                                     android:textColor="@color/black"
                                     android:textStyle="bold" />
 
@@ -243,6 +244,7 @@
 
 
                     <LinearLayout
+                        android:visibility="gone"
                         android:id="@+id/llUpi"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

@@ -293,7 +293,7 @@ else{
             jsonObject.put("old_price", binding.cedOldprice.getText().toString());
             jsonObject.put("offer_price", binding.cedOfferprice.getText().toString());
             jsonObject.put("rating_number", "3");
-            jsonObject.put("camp_type", binding.spnCamptype.getSelectedItem().toString());
+            jsonObject.put("camp_type", "1");
             if(binding.tbStatus.isChecked()){
                 jsonObject.put("status", 1);
             }

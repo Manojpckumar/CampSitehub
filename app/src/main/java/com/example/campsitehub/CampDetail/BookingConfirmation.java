@@ -76,7 +76,7 @@ public class BookingConfirmation extends AppCompatActivity implements GetResult.
                                                      @Override
                                                      public void onCheckedChanged(RadioGroup group, int checkedId) {
                                                          radioButton = (RadioButton) findViewById(checkedId);
-                                                         Toast.makeText(getBaseContext(), radioButton.getText(), Toast.LENGTH_SHORT).show();
+                                                         //Toast.makeText(getBaseContext(), radioButton.getText(), Toast.LENGTH_SHORT).show();
                                                      }
                                                  }
         );
@@ -251,7 +251,7 @@ public class BookingConfirmation extends AppCompatActivity implements GetResult.
             custPrograssbar.close();
             Gson gson = new Gson();
             ResponseCommon response = gson.fromJson(result.toString(), ResponseCommon.class);
-            Toast.makeText(this, response.getResponseMsg(), Toast.LENGTH_SHORT).show();
+           // Toast.makeText(this, response.getResponseMsg(), Toast.LENGTH_SHORT).show();
             binding.lvltwo.setVisibility(View.VISIBLE);
         }
 
@@ -292,7 +292,7 @@ public class BookingConfirmation extends AppCompatActivity implements GetResult.
                 .limit(targetStringLength)
                 .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
                 .toString();
-        Toast.makeText(bookingConfirmation, generatedString, Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(bookingConfirmation, generatedString, Toast.LENGTH_SHORT).show();
        return "txn"+generatedString;
     }
 

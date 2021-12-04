@@ -226,6 +226,7 @@
             android:layout_height="wrap_content">
 
             <RadioButton
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Net Banking" />
@@ -236,11 +237,13 @@
                 android:text="Card payment" />
 
             <RadioButton
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="UPI" />
 
             <RadioButton
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="By Cash" />

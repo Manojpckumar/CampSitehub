@@ -215,7 +215,7 @@ public class Allamenities extends AppCompatActivity implements GetResult.MyListe
 
         AlertDialog alert = builder.create();
         //Setting the title manually
-        alert.setTitle("AlertDialogExample");
+        alert.setTitle("Campsite Hub");
         alert.show();
 
 
