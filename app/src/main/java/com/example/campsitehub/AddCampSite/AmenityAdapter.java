@@ -24,7 +24,12 @@ import java.util.List;
 public class AmenityAdapter extends RecyclerView.Adapter<AmenityAdapter.MyViewHolder> {
     Context context;
     List<AllAmenity> allAmenityList;
+    private RecyclerTouchListener listener;
     RecyclerViewClickInterface recyclerViewClickInterface;
+
+    public interface RecyclerTouchListener {
+        public void onClickItem(View v, AllAmenity all);
+    }
 
     public AmenityAdapter(Context context, List<AllAmenity> allAmenityList, RecyclerViewClickInterface recyclerViewClickInterface) {
         this.context = context;
@@ -41,6 +46,8 @@ public class AmenityAdapter extends RecyclerView.Adapter<AmenityAdapter.MyViewHo
 
         View view= LayoutInflater.from(context).inflate(R.layout.all_amenityadapter,parent,false);
         return new MyViewHolder(view);
+
+
     }
 
     @Override
@@ -51,6 +58,7 @@ public class AmenityAdapter extends RecyclerView.Adapter<AmenityAdapter.MyViewHo
         holder.tv_amen_name.setText(amenity.getAtName());
         holder.tv_description.setText(amenity.getAtDescription());
         Glide.with(context).load(APIClient.baseUrl+"phase1/"+amenity.getAtBanner()).into(holder.image_Id);
+
 
     }
 

@@ -38,6 +38,18 @@ public class ResultData {
     @Expose
     private List<AdminCamp> adminCamps = null;
 
+    @SerializedName("TermsPolicy")
+    @Expose
+    private TermsPolicy termsPolicy;
+
+    public TermsPolicy getTermsPolicy() {
+        return termsPolicy;
+    }
+
+    public void setTermsPolicy(TermsPolicy termsPolicy) {
+        this.termsPolicy = termsPolicy;
+    }
+
     public List<AdminCamp> getAdminCamps() {
         return adminCamps;
     }

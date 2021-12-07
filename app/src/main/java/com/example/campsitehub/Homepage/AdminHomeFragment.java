@@ -9,14 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.campsitehub.AddCampSite.AddCampSite;
 import com.example.campsitehub.AddCampSite.AllCampsActivity;
 import com.example.campsitehub.AddCampSite.Allamenities;
-import com.example.campsitehub.Amenities.AddAmenities;
-import com.example.campsitehub.Amenities.AllAmenity;
 import com.example.campsitehub.Bookings.MyBookings;
 import com.example.campsitehub.R;
-import com.example.campsitehub.Terms.AvtivityTerms;
+import com.example.campsitehub.TermsPolicy.ActivityTerms;
 import com.example.campsitehub.databinding.FragmentAdminHomeBinding;
 
 /**
@@ -85,6 +82,7 @@ public class AdminHomeFragment extends Fragment implements View.OnClickListener 
         binding.terms.setOnClickListener(this);
         binding.allAmenBt.setOnClickListener(this);
         binding.allCamps.setOnClickListener(this);
+        binding.privacy.setOnClickListener(this);
     }
 
     @Override
@@ -126,7 +124,12 @@ public class AdminHomeFragment extends Fragment implements View.OnClickListener 
 
             case R.id.terms:
 
-                startActivity(new Intent(getActivity(), AvtivityTerms.class));
+                startActivity(new Intent(getActivity(), ActivityTerms.class).putExtra("Activity","terms"));
+
+                break;
+            case R.id.privacy:
+
+                startActivity(new Intent(getActivity(), ActivityTerms.class).putExtra("Activity","privacy"));
 
                 break;
         }

@@ -62,5 +62,11 @@ public interface Api {
     @POST(APIClient.APPEND_URL + "checkbookingexist")
     Call<JsonObject> checkbookingexist(@Body JsonObject object);
 
+    @POST(APIClient.APPEND_URL + "getAllSettings")
+    Call<JsonObject> getAllSettings(@Body JsonObject object);
+
+    @POST(APIClient.APPEND_URL + "updateSettings")
+    Call<JsonObject> updateSettings(@Body JsonObject object);
+
 
 }

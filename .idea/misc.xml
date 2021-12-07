@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Sreerag/Desktop/CampSitehub/app/src/main/res/layout/activity_add_camp_site.xml" value="0.12588652482269502" />
+        <entry key="..\:/Users/Sreerag/Desktop/CampSitehub/app/src/main/res/layout/activity_avtivity_terms.xml" value="0.12588652482269502" />
+        <entry key="..\:/Users/Sreerag/Desktop/CampSitehub/app/src/main/res/layout/activity_main2.xml" value="0.12588652482269502" />
+        <entry key="..\:/Users/Sreerag/Desktop/CampSitehub/app/src/main/res/layout/activity_policy.xml" value="0.2346014492753623" />
+        <entry key="..\:/Users/Sreerag/Desktop/CampSitehub/app/src/main/res/layout/app_bar_home_page.xml" value="0.12588652482269502" />
+        <entry key="..\:/Users/Sreerag/Desktop/CampSitehub/app/src/main/res/layout/fragment_admin_home.xml" value="0.10157041540020263" />
+        <entry key="..\:/Users/Sreerag/Desktop/CampSitehub/app/src/main/res/layout/toolbar.xml" value="0.16" />
+      </map>
+    </option>
+  </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
 </project>

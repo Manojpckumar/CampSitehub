@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".TermsPolicy.ActivityTerms">
+
+    <include
+        android:id="@+id/tb_common"
+        layout="@layout/toolbar_cm"/>
+
+    <TextView
+        android:id="@+id/policy"
+        android:layout_width="match_parent"
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        android:padding="10dp"
+        android:textAlignment="textStart"
+        android:text="
+These Terms and Policies govern your relationship with campsite hub application the service operated by Technophiles Ltd.
+If you wish to purchase any product or service with us, you may be asked to supply certain information such as your credit card number, the expiration date and cvv. (i) you have the legal right to use any credit card(s) or other payment method(s) in connection with any Purchase; and that (ii) the information you supply to us is true, correct and complete. By submitting such information, you grant us the right to provide the information to third parties for purposes of facilitating the completion of Purchases.When you create an account with us, you must provide us information that is accurate, complete, and current at all times.You may not create multiple Traveler Accounts using different email addresses that are controlled by yourself or members of your immediate household.We reserve the right to change products and product pricing at any time. We also reserve the right to refuse any order you place with us.If you have any questions about these Terms, please contact us at"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:padding="10dp"
+        android:textSize="17sp"
+        android:textColor="@color/wallet_holo_blue_light"
+        android:text="Campsitehubc@gmail.com"
+
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
