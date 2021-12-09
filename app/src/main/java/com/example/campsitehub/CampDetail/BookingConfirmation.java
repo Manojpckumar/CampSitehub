@@ -65,6 +65,11 @@ public class BookingConfirmation extends AppCompatActivity implements GetResult.
         am_id = getIntent().getStringExtra("amkey");
         camp_id = getIntent().getStringExtra("campkey");
         campamount = getIntent().getStringExtra("campamount");
+        binding.datePi.setEnabled(false);
+        binding.edtdate.setEnabled(false);
+        binding.edttodate.setEnabled(false);
+        binding.edtdate.setText(getIntent().getStringExtra("booking_from"));
+        binding.edttodate.setText(getIntent().getStringExtra("booking_to"));
         custPrograssbar.progressCreate(this);
         getCampbyid(camp_id);
         getamenbyid(am_id);
@@ -196,6 +201,8 @@ public class BookingConfirmation extends AppCompatActivity implements GetResult.
             jsonObject.put("payment_mode", radioButton.getText());
             jsonObject.put("total", binding.total.getText().toString());
             jsonObject.put("date_obooking", binding.edtdate.getText().toString() + "," + binding.edttodate.getText().toString());
+            jsonObject.put("date_from", binding.edtdate.getText().toString());
+            jsonObject.put("date_to", binding.edttodate.getText().toString());
             jsonObject.put("time_obooking", time);
             jsonObject.put("date_of_book", simpleDateFormat.format(new Date()));
             JsonParser jsonParser = new JsonParser();

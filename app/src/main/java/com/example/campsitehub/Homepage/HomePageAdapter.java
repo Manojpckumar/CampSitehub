@@ -82,130 +82,130 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
         Glide.with(context).load(APIClient.baseUrl+"phase1/" +model.getCampsiteBanner()).into(holder.iv_banner);
         Log.d("imgurl2200",APIClient.baseUrl+"phase1/"+model.getCampsiteBanner());
 
-        holder.iv_banner.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Dialog myDialog = new Dialog(context);
-                myDialog.getWindow();
-                myDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                myDialog.setCancelable(true);
-                myDialog.setContentView(R.layout.dialogbox);
-                Button button = (Button) myDialog.findViewById(R.id.btn_check);
-                CustomTextView tv_start = (CustomTextView) myDialog.findViewById(R.id.Edittext_start);
-                CustomTextView tv_end = (CustomTextView) myDialog.findViewById(R.id.Edittext_return);
-                LinearLayout linear1 = (LinearLayout) myDialog.findViewById(R.id.linear1);
-                LinearLayout linear12 = (LinearLayout) myDialog.findViewById(R.id.linear2);
-                linear1.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-
-                        DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
-
-
-                            @Override
-                            public void onDateSet(DatePicker view, int year, int monthOfYear,
-                                                  int dayOfMonth) {
-                                // TODO Auto-generated method stub
-                                myCalendar.set(Calendar.YEAR, year);
-                                myCalendar.set(Calendar.MONTH, monthOfYear);
-                                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                                String myFormat = "yyyy-MM-dd";
-                                SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
-
-                                if (tv_start.getText().toString().isEmpty()) {
-                                    tv_start.setText(sdf.format(myCalendar.getTime()));
-                                } else {
-                                    tv_end.setText(sdf.format(myCalendar.getTime()));
-
-
-                                }
-
-                            }
-
-                        };
-
-
-                        new DatePickerDialog(context, date, myCalendar
-                                .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
-                                myCalendar.get(Calendar.DAY_OF_MONTH)).show();
-
-                    }
-                });
-                linear12.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-
-                        DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
-
-
-                            @Override
-                            public void onDateSet(DatePicker view, int year, int monthOfYear,
-                                                  int dayOfMonth) {
-                                // TODO Auto-generated method stub
-                                myCalendar.set(Calendar.YEAR, year);
-                                myCalendar.set(Calendar.MONTH, monthOfYear);
-                                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                                String myFormat = "yyyy-MM-dd";
-                                SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
-
-                                if (tv_start.getText().toString().isEmpty()) {
-                                    tv_start.setText(sdf.format(myCalendar.getTime()));
-                                } else {
-                                    tv_end.setText(sdf.format(myCalendar.getTime()));
-
-
-                                }
-
-                            }
-
-                        };
-
-
-                        new DatePickerDialog(context, date, myCalendar
-                                .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
-                                myCalendar.get(Calendar.DAY_OF_MONTH)).show();
-
-
-                    }
-                });
-                button.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-
-                        if(tv_start.getText().toString().equals("")){
-                            Toast.makeText(context, "Start date can't be empty", Toast.LENGTH_SHORT).show();
-
-                        }
-                        else if(tv_end.getText().toString().equals("")){
-                            Toast.makeText(context, "End date can't be empty", Toast.LENGTH_SHORT).show();
-
-
-                        }
-                        else {
-                            myDialog.dismiss();
-                            Bundle args;
-                            Fragment fragment;
-                            args = new Bundle();
-                            args.putString("edt_from", tv_start.getText().toString());
-                            args.putString("edt_to", tv_end.getText().toString());
-                            FragmentManager fragmentManager = ((FragmentActivity) context).getSupportFragmentManager();
-                            fragment = new CampSearchFragment();
-                            fragment.setArguments(args);
-                            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                            fragmentTransaction.replace(R.id.FrameLayout, fragment);
-                            fragmentTransaction.commit();
-                        }
-
-                    }
-                });
-                myDialog.show();
-            }
-
-
-
-
-        });
+//        holder.iv_banner.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                Dialog myDialog = new Dialog(context);
+//                myDialog.getWindow();
+//                myDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//                myDialog.setCancelable(true);
+//                myDialog.setContentView(R.layout.dialogbox);
+//                Button button = (Button) myDialog.findViewById(R.id.btn_check);
+//                CustomTextView tv_start = (CustomTextView) myDialog.findViewById(R.id.Edittext_start);
+//                CustomTextView tv_end = (CustomTextView) myDialog.findViewById(R.id.Edittext_return);
+//                LinearLayout linear1 = (LinearLayout) myDialog.findViewById(R.id.linear1);
+//                LinearLayout linear12 = (LinearLayout) myDialog.findViewById(R.id.linear2);
+//                linear1.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//
+//                        DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+//
+//
+//                            @Override
+//                            public void onDateSet(DatePicker view, int year, int monthOfYear,
+//                                                  int dayOfMonth) {
+//                                // TODO Auto-generated method stub
+//                                myCalendar.set(Calendar.YEAR, year);
+//                                myCalendar.set(Calendar.MONTH, monthOfYear);
+//                                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+//                                String myFormat = "yyyy-MM-dd";
+//                                SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+//
+//                                if (tv_start.getText().toString().isEmpty()) {
+//                                    tv_start.setText(sdf.format(myCalendar.getTime()));
+//                                } else {
+//                                    tv_end.setText(sdf.format(myCalendar.getTime()));
+//
+//
+//                                }
+//
+//                            }
+//
+//                        };
+//
+//
+//                        new DatePickerDialog(context, date, myCalendar
+//                                .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+//                                myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+//
+//                    }
+//                });
+//                linear12.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//
+//                        DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+//
+//
+//                            @Override
+//                            public void onDateSet(DatePicker view, int year, int monthOfYear,
+//                                                  int dayOfMonth) {
+//                                // TODO Auto-generated method stub
+//                                myCalendar.set(Calendar.YEAR, year);
+//                                myCalendar.set(Calendar.MONTH, monthOfYear);
+//                                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+//                                String myFormat = "yyyy-MM-dd";
+//                                SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+//
+//                                if (tv_start.getText().toString().isEmpty()) {
+//                                    tv_start.setText(sdf.format(myCalendar.getTime()));
+//                                } else {
+//                                    tv_end.setText(sdf.format(myCalendar.getTime()));
+//
+//
+//                                }
+//
+//                            }
+//
+//                        };
+//
+//
+//                        new DatePickerDialog(context, date, myCalendar
+//                                .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+//                                myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+//
+//
+//                    }
+//                });
+//                button.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//
+//                        if(tv_start.getText().toString().equals("")){
+//                            Toast.makeText(context, "Start date can't be empty", Toast.LENGTH_SHORT).show();
+//
+//                        }
+//                        else if(tv_end.getText().toString().equals("")){
+//                            Toast.makeText(context, "End date can't be empty", Toast.LENGTH_SHORT).show();
+//
+//
+//                        }
+//                        else {
+//                            myDialog.dismiss();
+//                            Bundle args;
+//                            Fragment fragment;
+//                            args = new Bundle();
+//                            args.putString("edt_from", tv_start.getText().toString());
+//                            args.putString("edt_to", tv_end.getText().toString());
+//                            FragmentManager fragmentManager = ((FragmentActivity) context).getSupportFragmentManager();
+//                            fragment = new CampSearchFragment();
+//                            fragment.setArguments(args);
+//                            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//                            fragmentTransaction.replace(R.id.FrameLayout, fragment);
+//                            fragmentTransaction.commit();
+//                        }
+//
+//                    }
+//                });
+//                myDialog.show();
+//            }
+//
+//
+//
+//
+//        });
 
 //        holder.iv_banner.setOnClickListener(new View.OnClickListener() {
 //            @Override

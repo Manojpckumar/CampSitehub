@@ -93,6 +93,8 @@ public class CampDetailActivity extends AppCompatActivity implements GetResult.M
                     in.putExtra("amkey", names.get(0));
                     in.putExtra("campkey", a);
                     in.putExtra("campamount", binding.tvAmount.getText().toString().trim());
+                    in.putExtra("booking_from",getIntent().getStringExtra("from"));
+                    in.putExtra("booking_to", getIntent().getStringExtra("to"));
 
                     startActivity(in);
 

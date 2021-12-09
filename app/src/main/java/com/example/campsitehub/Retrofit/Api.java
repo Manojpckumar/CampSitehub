@@ -16,7 +16,6 @@ public interface Api {
     @GET("phase1/v1/Api.php?apicall=fetchHomeView")
     Call<ExampleModel> GetHomeData();
 
-
     @POST(APIClient.APPEND_URL + "getCampDetailsbyid")
     Call<JsonObject> getDetails(@Body JsonObject object);
 
@@ -35,7 +34,6 @@ public interface Api {
     @POST(APIClient.APPEND_URL + "getAllBookings")
     Call<JsonObject> GetBookings(@Body JsonObject object);
 
-
     @POST(APIClient.APPEND_URL + "addAmenity")
     Call<JsonObject> addAmenity(@Body JsonObject object);
 
@@ -51,10 +49,8 @@ public interface Api {
     @POST(APIClient.APPEND_URL + "updateAmenities")
     Call<JsonObject> updateAmenities(@Body JsonObject object);
 
-
     @POST(APIClient.APPEND_URL + "getAllCamps")
     Call<JsonObject> getAllCamps(@Body JsonObject object);
-
 
     @POST(APIClient.APPEND_URL + "updateCampstatus")
     Call<JsonObject> updateCampstatus(@Body JsonObject object);
@@ -67,6 +63,10 @@ public interface Api {
 
     @POST(APIClient.APPEND_URL + "updateSettings")
     Call<JsonObject> updateSettings(@Body JsonObject object);
+
+    @POST(APIClient.APPEND_URL + "getAvailabilityStatus")
+    Call<JsonObject> getAvailabilityStatus(@Body JsonObject object);
+
 
 
 }

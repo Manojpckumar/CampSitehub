@@ -129,7 +129,7 @@ public class CampSearchFragment extends Fragment implements GetResult.MyListener
             if (home.getResultData().getCampsDate().isEmpty()) {
                 binding.noCamp.setVisibility(View.VISIBLE);
             } else {
-                SearchAdapter adapter = new SearchAdapter(getContext(), campsDates);
+                SearchAdapter adapter = new SearchAdapter(getContext(), campsDates,edt_from,edt_to);
                 binding.rcvSearchCamps.setLayoutManager(new LinearLayoutManager(getContext()));
 
                 binding.rcvSearchCamps.setAdapter(adapter);

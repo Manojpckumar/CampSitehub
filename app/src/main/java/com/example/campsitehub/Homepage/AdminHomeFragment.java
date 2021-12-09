@@ -69,7 +69,6 @@ public class AdminHomeFragment extends Fragment implements View.OnClickListener 
                              Bundle savedInstanceState) {
 
         binding = FragmentAdminHomeBinding.inflate(inflater, container, false);
-
         initViews(binding);
 
         return binding.getRoot();
