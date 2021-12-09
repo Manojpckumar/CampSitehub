@@ -123,12 +123,12 @@ public class AdminHomeFragment extends Fragment implements View.OnClickListener 
 
             case R.id.terms:
 
-                startActivity(new Intent(getActivity(), ActivityTerms.class).putExtra("Activity","terms"));
+                startActivity(new Intent(getActivity(), ActivityTerms.class).putExtra("Activity","terms").putExtra("user_type","admin"));
 
                 break;
             case R.id.privacy:
 
-                startActivity(new Intent(getActivity(), ActivityTerms.class).putExtra("Activity","privacy"));
+                startActivity(new Intent(getActivity(), ActivityTerms.class).putExtra("Activity","privacy").putExtra("user_type","admin"));
 
                 break;
         }

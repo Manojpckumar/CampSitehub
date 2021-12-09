@@ -55,6 +55,28 @@
 
         </group>
 
+        <item android:title="Terms and Policies">
+
+            <menu>
+
+                <item
+                    android:id="@+id/terms_p"
+                    android:title="Terms and Conditions" />
+
+                <item
+                    android:id="@+id/privacy_p"
+                    android:title="Privacy Policy" />
+
+
+
+            </menu>
+
+
+
+
+
+        </item>
+
 
         <item android:title="Profile Management">
 
@@ -83,6 +105,9 @@
 
 
         </item>
+
+
+
 
 
     </group>

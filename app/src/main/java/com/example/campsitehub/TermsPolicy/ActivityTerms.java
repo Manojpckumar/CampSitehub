@@ -39,9 +39,17 @@ public class ActivityTerms extends AppCompatActivity implements GetResult.MyList
         binding = ActivityAvtivityTermsBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-        custPrograssbar=new CustPrograssbar();
+        custPrograssbar = new CustPrograssbar();
         binding.tbCommon.AddView.setVisibility(View.GONE);
-        binding.update.setOnClickListener(this);
+
+        if (getIntent().getStringExtra("user_type").equals("admin")) {
+            binding.update.setOnClickListener(this);
+            binding.update.setVisibility(View.VISIBLE);
+            binding.termsTv.setVisibility(View.GONE);
+        } else {
+            binding.terms.setVisibility(View.GONE);
+            binding.update.setVisibility(View.GONE);
+        }
         if (getIntent().getStringExtra("Activity").toString().equals("terms")) {
             binding.tbCommon.toolbarHead.setText("Terms and Policies");
 
@@ -88,31 +96,30 @@ public class ActivityTerms extends AppCompatActivity implements GetResult.MyList
             if (getIntent().getStringExtra("Activity").toString().equals("terms")) {
 
                 binding.terms.setText(example.getResultData().getTermsPolicy().getTerms());
+                binding.termsTv.setText(example.getResultData().getTermsPolicy().getTerms());
                 binding.idtest.setText(example.getResultData().getTermsPolicy().getId());
 
             } else {
                 binding.terms.setText(example.getResultData().getTermsPolicy().getPrivacy());
+                binding.termsTv.setText(example.getResultData().getTermsPolicy().getPrivacy());
                 binding.idtest.setText(example.getResultData().getTermsPolicy().getId());
             }
 
 
-        }
-        else if(callNo.equalsIgnoreCase("updateSettings")){
+        } else if (callNo.equalsIgnoreCase("updateSettings")) {
             Gson gson = new Gson();
-            ResponseCommon responseCommon=gson.fromJson(result.toString(),ResponseCommon.class);
-             if(responseCommon.getResult().equals("true")){
+            ResponseCommon responseCommon = gson.fromJson(result.toString(), ResponseCommon.class);
+            if (responseCommon.getResult().equals("true")) {
 
-                 Toast.makeText(ActivityTerms.this, "UPDATED SUCCESSFULLY", Toast.LENGTH_SHORT).show();
-                 getTermsandPolicy();
+                Toast.makeText(ActivityTerms.this, "UPDATED SUCCESSFULLY", Toast.LENGTH_SHORT).show();
+                getTermsandPolicy();
 
-             }
-             else{
+            } else {
 
 
-             }
+            }
 
-        }
-        else{
+        } else {
 
 
         }
@@ -126,20 +133,18 @@ public class ActivityTerms extends AppCompatActivity implements GetResult.MyList
 
 
             case R.id.update:
-                if(binding.terms.getText().toString().equals(""))
-                {
+                if (binding.terms.getText().toString().equals("")) {
 
                     Toast.makeText(ActivityTerms.this, "Fiels can't be empty", Toast.LENGTH_SHORT).show();
-                }
-                else{
+                } else {
 
                     if (getIntent().getStringExtra("Activity").toString().equals("terms")) {
 
                         JSONObject jsonObject = new JSONObject();
                         try {
-                            jsonObject.put("id",binding.idtest.getText().toString() );
-                            jsonObject.put("terms",binding.terms.getText().toString() );
-                            jsonObject.put("privacy","1");
+                            jsonObject.put("id", binding.idtest.getText().toString());
+                            jsonObject.put("terms", binding.terms.getText().toString());
+                            jsonObject.put("privacy", "1");
                             JsonParser jsonParser = new JsonParser();
                             Call<JsonObject> call = APIClient.getInterface().updateSettings((JsonObject) jsonParser.parse(jsonObject.toString()));
                             GetResult getResult = new GetResult();
@@ -150,15 +155,13 @@ public class ActivityTerms extends AppCompatActivity implements GetResult.MyList
                         }
 
 
-
-                    }
-                    else{
+                    } else {
 
                         JSONObject jsonObject = new JSONObject();
                         try {
-                            jsonObject.put("id",binding.idtest.getText().toString() );
-                            jsonObject.put("terms","1" );
-                            jsonObject.put("privacy",binding.terms.getText().toString() );
+                            jsonObject.put("id", binding.idtest.getText().toString());
+                            jsonObject.put("terms", "1");
+                            jsonObject.put("privacy", binding.terms.getText().toString());
                             JsonParser jsonParser = new JsonParser();
                             Call<JsonObject> call = APIClient.getInterface().updateSettings((JsonObject) jsonParser.parse(jsonObject.toString()));
                             GetResult getResult = new GetResult();
@@ -167,8 +170,6 @@ public class ActivityTerms extends AppCompatActivity implements GetResult.MyList
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-
-
 
 
                     }

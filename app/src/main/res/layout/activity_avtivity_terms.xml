@@ -3,41 +3,51 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".TermsPolicy.ActivityTerms">
 
     <include
         android:id="@+id/tb_common"
-        layout="@layout/toolbar_cm"/>
+        layout="@layout/toolbar_cm" />
+    <TextView
+        android:id="@+id/terms_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/terms"
-        android:layout_width="match_parent"
-        android:textSize="17sp"
-        android:textColor="@color/black"
-        android:padding="10dp"
-        android:textAlignment="textStart"
 
-        android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/terms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+
+            android:textSize="17sp" />
     </ScrollView>
 
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_gravity="center"
-        android:text="UPDATE"
         android:id="@+id/update"
-        android:layout_height="wrap_content"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="UPDATE" />
 
     <TextView
-        android:visibility="visible"
-        android:layout_width="wrap_content"
         android:id="@+id/idtest"
-        android:layout_height="wrap_content"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
 
 </LinearLayout>

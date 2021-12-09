@@ -35,6 +35,7 @@ import com.example.campsitehub.CustomViews.CustomEditText;
 import com.example.campsitehub.CustomViews.CustomTextView;
 import com.example.campsitehub.Interface.OnFragmentInteractionListener;
 import com.example.campsitehub.R;
+import com.example.campsitehub.TermsPolicy.ActivityTerms;
 import com.example.campsitehub.Utils.CommonUtils;
 import com.example.campsitehub.Wishlist.MyWishlistActivity;
 import com.example.campsitehub.databinding.ActivityMain2Binding;
@@ -153,10 +154,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
 
-
             case R.id.nav_userBookings:
                 startActivity(new Intent(MainActivity.this, MyBookings.class));
                 finish();
+                break;
+
+
+            case R.id.terms_p:
+
+                startActivity(new Intent(this, ActivityTerms.class).putExtra("Activity","terms").putExtra("user_type","user"));
+
+                break;
+            case R.id.privacy_p:
+
+                startActivity(new Intent(this, ActivityTerms.class).putExtra("Activity","privacy").putExtra("user_type","user"));
+
                 break;
 
 
@@ -197,7 +209,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
 
-
     }
 
     private void LoadFragment(Fragment homeFragment) {
@@ -233,6 +244,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             nav_Menu.findItem(R.id.nav_userLogout).setVisible(false);
             nav_Menu.findItem(R.id.nav_adminManageReview).setVisible(false);
             nav_Menu.findItem(R.id.nav_adminManageUsers).setVisible(false);
+            nav_Menu.findItem(R.id.terms_p).setVisible(false);
+            nav_Menu.findItem(R.id.privacy_p).setVisible(false);
             binding.includercv.inctoolbar.dateCh.setVisibility(View.GONE);
         } else {
             nav_Menu.findItem(R.id.nav_adminHome).setVisible(false);
@@ -269,7 +282,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
 
-
         }
 
     }
@@ -277,126 +289,120 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void showd() {
 
 
-                Dialog myDialog = new Dialog(this);
-                myDialog.getWindow();
-                myDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                myDialog.setCancelable(true);
-                myDialog.setContentView(R.layout.dialogbox);
-                Button button = (Button) myDialog.findViewById(R.id.btn_check);
-                CustomTextView tv_start = (CustomTextView) myDialog.findViewById(R.id.Edittext_start);
-                CustomTextView tv_end = (CustomTextView) myDialog.findViewById(R.id.Edittext_return);
-                LinearLayout linear1 = (LinearLayout) myDialog.findViewById(R.id.linear1);
-                LinearLayout linear12 = (LinearLayout) myDialog.findViewById(R.id.linear2);
-                linear1.setOnClickListener(new View.OnClickListener() {
+        Dialog myDialog = new Dialog(this);
+        myDialog.getWindow();
+        myDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        myDialog.setCancelable(true);
+        myDialog.setContentView(R.layout.dialogbox);
+        Button button = (Button) myDialog.findViewById(R.id.btn_check);
+        CustomTextView tv_start = (CustomTextView) myDialog.findViewById(R.id.Edittext_start);
+        CustomTextView tv_end = (CustomTextView) myDialog.findViewById(R.id.Edittext_return);
+        LinearLayout linear1 = (LinearLayout) myDialog.findViewById(R.id.linear1);
+        LinearLayout linear12 = (LinearLayout) myDialog.findViewById(R.id.linear2);
+        linear1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+
+
                     @Override
-                    public void onClick(View view) {
+                    public void onDateSet(DatePicker view, int year, int monthOfYear,
+                                          int dayOfMonth) {
+                        // TODO Auto-generated method stub
+                        myCalendar.set(Calendar.YEAR, year);
+                        myCalendar.set(Calendar.MONTH, monthOfYear);
+                        myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                        String myFormat = "yyyy-MM-dd";
+                        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
-                        DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
-
-
-                            @Override
-                            public void onDateSet(DatePicker view, int year, int monthOfYear,
-                                                  int dayOfMonth) {
-                                // TODO Auto-generated method stub
-                                myCalendar.set(Calendar.YEAR, year);
-                                myCalendar.set(Calendar.MONTH, monthOfYear);
-                                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                                String myFormat = "yyyy-MM-dd";
-                                SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
-
-                                if (tv_start.getText().toString().isEmpty()) {
-                                    tv_start.setText(sdf.format(myCalendar.getTime()));
-                                } else {
-                                    tv_end.setText(sdf.format(myCalendar.getTime()));
-
-
-                                }
-
-                            }
-
-                        };
-
-
-                        new DatePickerDialog(MainActivity.this, date, myCalendar
-                                .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
-                                myCalendar.get(Calendar.DAY_OF_MONTH)).show();
-
-                    }
-                });
-                linear12.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-
-                        DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
-
-
-                            @Override
-                            public void onDateSet(DatePicker view, int year, int monthOfYear,
-                                                  int dayOfMonth) {
-                                // TODO Auto-generated method stub
-                                myCalendar.set(Calendar.YEAR, year);
-                                myCalendar.set(Calendar.MONTH, monthOfYear);
-                                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                                String myFormat = "yyyy-MM-dd";
-                                SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
-
-                                if (tv_start.getText().toString().isEmpty()) {
-                                    tv_start.setText(sdf.format(myCalendar.getTime()));
-                                } else {
-                                    tv_end.setText(sdf.format(myCalendar.getTime()));
-
-
-                                }
-
-                            }
-
-                        };
-
-
-                        new DatePickerDialog(MainActivity.this, date, myCalendar
-                                .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
-                                myCalendar.get(Calendar.DAY_OF_MONTH)).show();
-
-
-                    }
-                });
-                button.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-
-                        if(tv_start.getText().toString().equals("")){
-                            Toast.makeText(MainActivity.this, "Start date can't be empty", Toast.LENGTH_SHORT).show();
-
-                        }
-                        else if(tv_end.getText().toString().equals("")){
-                            Toast.makeText(MainActivity.this, "End date can't be empty", Toast.LENGTH_SHORT).show();
+                        if (tv_start.getText().toString().isEmpty()) {
+                            tv_start.setText(sdf.format(myCalendar.getTime()));
+                        } else {
+                            tv_end.setText(sdf.format(myCalendar.getTime()));
 
 
                         }
-                        else {
-                            myDialog.dismiss();
-                            Bundle args;
-                            Fragment fragment;
-                            args = new Bundle();
-                            args.putString("edt_from", tv_start.getText().toString());
-                            args.putString("edt_to", tv_end.getText().toString());
-
-                            FragmentManager fragmentManager = ((FragmentActivity) MainActivity.this).getSupportFragmentManager();
-                            fragment = new CampSearchFragment();
-                            fragment.setArguments(args);
-                            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                            fragmentTransaction.replace(R.id.FrameLayout, fragment);
-                            fragmentTransaction.commit();
-                        }
 
                     }
-                });
-                myDialog.show();
+
+                };
+
+
+                new DatePickerDialog(MainActivity.this, date, myCalendar
+                        .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                        myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+
             }
+        });
+        linear12.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
 
 
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear,
+                                          int dayOfMonth) {
+                        // TODO Auto-generated method stub
+                        myCalendar.set(Calendar.YEAR, year);
+                        myCalendar.set(Calendar.MONTH, monthOfYear);
+                        myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                        String myFormat = "yyyy-MM-dd";
+                        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+
+                        if (tv_start.getText().toString().isEmpty()) {
+                            tv_start.setText(sdf.format(myCalendar.getTime()));
+                        } else {
+                            tv_end.setText(sdf.format(myCalendar.getTime()));
 
 
+                        }
+
+                    }
+
+                };
+
+
+                new DatePickerDialog(MainActivity.this, date, myCalendar
+                        .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                        myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+
+
+            }
+        });
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (tv_start.getText().toString().equals("")) {
+                    Toast.makeText(MainActivity.this, "Start date can't be empty", Toast.LENGTH_SHORT).show();
+
+                } else if (tv_end.getText().toString().equals("")) {
+                    Toast.makeText(MainActivity.this, "End date can't be empty", Toast.LENGTH_SHORT).show();
+
+
+                } else {
+                    myDialog.dismiss();
+                    Bundle args;
+                    Fragment fragment;
+                    args = new Bundle();
+                    args.putString("edt_from", tv_start.getText().toString());
+                    args.putString("edt_to", tv_end.getText().toString());
+
+                    FragmentManager fragmentManager = ((FragmentActivity) MainActivity.this).getSupportFragmentManager();
+                    fragment = new CampSearchFragment();
+                    fragment.setArguments(args);
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.FrameLayout, fragment);
+                    fragmentTransaction.commit();
+                }
+
+            }
+        });
+        myDialog.show();
+    }
 
 
 }
